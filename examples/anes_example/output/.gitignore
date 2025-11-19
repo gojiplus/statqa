@@ -1,0 +1,8 @@
+# Exclude all generated output files
+*.png
+*.json
+*.csv
+
+# Keep README
+!README.md
+!.gitignore

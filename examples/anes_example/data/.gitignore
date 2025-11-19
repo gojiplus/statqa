@@ -1,0 +1,13 @@
+# Exclude large CSV data files
+*.csv
+*.csv.zip
+
+# Keep PDF codebooks (they're useful documentation)
+# !*.pdf
+
+# Keep metadata (it's generated and useful)
+!anes_metadata.csv
+
+# Keep README
+!README.md
+!.gitignore
