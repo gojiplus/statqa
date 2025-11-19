@@ -28,8 +28,8 @@ import re
 from pathlib import Path
 from typing import Any
 
-from tableqa.metadata.parsers.base import BaseParser
-from tableqa.metadata.schema import Codebook, DataGeneratingProcess, Variable, VariableType
+from statqa.metadata.parsers.base import BaseParser
+from statqa.metadata.schema import Codebook, DataGeneratingProcess, Variable, VariableType
 
 
 class TextParser(BaseParser):

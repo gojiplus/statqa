@@ -1,6 +1,6 @@
 # Simple Survey Example: Quick Start
 
-A minimal example demonstrating tableqa with synthetic survey data. Perfect for learning the basics without downloading large datasets.
+A minimal example demonstrating statqa with synthetic survey data. Perfect for learning the basics without downloading large datasets.
 
 ## Quick Start
 
@@ -76,8 +76,8 @@ data['age'] = np.random.normal(45, 15, n).clip(18, 80)  # normal instead of unif
 ### Run Custom Analyses
 
 ```python
-from tableqa.analysis.temporal import TemporalAnalyzer
-from tableqa.analysis.causal import CausalAnalyzer
+from statqa.analysis.temporal import TemporalAnalyzer
+from statqa.analysis.causal import CausalAnalyzer
 
 # Analyze trends over time
 temporal = TemporalAnalyzer()
@@ -99,13 +99,13 @@ Replace the synthetic data generation with your own CSV:
 
 ```python
 import pandas as pd
-from tableqa.utils.io import load_data
+from statqa.utils.io import load_data
 
 # Load your data
 data = load_data('my_survey.csv')
 
 # Create codebook manually or from CSV
-from tableqa.metadata.parsers import CSVParser
+from statqa.metadata.parsers import CSVParser
 
 parser = CSVParser()
 codebook = parser.parse('my_codebook.csv')
@@ -131,7 +131,7 @@ After running this example:
 1. **Explore the code**: Open `quick_start.py` to see how it works
 2. **Check the outputs**: Browse `output/` to see generated files
 3. **Try ANES example**: See `../anes_example/` for a real-world dataset
-4. **Read the docs**: Visit https://gojiplus.github.io/tableqa
+4. **Read the docs**: Visit https://gojiplus.github.io/statqa
 5. **Build your own**: Adapt this example to your dataset
 
 ## Comparison with ANES Example
@@ -147,7 +147,7 @@ After running this example:
 ## Troubleshooting
 
 **Problem**: Import errors
-**Solution**: Install tableqa: `pip install tableqa`
+**Solution**: Install statqa: `pip install statqa`
 
 **Problem**: No output directory
 **Solution**: Directory is created automatically; check file permissions
@@ -158,5 +158,5 @@ After running this example:
 ## Support
 
 For questions or issues:
-- **tableqa package**: https://github.com/gojiplus/tableqa/issues
-- **Documentation**: https://gojiplus.github.io/tableqa
+- **statqa package**: https://github.com/gojiplus/statqa/issues
+- **Documentation**: https://gojiplus.github.io/statqa

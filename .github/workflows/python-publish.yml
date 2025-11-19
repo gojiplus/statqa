@@ -41,7 +41,7 @@ jobs:
 
     environment:
       name: pypi
-      url: https://pypi.org/p/tableqa
+      url: https://pypi.org/p/statqa
 
     steps:
     - name: Download distribution packages

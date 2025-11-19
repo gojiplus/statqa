@@ -5,11 +5,11 @@ from pathlib import Path
 
 import pandas as pd
 
-from tableqa.analysis.bivariate import BivariateAnalyzer
-from tableqa.analysis.univariate import UnivariateAnalyzer
-from tableqa.interpretation.formatter import InsightFormatter
-from tableqa.metadata.schema import Codebook
-from tableqa.qa.generator import QAGenerator
+from statqa.analysis.bivariate import BivariateAnalyzer
+from statqa.analysis.univariate import UnivariateAnalyzer
+from statqa.interpretation.formatter import InsightFormatter
+from statqa.metadata.schema import Codebook
+from statqa.qa.generator import QAGenerator
 
 # Get script directory
 script_dir = Path(__file__).parent
@@ -20,7 +20,7 @@ with open(script_dir / "codebook.json") as f:
     variables_dict = json.load(f)
 
 # Convert variables dict to Codebook
-from tableqa.metadata.schema import Variable
+from statqa.metadata.schema import Variable
 
 variables = {}
 for var_name, var_data in variables_dict.items():

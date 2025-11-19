@@ -4,7 +4,7 @@ This example demonstrates a complete analysis pipeline using the American Nation
 
 ## Overview
 
-The ANES dataset is a comprehensive survey dataset covering American political behavior and attitudes over seven decades. This example shows how to use **tableqa** to:
+The ANES dataset is a comprehensive survey dataset covering American political behavior and attitudes over seven decades. This example shows how to use **statqa** to:
 
 1. Parse codebook metadata from PDF format
 2. Extract statistical insights (univariate and bivariate)
@@ -35,12 +35,12 @@ anes/
 ### Prerequisites
 
 ```bash
-# Install tableqa with optional dependencies
-pip install tableqa[pdf,llm]
+# Install statqa with optional dependencies
+pip install statqa[pdf,llm]
 
 # Or install from source
-git clone https://github.com/gojiplus/tableqa.git
-cd tableqa
+git clone https://github.com/gojiplus/statqa.git
+cd statqa
 pip install -e ".[pdf,llm]"
 ```
 
@@ -179,8 +179,8 @@ See `data/README.md` for download instructions.
 You can extend the scripts to include additional analyses:
 
 ```python
-from tableqa.analysis.temporal import TemporalAnalyzer
-from tableqa.analysis.causal import CausalAnalyzer
+from statqa.analysis.temporal import TemporalAnalyzer
+from statqa.analysis.causal import CausalAnalyzer
 
 # Add temporal trend analysis
 temporal_analyzer = TemporalAnalyzer()
@@ -194,7 +194,7 @@ effects = causal_analyzer.analyze(data, treatment, outcome, confounders)
 ### Custom Visualizations
 
 ```python
-from tableqa.visualization.plots import PlotFactory
+from statqa.visualization.plots import PlotFactory
 
 plotter = PlotFactory(style='publication', figsize=(10, 6))
 plotter.plot_temporal(data, time_var, target_var, output_path='trend.png')
@@ -211,7 +211,7 @@ plotter.plot_temporal(data, time_var, target_var, output_path='trend.png')
 ## Troubleshooting
 
 **Problem**: `pdfplumber` not found
-**Solution**: Install with `pip install tableqa[pdf]`
+**Solution**: Install with `pip install statqa[pdf]`
 
 **Problem**: OpenAI API errors
 **Solution**: Check API key, quota, and use `--skip-questions` to bypass
@@ -237,11 +237,11 @@ If you use this example or the ANES data in your research, please cite:
 
 ## License
 
-- **tableqa**: MIT License
+- **statqa**: MIT License
 - **ANES Data**: See [ANES usage terms](https://electionstudies.org/data-center/anes-time-series-cumulative-data-file/)
 
 ## Support
 
 For issues or questions:
-- tableqa package: [GitHub Issues](https://github.com/gojiplus/tableqa/issues)
+- statqa package: [GitHub Issues](https://github.com/gojiplus/statqa/issues)
 - ANES data: [ANES Contact](https://electionstudies.org/contact/)

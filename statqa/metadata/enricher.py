@@ -28,7 +28,7 @@ try:
 except ImportError:
     HAS_ANTHROPIC = False
 
-from tableqa.metadata.schema import Codebook, Variable, VariableType
+from statqa.metadata.schema import Codebook, Variable, VariableType
 
 
 logger = logging.getLogger(__name__)

@@ -1,6 +1,6 @@
 """Tests for codebook parsers."""
 
-from tableqa.metadata.parsers.text import TextParser
+from statqa.metadata.parsers.text import TextParser
 
 
 def test_text_parser():

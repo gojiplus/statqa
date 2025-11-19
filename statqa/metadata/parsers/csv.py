@@ -18,8 +18,8 @@ from typing import Any
 
 import pandas as pd
 
-from tableqa.metadata.parsers.base import BaseParser
-from tableqa.metadata.schema import Codebook, DataGeneratingProcess, Variable, VariableType
+from statqa.metadata.parsers.base import BaseParser
+from statqa.metadata.schema import Codebook, DataGeneratingProcess, Variable, VariableType
 
 
 class CSVParser(BaseParser):

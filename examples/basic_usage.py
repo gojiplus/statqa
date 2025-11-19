@@ -10,11 +10,11 @@ This example demonstrates:
 
 import pandas as pd
 
-from tableqa.analysis.bivariate import BivariateAnalyzer
-from tableqa.analysis.univariate import UnivariateAnalyzer
-from tableqa.interpretation.formatter import InsightFormatter
-from tableqa.metadata.parsers.text import TextParser
-from tableqa.qa.generator import QAGenerator
+from statqa.analysis.bivariate import BivariateAnalyzer
+from statqa.analysis.univariate import UnivariateAnalyzer
+from statqa.interpretation.formatter import InsightFormatter
+from statqa.metadata.parsers.text import TextParser
+from statqa.qa.generator import QAGenerator
 
 
 # 1. Define codebook as text

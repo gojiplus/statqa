@@ -8,7 +8,7 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Any
 
-from tableqa.metadata.schema import Codebook
+from statqa.metadata.schema import Codebook
 
 
 class BaseParser(ABC):

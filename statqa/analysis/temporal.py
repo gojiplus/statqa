@@ -14,8 +14,8 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-from tableqa.metadata.schema import Variable
-from tableqa.utils.stats import mann_kendall_trend
+from statqa.metadata.schema import Variable
+from statqa.utils.stats import mann_kendall_trend
 
 
 class TemporalAnalyzer:

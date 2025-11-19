@@ -1,6 +1,6 @@
 # TableQA Examples
 
-This directory contains examples demonstrating various features of the tableqa library.
+This directory contains examples demonstrating various features of the statqa library.
 
 ## Quick Start
 
@@ -9,7 +9,7 @@ Start with `basic_usage.py` for a simple introduction to the core concepts.
 ## Examples Overview
 
 ### Basic Usage (`basic_usage.py`)
-A standalone script showing the fundamental tableqa workflow:
+A standalone script showing the fundamental statqa workflow:
 - Creating codebooks from text
 - Running univariate and bivariate analyses
 - Generating insights and Q/A pairs
@@ -76,9 +76,9 @@ cd examples/iris
 python -c "
 import pandas as pd
 import json
-from tableqa.analysis.univariate import UnivariateAnalyzer
-from tableqa.interpretation.formatter import InsightFormatter
-from tableqa.metadata.model import Codebook
+from statqa.analysis.univariate import UnivariateAnalyzer
+from statqa.interpretation.formatter import InsightFormatter
+from statqa.metadata.model import Codebook
 
 data = pd.read_csv('data.csv')
 with open('codebook.json') as f:
@@ -127,7 +127,7 @@ python extract_insights.py \
 
 ### Generate Q/A Pairs
 ```python
-from tableqa.qa.generator import QAGenerator
+from statqa.qa.generator import QAGenerator
 
 qa_gen = QAGenerator(use_llm=False)  # Template-based
 qa_pairs = qa_gen.generate_qa_pairs(result, answer)
@@ -140,7 +140,7 @@ for qa in qa_pairs:
 ### Export Insights
 ```python
 import json
-from tableqa.utils.io import export_insights
+from statqa.utils.io import export_insights
 
 # Save to JSON
 with open('insights.json', 'w') as f:
@@ -149,7 +149,7 @@ with open('insights.json', 'w') as f:
 
 ### Create Visualizations
 ```python
-from tableqa.visualization.plots import PlotFactory
+from statqa.visualization.plots import PlotFactory
 
 plotter = PlotFactory(style='seaborn')
 plotter.plot_univariate(result, output_path='distribution.png')
@@ -187,9 +187,9 @@ examples/
 
 ## Getting Help
 
-- **Documentation**: https://gojiplus.github.io/tableqa
-- **Issues**: https://github.com/gojiplus/tableqa/issues
-- **Discussions**: https://github.com/gojiplus/tableqa/discussions
+- **Documentation**: https://gojiplus.github.io/statqa
+- **Issues**: https://github.com/gojiplus/statqa/issues
+- **Discussions**: https://github.com/gojiplus/statqa/discussions
 
 ## Next Steps
 
