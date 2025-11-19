@@ -63,11 +63,18 @@ class TextParser(BaseParser):
 
     def _read_source(self, source: str | Path) -> str:
         """Read content from source."""
-        if isinstance(source, str | Path):
-            path = Path(source)
-            if path.exists() and path.is_file():
-                return path.read_text(encoding="utf-8")
-        # Assume it's string content
+        if isinstance(source, Path):
+            return source.read_text(encoding="utf-8")
+        if isinstance(source, str):
+            # Check if it looks like a file path (not too long and no newlines)
+            if len(source) < 4096 and "\n" not in source:
+                path = Path(source)
+                try:
+                    if path.exists() and path.is_file():
+                        return path.read_text(encoding="utf-8")
+                except (OSError, ValueError):
+                    pass
+        # Treat as string content
         return str(source)
 
     def _extract_codebook_name(self, source: str | Path, content: str) -> str:

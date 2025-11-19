@@ -1,0 +1,117 @@
+[
+  {
+    "vars": [
+      "age"
+    ],
+    "insight": "**Respondent Age**: mean=46.27, median=46.50, std=16.19, range=[18.00, 74.00]. N=500 [non-normal distribution].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "education"
+    ],
+    "insight": "**Education Level**: most common category is 'High school or equivalent' (41.2%), N=500. Distribution: High school or equivalent: 41.2%, Bachelor degree: 38.6%, Graduate degree (Masters/PhD): 20.2% [high diversity].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "income"
+    ],
+    "insight": "**Annual Income**: mean=65897.15, median=64511.00, std=23807.36, range=[25000.00, 133843.00]. N=500 [non-normal distribution].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "job_satisfaction"
+    ],
+    "insight": "**Job Satisfaction**: most common category is '3' (46.8%), N=500. Distribution: 3: 46.8%, 4: 25.2%, 2: 23.0%, 1: 3.4%, 5: 1.6%.",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "work_hours"
+    ],
+    "insight": "**Weekly Work Hours**: mean=38.87, median=39.00, std=11.56, range=[20.00, 59.00]. N=500 [non-normal distribution].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "age",
+      "education"
+    ],
+    "insight": "**age** differs across **education** groups: Bachelor degree: 46.04, Graduate degree (Masters/PhD): 47.68, High school or equivalent: 45.78 (ANOVA: F=0.50, p=0.609), \u03b7\u00b2=0.00 (negligible).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "age",
+      "income"
+    ],
+    "insight": "**age** and **income** show a negligible positive correlation (r=0.06, p=0.151, N=500) [not statistically significant], effect size: negligible.",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "age",
+      "job_satisfaction"
+    ],
+    "insight": "**age** differs across **job_satisfaction** groups: 1: 41.41, 2: 46.42, 3: 45.69, 4: 48.17, 5: 41.12 (ANOVA: F=1.10, p=0.357), \u03b7\u00b2=0.01 (negligible).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "age",
+      "work_hours"
+    ],
+    "insight": "**age** and **work_hours** show a negligible positive correlation (r=0.02, p=0.610, N=500) [not statistically significant], effect size: negligible.",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "education",
+      "income"
+    ],
+    "insight": "**income** differs across **education** groups: Bachelor degree: 71193.60, Graduate degree (Masters/PhD): 96248.16, High school or equivalent: 46054.12 (ANOVA: F=432.12, p=0.000), \u03b7\u00b2=0.63 (large).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "education",
+      "job_satisfaction"
+    ],
+    "insight": "**education** and **job_satisfaction** are associated (\u03c7\u00b2=87.70, p=0.000, Cram\u00e9r's V=0.30) [significant, weak effect] [Warning: low expected frequencies].",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "education",
+      "work_hours"
+    ],
+    "insight": "**work_hours** differs across **education** groups: Bachelor degree: 38.45, Graduate degree (Masters/PhD): 40.27, High school or equivalent: 38.59 (ANOVA: F=0.93, p=0.397), \u03b7\u00b2=0.00 (negligible).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "income",
+      "job_satisfaction"
+    ],
+    "insight": "**income** differs across **job_satisfaction** groups: 1: 43037.41, 2: 53008.02, 3: 65523.12, 4: 79676.36, 5: 93673.50 (ANOVA: F=32.01, p=0.000), \u03b7\u00b2=0.21 (large).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "income",
+      "work_hours"
+    ],
+    "insight": "**income** and **work_hours** show a negligible positive correlation (r=0.05, p=0.247, N=500) [not statistically significant], effect size: negligible.",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "job_satisfaction",
+      "work_hours"
+    ],
+    "insight": "**work_hours** differs across **job_satisfaction** groups: 1: 42.23, 2: 38.44, 3: 39.23, 4: 38.49, 5: 33.62 (ANOVA: F=0.90, p=0.462), \u03b7\u00b2=0.01 (negligible).",
+    "type": "bivariate"
+  }
+]
