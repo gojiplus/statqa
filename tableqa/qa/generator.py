@@ -8,6 +8,7 @@ Converts facts into multiple question/answer pairs using:
 
 import json
 import logging
+from datetime import datetime, timezone
 from typing import Any
 
 
@@ -22,6 +23,15 @@ from tableqa.qa.templates import QuestionTemplate, infer_question_type
 
 
 logger = logging.getLogger(__name__)
+
+
+def _get_tableqa_version() -> str:
+    """Get the tableqa package version."""
+    try:
+        from importlib.metadata import version
+        return version("tableqa")
+    except Exception:
+        return "unknown"
 
 
 class QAGenerator:
@@ -59,6 +69,37 @@ class QAGenerator:
                     f"LLM provider {llm_provider} not yet supported for Q/A generation"
                 )
 
+    def _create_provenance(
+        self, insight: dict[str, Any], method: str = "template"
+    ) -> dict[str, Any]:
+        """
+        Create provenance metadata for a Q/A pair.
+
+        Args:
+            insight: Statistical analysis result
+            method: Generation method ('template' or 'llm_paraphrase')
+
+        Returns:
+            Dictionary with provenance information
+        """
+        provenance = {
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "tool": "tableqa",
+            "tool_version": _get_tableqa_version(),
+            "generation_method": method,
+            "analysis_type": insight.get("analysis_type", "unknown"),
+        }
+
+        # Add analyzer information if available
+        if "analyzer" in insight:
+            provenance["analyzer"] = insight["analyzer"]
+
+        # Add LLM information if used
+        if method == "llm_paraphrase" and self.use_llm:
+            provenance["llm_model"] = getattr(self, "model", None)
+
+        return provenance
+
     def generate_qa_pairs(
         self, insight: dict[str, Any], formatted_answer: str
     ) -> list[dict[str, str]]:
@@ -70,7 +111,7 @@ class QAGenerator:
             formatted_answer: Natural language answer
 
         Returns:
-            List of Q/A pair dictionaries with keys: question, answer, type
+            List of Q/A pair dictionaries with keys: question, answer, type, provenance
         """
         # Infer question type
         q_type = infer_question_type(insight)
@@ -78,6 +119,11 @@ class QAGenerator:
         # Generate template-based questions
         template = QuestionTemplate(q_type)
         qa_pairs = template.generate(insight, formatted_answer)
+
+        # Add provenance to template-based questions
+        template_provenance = self._create_provenance(insight, method="template")
+        for qa in qa_pairs:
+            qa["provenance"] = template_provenance.copy()
 
         # LLM paraphrasing
         if self.use_llm and qa_pairs:
@@ -178,6 +224,8 @@ Return as JSON array with format:
 
             # Build Q/A pairs from paraphrases
             paraphrased_pairs = []
+            llm_provenance = self._create_provenance(insight, method="llm_paraphrase")
+
             for item in paraphrase_data:
                 for paraphrase in item.get("paraphrases", []):
                     paraphrased_pairs.append(
@@ -186,6 +234,7 @@ Return as JSON array with format:
                             "answer": answer,
                             "type": qa_pairs[0]["type"] if qa_pairs else "descriptive",
                             "source": "llm_paraphrase",
+                            "provenance": llm_provenance.copy(),
                         }
                     )
 
