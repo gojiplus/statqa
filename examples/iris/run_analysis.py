@@ -54,10 +54,9 @@ for var_name, variable in codebook.variables.items():
         insights.append({"vars": [var_name], "insight": insight_text, "type": "univariate"})
 
         # Generate QA pairs
-        qa_pairs = qa_gen.generate_qa_pairs(result, insight_text)
+        qa_pairs = qa_gen.generate_qa_pairs(result, insight_text, variables=[var_name])
         for qa in qa_pairs:
             qa["vars"] = [var_name]
-            qa["provenance"] = {"type": "univariate", "variables": [var_name]}
         all_qa_pairs.extend(qa_pairs)
 
         print(f"  ✓ {var_name}")
@@ -79,13 +78,9 @@ for i, var1 in enumerate(var_list):
             )
 
             # Generate QA pairs
-            qa_pairs = qa_gen.generate_qa_pairs(result, insight_text)
+            qa_pairs = qa_gen.generate_qa_pairs(result, insight_text, variables=[var1.name, var2.name])
             for qa in qa_pairs:
                 qa["vars"] = [var1.name, var2.name]
-                qa["provenance"] = {
-                    "type": "bivariate",
-                    "variables": [var1.name, var2.name],
-                }
             all_qa_pairs.extend(qa_pairs)
 
             print(f"  ✓ {var1.name} x {var2.name}")

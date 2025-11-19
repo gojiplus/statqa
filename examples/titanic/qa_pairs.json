@@ -4,7 +4,11 @@
     "answer": "**Survived**: most common category is '0' (60.2%), N=400. Distribution: 0: 60.2%, 1: 39.8% [high diversity].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:35:05.766321+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "survived"
       ]
@@ -18,7 +22,11 @@
     "answer": "**Passenger Class**: most common category is '3' (54.8%), N=400. Distribution: 3: 54.8%, 1: 25.0%, 2: 20.2% [high diversity].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:35:05.770831+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "pclass"
       ]
@@ -32,7 +40,11 @@
     "answer": "**Sex**: most common category is 'Male' (66.8%), N=400. Distribution: Male: 66.8%, Female: 33.2% [high diversity].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:35:05.775116+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "sex"
       ]
@@ -46,7 +58,11 @@
     "answer": "**Age**: mean=31.12, median=30.75, std=13.57, range=[1.00, 66.90]. N=400 [0.2% outliers].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:35:05.781827+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "age"
       ]
@@ -60,7 +76,11 @@
     "answer": "**Age**: mean=31.12, median=30.75, std=13.57, range=[1.00, 66.90]. N=400 [0.2% outliers].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:35:05.781827+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "age"
       ]
@@ -74,7 +94,11 @@
     "answer": "**Fare**: mean=36.02, median=21.42, std=44.73, range=[5.00, 489.36]. N=400 [non-normal distribution, 9.0% outliers, highly skewed].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:35:05.788552+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "fare"
       ]
@@ -88,7 +112,11 @@
     "answer": "**Fare**: mean=36.02, median=21.42, std=44.73, range=[5.00, 489.36]. N=400 [non-normal distribution, 9.0% outliers, highly skewed].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:35:05.788552+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "fare"
       ]
@@ -102,7 +130,11 @@
     "answer": "**age** differs across **survived** groups: 0: 31.02, 1: 31.25 (t-test: p=0.870), Cohen's d=-0.02 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.821585+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "survived",
         "age"
@@ -118,7 +150,11 @@
     "answer": "**age** differs across **survived** groups: 0: 31.02, 1: 31.25 (t-test: p=0.870), Cohen's d=-0.02 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.821585+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "survived",
         "age"
@@ -134,7 +170,11 @@
     "answer": "**age** differs across **survived** groups: 0: 31.02, 1: 31.25 (t-test: p=0.870), Cohen's d=-0.02 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.821585+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "survived",
         "age"
@@ -150,7 +190,11 @@
     "answer": "**fare** differs across **survived** groups: 0: 36.86, 1: 34.73 (t-test: p=0.642), Cohen's d=0.05 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.827976+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "survived",
         "fare"
@@ -166,7 +210,11 @@
     "answer": "**fare** differs across **survived** groups: 0: 36.86, 1: 34.73 (t-test: p=0.642), Cohen's d=0.05 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.827976+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "survived",
         "fare"
@@ -182,7 +230,11 @@
     "answer": "**fare** differs across **survived** groups: 0: 36.86, 1: 34.73 (t-test: p=0.642), Cohen's d=0.05 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.827976+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "survived",
         "fare"
@@ -198,7 +250,11 @@
     "answer": "**age** differs across **pclass** groups: 1: 30.55, 2: 31.16, 3: 31.36 (ANOVA: F=0.12, p=0.888), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.841746+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "pclass",
         "age"
@@ -214,7 +270,11 @@
     "answer": "**age** differs across **pclass** groups: 1: 30.55, 2: 31.16, 3: 31.36 (ANOVA: F=0.12, p=0.888), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.841746+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "pclass",
         "age"
@@ -230,7 +290,11 @@
     "answer": "**age** differs across **pclass** groups: 1: 30.55, 2: 31.16, 3: 31.36 (ANOVA: F=0.12, p=0.888), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.841746+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "pclass",
         "age"
@@ -246,7 +310,11 @@
     "answer": "**fare** differs across **pclass** groups: 1: 37.22, 2: 32.41, 3: 36.80 (ANOVA: F=0.33, p=0.718), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.847450+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "pclass",
         "fare"
@@ -262,7 +330,11 @@
     "answer": "**fare** differs across **pclass** groups: 1: 37.22, 2: 32.41, 3: 36.80 (ANOVA: F=0.33, p=0.718), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.847450+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "pclass",
         "fare"
@@ -278,7 +350,11 @@
     "answer": "**fare** differs across **pclass** groups: 1: 37.22, 2: 32.41, 3: 36.80 (ANOVA: F=0.33, p=0.718), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.847450+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "pclass",
         "fare"
@@ -294,7 +370,11 @@
     "answer": "**age** differs across **sex** groups: Female: 30.67, Male: 31.34 (t-test: p=0.643), Cohen's d=-0.05 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.853835+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "sex",
         "age"
@@ -310,7 +390,11 @@
     "answer": "**age** differs across **sex** groups: Female: 30.67, Male: 31.34 (t-test: p=0.643), Cohen's d=-0.05 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.853835+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "sex",
         "age"
@@ -326,7 +410,11 @@
     "answer": "**age** differs across **sex** groups: Female: 30.67, Male: 31.34 (t-test: p=0.643), Cohen's d=-0.05 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.853835+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "sex",
         "age"
@@ -342,7 +430,11 @@
     "answer": "**fare** differs across **sex** groups: Female: 31.66, Male: 38.18 (t-test: p=0.170), Cohen's d=-0.15 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.859153+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "sex",
         "fare"
@@ -358,7 +450,11 @@
     "answer": "**fare** differs across **sex** groups: Female: 31.66, Male: 38.18 (t-test: p=0.170), Cohen's d=-0.15 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.859153+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "sex",
         "fare"
@@ -374,7 +470,11 @@
     "answer": "**fare** differs across **sex** groups: Female: 31.66, Male: 38.18 (t-test: p=0.170), Cohen's d=-0.15 (negligible).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.859153+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "sex",
         "fare"
@@ -390,7 +490,11 @@
     "answer": "**age** and **fare** show a negligible negative correlation (r=-0.05, p=0.329, N=400) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.864122+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "age",
         "fare"
@@ -406,7 +510,11 @@
     "answer": "**age** and **fare** show a negligible negative correlation (r=-0.05, p=0.329, N=400) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.864122+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "age",
         "fare"
@@ -422,7 +530,11 @@
     "answer": "**age** and **fare** show a negligible negative correlation (r=-0.05, p=0.329, N=400) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:35:05.864122+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "age",
         "fare"

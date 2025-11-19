@@ -4,7 +4,11 @@
     "answer": "**Sepal Length**: mean=5.84, median=5.80, std=0.83, range=[4.30, 7.90]. N=150 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:34:30.295683+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "sepal_length"
       ]
@@ -18,7 +22,11 @@
     "answer": "**Sepal Length**: mean=5.84, median=5.80, std=0.83, range=[4.30, 7.90]. N=150 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:34:30.295683+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "sepal_length"
       ]
@@ -32,7 +40,11 @@
     "answer": "**Sepal Width**: mean=3.06, median=3.00, std=0.44, range=[2.00, 4.40]. N=150 [2.7% outliers].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:34:30.300564+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "sepal_width"
       ]
@@ -46,7 +58,11 @@
     "answer": "**Sepal Width**: mean=3.06, median=3.00, std=0.44, range=[2.00, 4.40]. N=150 [2.7% outliers].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:34:30.300564+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "sepal_width"
       ]
@@ -60,7 +76,11 @@
     "answer": "**Petal Length**: mean=3.76, median=4.35, std=1.77, range=[1.00, 6.90]. N=150 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:34:30.305049+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "petal_length"
       ]
@@ -74,7 +94,11 @@
     "answer": "**Petal Length**: mean=3.76, median=4.35, std=1.77, range=[1.00, 6.90]. N=150 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:34:30.305049+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "petal_length"
       ]
@@ -88,7 +112,11 @@
     "answer": "**Petal Width**: mean=1.20, median=1.30, std=0.76, range=[0.10, 2.50]. N=150 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:34:30.310251+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "petal_width"
       ]
@@ -102,7 +130,11 @@
     "answer": "**Petal Width**: mean=1.20, median=1.30, std=0.76, range=[0.10, 2.50]. N=150 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:34:30.310251+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "petal_width"
       ]
@@ -116,7 +148,11 @@
     "answer": "**Iris Species**: most common category is 'Iris setosa' (33.3%), N=150. Distribution: Iris setosa: 33.3%, Iris versicolor: 33.3%, Iris virginica: 33.3% [high diversity].",
     "type": "distributional",
     "provenance": {
-      "type": "univariate",
+      "generated_at": "2025-11-19T06:34:30.314371+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "unknown",
       "variables": [
         "species"
       ]
@@ -130,7 +166,11 @@
     "answer": "**sepal_length** and **sepal_width** show a weak negative correlation (r=-0.12, p=0.152, N=150) [not statistically significant], effect size: small.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.319157+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "sepal_width"
@@ -146,7 +186,11 @@
     "answer": "**sepal_length** and **sepal_width** show a weak negative correlation (r=-0.12, p=0.152, N=150) [not statistically significant], effect size: small.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.319157+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "sepal_width"
@@ -162,7 +206,11 @@
     "answer": "**sepal_length** and **sepal_width** show a weak negative correlation (r=-0.12, p=0.152, N=150) [not statistically significant], effect size: small.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.319157+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "sepal_width"
@@ -178,7 +226,11 @@
     "answer": "**sepal_length** and **petal_length** show a very strong positive correlation (r=0.87, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.323256+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "petal_length"
@@ -194,7 +246,11 @@
     "answer": "**sepal_length** and **petal_length** show a very strong positive correlation (r=0.87, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.323256+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "petal_length"
@@ -210,7 +266,11 @@
     "answer": "**sepal_length** and **petal_length** show a very strong positive correlation (r=0.87, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.323256+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "petal_length"
@@ -226,7 +286,11 @@
     "answer": "**sepal_length** and **petal_width** show a very strong positive correlation (r=0.82, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.327180+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "petal_width"
@@ -242,7 +306,11 @@
     "answer": "**sepal_length** and **petal_width** show a very strong positive correlation (r=0.82, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.327180+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "petal_width"
@@ -258,7 +326,11 @@
     "answer": "**sepal_length** and **petal_width** show a very strong positive correlation (r=0.82, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.327180+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "petal_width"
@@ -274,7 +346,11 @@
     "answer": "**sepal_length** differs across **species** groups: Iris setosa: 5.01, Iris versicolor: 5.94, Iris virginica: 6.59 (ANOVA: F=119.26, p=0.000), \u03b7\u00b2=0.62 (large).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.334400+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "sepal_length",
         "species"
@@ -290,7 +366,11 @@
     "answer": "**sepal_length** differs across **species** groups: Iris setosa: 5.01, Iris versicolor: 5.94, Iris virginica: 6.59 (ANOVA: F=119.26, p=0.000), \u03b7\u00b2=0.62 (large).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.334400+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "sepal_length",
         "species"
@@ -306,7 +386,11 @@
     "answer": "**sepal_length** differs across **species** groups: Iris setosa: 5.01, Iris versicolor: 5.94, Iris virginica: 6.59 (ANOVA: F=119.26, p=0.000), \u03b7\u00b2=0.62 (large).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.334400+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "sepal_length",
         "species"
@@ -322,7 +406,11 @@
     "answer": "**sepal_width** and **petal_length** show a moderate negative correlation (r=-0.43, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.339214+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_width",
         "petal_length"
@@ -338,7 +426,11 @@
     "answer": "**sepal_width** and **petal_length** show a moderate negative correlation (r=-0.43, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.339214+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_width",
         "petal_length"
@@ -354,7 +446,11 @@
     "answer": "**sepal_width** and **petal_length** show a moderate negative correlation (r=-0.43, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.339214+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_width",
         "petal_length"
@@ -370,7 +466,11 @@
     "answer": "**sepal_width** and **petal_width** show a moderate negative correlation (r=-0.37, p=0.000, N=150) [statistically significant], effect size: medium.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.342564+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_width",
         "petal_width"
@@ -386,7 +486,11 @@
     "answer": "**sepal_width** and **petal_width** show a moderate negative correlation (r=-0.37, p=0.000, N=150) [statistically significant], effect size: medium.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.342564+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_width",
         "petal_width"
@@ -402,7 +506,11 @@
     "answer": "**sepal_width** and **petal_width** show a moderate negative correlation (r=-0.37, p=0.000, N=150) [statistically significant], effect size: medium.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.342564+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_width",
         "petal_width"
@@ -418,7 +526,11 @@
     "answer": "**sepal_width** differs across **species** groups: Iris setosa: 3.43, Iris versicolor: 2.77, Iris virginica: 2.97 (ANOVA: F=49.16, p=0.000), \u03b7\u00b2=0.40 (large).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.349726+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "sepal_width",
         "species"
@@ -434,7 +546,11 @@
     "answer": "**sepal_width** differs across **species** groups: Iris setosa: 3.43, Iris versicolor: 2.77, Iris virginica: 2.97 (ANOVA: F=49.16, p=0.000), \u03b7\u00b2=0.40 (large).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.349726+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "sepal_width",
         "species"
@@ -450,7 +566,11 @@
     "answer": "**sepal_width** differs across **species** groups: Iris setosa: 3.43, Iris versicolor: 2.77, Iris virginica: 2.97 (ANOVA: F=49.16, p=0.000), \u03b7\u00b2=0.40 (large).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.349726+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "sepal_width",
         "species"
@@ -466,7 +586,11 @@
     "answer": "**petal_length** and **petal_width** show a very strong positive correlation (r=0.96, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.353521+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "petal_length",
         "petal_width"
@@ -482,7 +606,11 @@
     "answer": "**petal_length** and **petal_width** show a very strong positive correlation (r=0.96, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.353521+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "petal_length",
         "petal_width"
@@ -498,7 +626,11 @@
     "answer": "**petal_length** and **petal_width** show a very strong positive correlation (r=0.96, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.353521+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "numeric_numeric",
       "variables": [
         "petal_length",
         "petal_width"
@@ -514,7 +646,11 @@
     "answer": "**petal_length** differs across **species** groups: Iris setosa: 1.46, Iris versicolor: 4.26, Iris virginica: 5.55 (ANOVA: F=1180.16, p=0.000), \u03b7\u00b2=0.94 (large).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.359248+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "petal_length",
         "species"
@@ -530,7 +666,11 @@
     "answer": "**petal_length** differs across **species** groups: Iris setosa: 1.46, Iris versicolor: 4.26, Iris virginica: 5.55 (ANOVA: F=1180.16, p=0.000), \u03b7\u00b2=0.94 (large).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.359248+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "petal_length",
         "species"
@@ -546,7 +686,11 @@
     "answer": "**petal_length** differs across **species** groups: Iris setosa: 1.46, Iris versicolor: 4.26, Iris virginica: 5.55 (ANOVA: F=1180.16, p=0.000), \u03b7\u00b2=0.94 (large).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.359248+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "petal_length",
         "species"
@@ -562,7 +706,11 @@
     "answer": "**petal_width** differs across **species** groups: Iris setosa: 0.25, Iris versicolor: 1.33, Iris virginica: 2.03 (ANOVA: F=960.01, p=0.000), \u03b7\u00b2=0.93 (large).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.368170+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "petal_width",
         "species"
@@ -578,7 +726,11 @@
     "answer": "**petal_width** differs across **species** groups: Iris setosa: 0.25, Iris versicolor: 1.33, Iris virginica: 2.03 (ANOVA: F=960.01, p=0.000), \u03b7\u00b2=0.93 (large).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.368170+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "petal_width",
         "species"
@@ -594,7 +746,11 @@
     "answer": "**petal_width** differs across **species** groups: Iris setosa: 0.25, Iris versicolor: 1.33, Iris virginica: 2.03 (ANOVA: F=960.01, p=0.000), \u03b7\u00b2=0.93 (large).",
     "type": "comparative",
     "provenance": {
-      "type": "bivariate",
+      "generated_at": "2025-11-19T06:34:30.368170+00:00",
+      "tool": "tableqa",
+      "tool_version": "0.1.0",
+      "generation_method": "template",
+      "analysis_type": "categorical_numeric",
       "variables": [
         "petal_width",
         "species"
