@@ -50,51 +50,47 @@ Contains parsed metadata for all ANES variables:
 
 ## Downloading the Data
 
-The ANES data files are **not included in this repository** due to their size and licensing terms.
+The ANES data files are **included in this repository** for demonstration purposes. The complete dataset consists of all required files for running the example.
 
-### Option 1: Download from ANES Website (Recommended)
+### Files Already Present
+
+All required files are already included in the `raw/` directory:
+- ✅ **ANES Time Series Cumulative Data File (CSV)**: `anes_timeseries_cdf_csv_20220916.csv.zip`
+- ✅ **Variable Codebook (PDF)**: `anes_timeseries_cdf_codebook_var_20220916.pdf`  
+- ✅ **Appendix Codebook (PDF)**: `anes_timeseries_cdf_codebook_app_20220916.pdf`
+
+### Optional: Download Latest Version
+
+If you want to use a more recent version of the ANES data:
 
 1. Visit the ANES Data Center:
    https://electionstudies.org/data-center/anes-time-series-cumulative-data-file/
 
 2. Register for an account (free)
 
-3. Download the following files:
-   - **ANES Time Series Cumulative Data File (CSV)** → save as `raw/anes_timeseries_cdf_csv_20220916.csv.zip`
-   - **Variable Codebook (PDF)** → save as `raw/anes_timeseries_cdf_codebook_var_20220916.pdf`
-   - **Appendix Codebook (PDF)** → save as `raw/anes_timeseries_cdf_codebook_app_20220916.pdf`
-
-4. Place files in the `raw/` directory
-
-### Option 2: Download via Command Line
-
-```bash
-cd raw/
-
-# Note: Direct download links require authentication
-# Manual download from the website is recommended
-
-# After downloading manually, verify files
-ls -lh
-```
+3. Download updated files and replace the ones in `raw/` directory
 
 ### Verification
 
-After downloading, verify the files:
+To verify all files are present and working:
 
 ```bash
 cd raw/
 
-# Check file sizes (approximate)
-du -h *
+# Check that all files are present
+ls -lh
 # Expected output:
-# 1.1M    anes_timeseries_cdf_codebook_app_20220916.pdf
-# 4.4M    anes_timeseries_cdf_codebook_var_20220916.pdf
-#  18M    anes_timeseries_cdf_csv_20220916.csv.zip
+# -rw-r--r--  1.1M  anes_timeseries_cdf_codebook_app_20220916.pdf
+# -rw-r--r--  4.4M  anes_timeseries_cdf_codebook_var_20220916.pdf
+# -rw-r--r--   18M  anes_timeseries_cdf_csv_20220916.csv.zip
 
-# Verify ZIP archive
+# Verify ZIP archive integrity
 unzip -t anes_timeseries_cdf_csv_20220916.csv.zip
 # Should show: "No errors detected"
+
+# Verify you can run the example
+cd ../..  # back to anes/ directory
+python parse_metadata.py --codebook data/raw/anes_timeseries_cdf_codebook_var_20220916.pdf --output-metadata data/anes_metadata.csv --skip-questions
 ```
 
 ## Data Usage Terms
@@ -140,7 +136,7 @@ VCF0102,Age of respondent,Valid: 18-99,Missing: 0 99,Age in years at time of int
 ### File Not Found Errors
 
 **Problem**: `FileNotFoundError: No CSV matched pattern`
-**Solution**: Ensure the ZIP file is in the `raw/` directory with the exact filename
+**Solution**: All files should be present in the `raw/` directory. If missing, re-clone the repository or check the file paths
 
 ### Large File Warnings
 

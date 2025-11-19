@@ -4,14 +4,50 @@
     "answer": "**Respondent Age**: mean=46.27, median=46.50, std=16.19, range=[18.00, 74.00]. N=500 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.441589+00:00",
+      "generated_at": "2025-11-19T19:21:35.332783+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "unknown",
       "variables": [
         "age"
+      ],
+      "python_commands": [
+        "valid_data = data.dropna()",
+        "valid_data.mean()  # Result: 46.266",
+        "valid_data.median()  # Result: 46.5",
+        "valid_data.std()  # Result: 16.187628691234877",
+        "valid_data.min()  # Result: 18.0",
+        "valid_data.max()  # Result: 74.0",
+        "valid_data.quantile(0.25)  # Result: 33.0",
+        "valid_data.quantile(0.75)  # Result: 59.25",
+        "scipy.stats.skew(valid_data)  # Result: -0.07743865740214184",
+        "scipy.stats.kurtosis(valid_data)  # Result: -1.1027768215625187",
+        "scipy.stats.shapiro(valid_data)  # stat=0.9590, p=0.0000"
       ]
+    },
+    "visual": {
+      "plot_type": "histogram",
+      "caption": "Histogram showing respondent age distribution with mean=46.27 and std=16.19 (N=500). The data shows a approximately normal distribution.",
+      "alt_text": "Histogram chart with respondent age values on x-axis and frequency density on y-axis, showing distribution shape with 500 observations.",
+      "visual_elements": {
+        "chart_type": "histogram",
+        "x_axis": "Respondent Age",
+        "key_features": [
+          "distribution shape",
+          "mean line"
+        ],
+        "colors": [
+          "blue bars",
+          "red mean line"
+        ],
+        "annotations": [
+          "Mean: 46.27"
+        ],
+        "y_axis": "Density"
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_age.png",
+      "generation_code": "plot_factory.plot_univariate(data['age'], age_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_age.png')"
     },
     "vars": [
       "age"
@@ -22,14 +58,50 @@
     "answer": "**Respondent Age**: mean=46.27, median=46.50, std=16.19, range=[18.00, 74.00]. N=500 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.441589+00:00",
+      "generated_at": "2025-11-19T19:21:35.332783+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "unknown",
       "variables": [
         "age"
+      ],
+      "python_commands": [
+        "valid_data = data.dropna()",
+        "valid_data.mean()  # Result: 46.266",
+        "valid_data.median()  # Result: 46.5",
+        "valid_data.std()  # Result: 16.187628691234877",
+        "valid_data.min()  # Result: 18.0",
+        "valid_data.max()  # Result: 74.0",
+        "valid_data.quantile(0.25)  # Result: 33.0",
+        "valid_data.quantile(0.75)  # Result: 59.25",
+        "scipy.stats.skew(valid_data)  # Result: -0.07743865740214184",
+        "scipy.stats.kurtosis(valid_data)  # Result: -1.1027768215625187",
+        "scipy.stats.shapiro(valid_data)  # stat=0.9590, p=0.0000"
       ]
+    },
+    "visual": {
+      "plot_type": "histogram",
+      "caption": "Histogram showing respondent age distribution with mean=46.27 and std=16.19 (N=500). The data shows a approximately normal distribution.",
+      "alt_text": "Histogram chart with respondent age values on x-axis and frequency density on y-axis, showing distribution shape with 500 observations.",
+      "visual_elements": {
+        "chart_type": "histogram",
+        "x_axis": "Respondent Age",
+        "key_features": [
+          "distribution shape",
+          "mean line"
+        ],
+        "colors": [
+          "blue bars",
+          "red mean line"
+        ],
+        "annotations": [
+          "Mean: 46.27"
+        ],
+        "y_axis": "Density"
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_age.png",
+      "generation_code": "plot_factory.plot_univariate(data['age'], age_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_age.png')"
     },
     "vars": [
       "age"
@@ -40,14 +112,43 @@
     "answer": "**Education Level**: most common category is 'High school or equivalent' (41.2%), N=500. Distribution: High school or equivalent: 41.2%, Bachelor degree: 38.6%, Graduate degree (Masters/PhD): 20.2% [high diversity].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.445528+00:00",
+      "generated_at": "2025-11-19T19:21:35.396381+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "unknown",
       "variables": [
         "education"
+      ],
+      "python_commands": [
+        "valid_data = data.dropna()",
+        "counts = valid_data.value_counts()  # 3 unique values",
+        "frequencies = (counts / len(valid_data) * 100).round(2)",
+        "mode = counts.idxmax()  # Result: High School",
+        "mode_frequency = frequencies.max()  # Result: 41.2%",
+        "props = counts / counts.sum()",
+        "entropy = -np.sum(props * np.log2(props))  # Result: 1.5233",
+        "gini_simpson = 1 - np.sum(props**2)  # Result: 0.6405"
       ]
+    },
+    "visual": {
+      "plot_type": "bar_chart",
+      "caption": "Bar chart showing education level frequencies across 3 categories (N=500). Most common category is 'High school or equivalent' (41.2%).",
+      "alt_text": "Bar chart with 3 categories of education level on x-axis and count frequencies on y-axis.",
+      "visual_elements": {
+        "chart_type": "bar_chart",
+        "x_axis": "Education Level",
+        "key_features": [
+          "frequency bars"
+        ],
+        "colors": [
+          "viridis color palette"
+        ],
+        "annotations": [],
+        "y_axis": "Count"
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_education.png",
+      "generation_code": "plot_factory.plot_univariate(data['education'], education_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_education.png')"
     },
     "vars": [
       "education"
@@ -58,14 +159,50 @@
     "answer": "**Annual Income**: mean=65897.15, median=64511.00, std=23807.36, range=[25000.00, 133843.00]. N=500 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.450398+00:00",
+      "generated_at": "2025-11-19T19:21:35.472391+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "unknown",
       "variables": [
         "income"
+      ],
+      "python_commands": [
+        "valid_data = data.dropna()",
+        "valid_data.mean()  # Result: 65897.154",
+        "valid_data.median()  # Result: 64511.0",
+        "valid_data.std()  # Result: 23807.362416713982",
+        "valid_data.min()  # Result: 25000.0",
+        "valid_data.max()  # Result: 133843.0",
+        "valid_data.quantile(0.25)  # Result: 46883.25",
+        "valid_data.quantile(0.75)  # Result: 82731.0",
+        "scipy.stats.skew(valid_data)  # Result: 0.2682516440106271",
+        "scipy.stats.kurtosis(valid_data)  # Result: -0.6206491485559669",
+        "scipy.stats.shapiro(valid_data)  # stat=0.9810, p=0.0000"
       ]
+    },
+    "visual": {
+      "plot_type": "histogram",
+      "caption": "Histogram showing annual income distribution with mean=65897.15 and std=23807.36 (N=500). The data shows a approximately normal distribution.",
+      "alt_text": "Histogram chart with annual income values on x-axis and frequency density on y-axis, showing distribution shape with 500 observations.",
+      "visual_elements": {
+        "chart_type": "histogram",
+        "x_axis": "Annual Income",
+        "key_features": [
+          "distribution shape",
+          "mean line"
+        ],
+        "colors": [
+          "blue bars",
+          "red mean line"
+        ],
+        "annotations": [
+          "Mean: 65897.15"
+        ],
+        "y_axis": "Density"
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_income.png",
+      "generation_code": "plot_factory.plot_univariate(data['income'], income_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_income.png')"
     },
     "vars": [
       "income"
@@ -76,14 +213,50 @@
     "answer": "**Annual Income**: mean=65897.15, median=64511.00, std=23807.36, range=[25000.00, 133843.00]. N=500 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.450398+00:00",
+      "generated_at": "2025-11-19T19:21:35.472391+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "unknown",
       "variables": [
         "income"
+      ],
+      "python_commands": [
+        "valid_data = data.dropna()",
+        "valid_data.mean()  # Result: 65897.154",
+        "valid_data.median()  # Result: 64511.0",
+        "valid_data.std()  # Result: 23807.362416713982",
+        "valid_data.min()  # Result: 25000.0",
+        "valid_data.max()  # Result: 133843.0",
+        "valid_data.quantile(0.25)  # Result: 46883.25",
+        "valid_data.quantile(0.75)  # Result: 82731.0",
+        "scipy.stats.skew(valid_data)  # Result: 0.2682516440106271",
+        "scipy.stats.kurtosis(valid_data)  # Result: -0.6206491485559669",
+        "scipy.stats.shapiro(valid_data)  # stat=0.9810, p=0.0000"
       ]
+    },
+    "visual": {
+      "plot_type": "histogram",
+      "caption": "Histogram showing annual income distribution with mean=65897.15 and std=23807.36 (N=500). The data shows a approximately normal distribution.",
+      "alt_text": "Histogram chart with annual income values on x-axis and frequency density on y-axis, showing distribution shape with 500 observations.",
+      "visual_elements": {
+        "chart_type": "histogram",
+        "x_axis": "Annual Income",
+        "key_features": [
+          "distribution shape",
+          "mean line"
+        ],
+        "colors": [
+          "blue bars",
+          "red mean line"
+        ],
+        "annotations": [
+          "Mean: 65897.15"
+        ],
+        "y_axis": "Density"
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_income.png",
+      "generation_code": "plot_factory.plot_univariate(data['income'], income_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_income.png')"
     },
     "vars": [
       "income"
@@ -94,14 +267,43 @@
     "answer": "**Job Satisfaction**: most common category is '3' (46.8%), N=500. Distribution: 3: 46.8%, 4: 25.2%, 2: 23.0%, 1: 3.4%, 5: 1.6%.",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.454096+00:00",
+      "generated_at": "2025-11-19T19:21:35.528582+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "unknown",
       "variables": [
         "job_satisfaction"
+      ],
+      "python_commands": [
+        "valid_data = data.dropna()",
+        "counts = valid_data.value_counts()  # 5 unique values",
+        "frequencies = (counts / len(valid_data) * 100).round(2)",
+        "mode = counts.idxmax()  # Result: 3",
+        "mode_frequency = frequencies.max()  # Result: 46.8%",
+        "props = counts / counts.sum()",
+        "entropy = -np.sum(props * np.log2(props))  # Result: 1.7627",
+        "gini_simpson = 1 - np.sum(props**2)  # Result: 0.6632"
       ]
+    },
+    "visual": {
+      "plot_type": "bar_chart",
+      "caption": "Bar chart showing job satisfaction frequencies across 5 categories (N=500). Most common category is '3' (46.8%).",
+      "alt_text": "Bar chart with 5 categories of job satisfaction on x-axis and count frequencies on y-axis.",
+      "visual_elements": {
+        "chart_type": "bar_chart",
+        "x_axis": "Job Satisfaction",
+        "key_features": [
+          "frequency bars"
+        ],
+        "colors": [
+          "viridis color palette"
+        ],
+        "annotations": [],
+        "y_axis": "Count"
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_job_satisfaction.png",
+      "generation_code": "plot_factory.plot_univariate(data['job_satisfaction'], job_satisfaction_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_job_satisfaction.png')"
     },
     "vars": [
       "job_satisfaction"
@@ -112,14 +314,50 @@
     "answer": "**Weekly Work Hours**: mean=38.87, median=39.00, std=11.56, range=[20.00, 59.00]. N=500 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.460281+00:00",
+      "generated_at": "2025-11-19T19:21:35.608261+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "unknown",
       "variables": [
         "work_hours"
+      ],
+      "python_commands": [
+        "valid_data = data.dropna()",
+        "valid_data.mean()  # Result: 38.874",
+        "valid_data.median()  # Result: 39.0",
+        "valid_data.std()  # Result: 11.559817592225713",
+        "valid_data.min()  # Result: 20.0",
+        "valid_data.max()  # Result: 59.0",
+        "valid_data.quantile(0.25)  # Result: 28.75",
+        "valid_data.quantile(0.75)  # Result: 49.0",
+        "scipy.stats.skew(valid_data)  # Result: 0.06392761556179369",
+        "scipy.stats.kurtosis(valid_data)  # Result: -1.2131940133468873",
+        "scipy.stats.shapiro(valid_data)  # stat=0.9504, p=0.0000"
       ]
+    },
+    "visual": {
+      "plot_type": "histogram",
+      "caption": "Histogram showing weekly work hours distribution with mean=38.87 and std=11.56 (N=500). The data shows a approximately normal distribution.",
+      "alt_text": "Histogram chart with weekly work hours values on x-axis and frequency density on y-axis, showing distribution shape with 500 observations.",
+      "visual_elements": {
+        "chart_type": "histogram",
+        "x_axis": "Weekly Work Hours",
+        "key_features": [
+          "distribution shape",
+          "mean line"
+        ],
+        "colors": [
+          "blue bars",
+          "red mean line"
+        ],
+        "annotations": [
+          "Mean: 38.87"
+        ],
+        "y_axis": "Density"
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_work_hours.png",
+      "generation_code": "plot_factory.plot_univariate(data['work_hours'], work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_work_hours.png')"
     },
     "vars": [
       "work_hours"
@@ -130,14 +368,50 @@
     "answer": "**Weekly Work Hours**: mean=38.87, median=39.00, std=11.56, range=[20.00, 59.00]. N=500 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.460281+00:00",
+      "generated_at": "2025-11-19T19:21:35.608261+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "unknown",
       "variables": [
         "work_hours"
+      ],
+      "python_commands": [
+        "valid_data = data.dropna()",
+        "valid_data.mean()  # Result: 38.874",
+        "valid_data.median()  # Result: 39.0",
+        "valid_data.std()  # Result: 11.559817592225713",
+        "valid_data.min()  # Result: 20.0",
+        "valid_data.max()  # Result: 59.0",
+        "valid_data.quantile(0.25)  # Result: 28.75",
+        "valid_data.quantile(0.75)  # Result: 49.0",
+        "scipy.stats.skew(valid_data)  # Result: 0.06392761556179369",
+        "scipy.stats.kurtosis(valid_data)  # Result: -1.2131940133468873",
+        "scipy.stats.shapiro(valid_data)  # stat=0.9504, p=0.0000"
       ]
+    },
+    "visual": {
+      "plot_type": "histogram",
+      "caption": "Histogram showing weekly work hours distribution with mean=38.87 and std=11.56 (N=500). The data shows a approximately normal distribution.",
+      "alt_text": "Histogram chart with weekly work hours values on x-axis and frequency density on y-axis, showing distribution shape with 500 observations.",
+      "visual_elements": {
+        "chart_type": "histogram",
+        "x_axis": "Weekly Work Hours",
+        "key_features": [
+          "distribution shape",
+          "mean line"
+        ],
+        "colors": [
+          "blue bars",
+          "red mean line"
+        ],
+        "annotations": [
+          "Mean: 38.87"
+        ],
+        "y_axis": "Density"
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_work_hours.png",
+      "generation_code": "plot_factory.plot_univariate(data['work_hours'], work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/univariate_work_hours.png')"
     },
     "vars": [
       "work_hours"
@@ -148,15 +422,30 @@
     "answer": "**age** differs across **education** groups: Bachelor degree: 46.04, Graduate degree (Masters/PhD): 47.68, High school or equivalent: 45.78 (ANOVA: F=0.50, p=0.609), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.469569+00:00",
+      "generated_at": "2025-11-19T19:21:35.645067+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "age",
         "education"
       ]
+    },
+    "visual": {
+      "plot_type": "unknown",
+      "caption": "Bivariate plot showing Respondent Age vs Education Level",
+      "alt_text": "Chart showing relationship between Respondent Age and Education Level",
+      "visual_elements": {
+        "chart_type": "unknown",
+        "x_axis": "Respondent Age",
+        "y_axis": "Education Level",
+        "key_features": [],
+        "colors": [],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_education.png",
+      "generation_code": "plot_factory.plot_bivariate(data, age_var, education_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_education.png')"
     },
     "vars": [
       "age",
@@ -168,15 +457,30 @@
     "answer": "**age** differs across **education** groups: Bachelor degree: 46.04, Graduate degree (Masters/PhD): 47.68, High school or equivalent: 45.78 (ANOVA: F=0.50, p=0.609), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.469569+00:00",
+      "generated_at": "2025-11-19T19:21:35.645067+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "age",
         "education"
       ]
+    },
+    "visual": {
+      "plot_type": "unknown",
+      "caption": "Bivariate plot showing Respondent Age vs Education Level",
+      "alt_text": "Chart showing relationship between Respondent Age and Education Level",
+      "visual_elements": {
+        "chart_type": "unknown",
+        "x_axis": "Respondent Age",
+        "y_axis": "Education Level",
+        "key_features": [],
+        "colors": [],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_education.png",
+      "generation_code": "plot_factory.plot_bivariate(data, age_var, education_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_education.png')"
     },
     "vars": [
       "age",
@@ -188,15 +492,30 @@
     "answer": "**age** differs across **education** groups: Bachelor degree: 46.04, Graduate degree (Masters/PhD): 47.68, High school or equivalent: 45.78 (ANOVA: F=0.50, p=0.609), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.469569+00:00",
+      "generated_at": "2025-11-19T19:21:35.645067+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "age",
         "education"
       ]
+    },
+    "visual": {
+      "plot_type": "unknown",
+      "caption": "Bivariate plot showing Respondent Age vs Education Level",
+      "alt_text": "Chart showing relationship between Respondent Age and Education Level",
+      "visual_elements": {
+        "chart_type": "unknown",
+        "x_axis": "Respondent Age",
+        "y_axis": "Education Level",
+        "key_features": [],
+        "colors": [],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_education.png",
+      "generation_code": "plot_factory.plot_bivariate(data, age_var, education_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_education.png')"
     },
     "vars": [
       "age",
@@ -208,15 +527,37 @@
     "answer": "**age** and **income** show a negligible positive correlation (r=0.06, p=0.151, N=500) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.475453+00:00",
+      "generated_at": "2025-11-19T19:21:35.748094+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
       "variables": [
         "age",
         "income"
       ]
+    },
+    "visual": {
+      "plot_type": "scatter",
+      "caption": "Scatter plot showing the relationship between Respondent Age and Annual Income (N=500). Shows a weak positive correlation (r=0.06) with regression line.",
+      "alt_text": "Scatter plot with Respondent Age on x-axis and Annual Income on y-axis, showing 500 data points with regression line.",
+      "visual_elements": {
+        "chart_type": "scatter",
+        "x_axis": "Respondent Age",
+        "y_axis": "Annual Income",
+        "key_features": [
+          "data points",
+          "regression line",
+          "trend"
+        ],
+        "colors": [
+          "blue points",
+          "red regression line"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_income.png",
+      "generation_code": "plot_factory.plot_bivariate(data, age_var, income_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_income.png')"
     },
     "vars": [
       "age",
@@ -228,15 +569,37 @@
     "answer": "**age** and **income** show a negligible positive correlation (r=0.06, p=0.151, N=500) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.475453+00:00",
+      "generated_at": "2025-11-19T19:21:35.748094+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
       "variables": [
         "age",
         "income"
       ]
+    },
+    "visual": {
+      "plot_type": "scatter",
+      "caption": "Scatter plot showing the relationship between Respondent Age and Annual Income (N=500). Shows a weak positive correlation (r=0.06) with regression line.",
+      "alt_text": "Scatter plot with Respondent Age on x-axis and Annual Income on y-axis, showing 500 data points with regression line.",
+      "visual_elements": {
+        "chart_type": "scatter",
+        "x_axis": "Respondent Age",
+        "y_axis": "Annual Income",
+        "key_features": [
+          "data points",
+          "regression line",
+          "trend"
+        ],
+        "colors": [
+          "blue points",
+          "red regression line"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_income.png",
+      "generation_code": "plot_factory.plot_bivariate(data, age_var, income_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_income.png')"
     },
     "vars": [
       "age",
@@ -248,15 +611,37 @@
     "answer": "**age** and **income** show a negligible positive correlation (r=0.06, p=0.151, N=500) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.475453+00:00",
+      "generated_at": "2025-11-19T19:21:35.748094+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
       "variables": [
         "age",
         "income"
       ]
+    },
+    "visual": {
+      "plot_type": "scatter",
+      "caption": "Scatter plot showing the relationship between Respondent Age and Annual Income (N=500). Shows a weak positive correlation (r=0.06) with regression line.",
+      "alt_text": "Scatter plot with Respondent Age on x-axis and Annual Income on y-axis, showing 500 data points with regression line.",
+      "visual_elements": {
+        "chart_type": "scatter",
+        "x_axis": "Respondent Age",
+        "y_axis": "Annual Income",
+        "key_features": [
+          "data points",
+          "regression line",
+          "trend"
+        ],
+        "colors": [
+          "blue points",
+          "red regression line"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_income.png",
+      "generation_code": "plot_factory.plot_bivariate(data, age_var, income_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_income.png')"
     },
     "vars": [
       "age",
@@ -268,15 +653,30 @@
     "answer": "**age** differs across **job_satisfaction** groups: 1: 41.41, 2: 46.42, 3: 45.69, 4: 48.17, 5: 41.12 (ANOVA: F=1.10, p=0.357), \u03b7\u00b2=0.01 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.484123+00:00",
+      "generated_at": "2025-11-19T19:21:35.785316+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "age",
         "job_satisfaction"
       ]
+    },
+    "visual": {
+      "plot_type": "unknown",
+      "caption": "Bivariate plot showing Respondent Age vs Job Satisfaction",
+      "alt_text": "Chart showing relationship between Respondent Age and Job Satisfaction",
+      "visual_elements": {
+        "chart_type": "unknown",
+        "x_axis": "Respondent Age",
+        "y_axis": "Job Satisfaction",
+        "key_features": [],
+        "colors": [],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_job_satisfaction.png",
+      "generation_code": "plot_factory.plot_bivariate(data, age_var, job_satisfaction_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_job_satisfaction.png')"
     },
     "vars": [
       "age",
@@ -288,15 +688,30 @@
     "answer": "**age** differs across **job_satisfaction** groups: 1: 41.41, 2: 46.42, 3: 45.69, 4: 48.17, 5: 41.12 (ANOVA: F=1.10, p=0.357), \u03b7\u00b2=0.01 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.484123+00:00",
+      "generated_at": "2025-11-19T19:21:35.785316+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "age",
         "job_satisfaction"
       ]
+    },
+    "visual": {
+      "plot_type": "unknown",
+      "caption": "Bivariate plot showing Respondent Age vs Job Satisfaction",
+      "alt_text": "Chart showing relationship between Respondent Age and Job Satisfaction",
+      "visual_elements": {
+        "chart_type": "unknown",
+        "x_axis": "Respondent Age",
+        "y_axis": "Job Satisfaction",
+        "key_features": [],
+        "colors": [],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_job_satisfaction.png",
+      "generation_code": "plot_factory.plot_bivariate(data, age_var, job_satisfaction_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_job_satisfaction.png')"
     },
     "vars": [
       "age",
@@ -308,15 +723,30 @@
     "answer": "**age** differs across **job_satisfaction** groups: 1: 41.41, 2: 46.42, 3: 45.69, 4: 48.17, 5: 41.12 (ANOVA: F=1.10, p=0.357), \u03b7\u00b2=0.01 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.484123+00:00",
+      "generated_at": "2025-11-19T19:21:35.785316+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "age",
         "job_satisfaction"
       ]
+    },
+    "visual": {
+      "plot_type": "unknown",
+      "caption": "Bivariate plot showing Respondent Age vs Job Satisfaction",
+      "alt_text": "Chart showing relationship between Respondent Age and Job Satisfaction",
+      "visual_elements": {
+        "chart_type": "unknown",
+        "x_axis": "Respondent Age",
+        "y_axis": "Job Satisfaction",
+        "key_features": [],
+        "colors": [],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_job_satisfaction.png",
+      "generation_code": "plot_factory.plot_bivariate(data, age_var, job_satisfaction_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_job_satisfaction.png')"
     },
     "vars": [
       "age",
@@ -328,15 +758,37 @@
     "answer": "**age** and **work_hours** show a negligible positive correlation (r=0.02, p=0.610, N=500) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.488667+00:00",
+      "generated_at": "2025-11-19T19:21:35.889108+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
       "variables": [
         "age",
         "work_hours"
       ]
+    },
+    "visual": {
+      "plot_type": "scatter",
+      "caption": "Scatter plot showing the relationship between Respondent Age and Weekly Work Hours (N=500). Shows a weak positive correlation (r=0.02) with regression line.",
+      "alt_text": "Scatter plot with Respondent Age on x-axis and Weekly Work Hours on y-axis, showing 500 data points with regression line.",
+      "visual_elements": {
+        "chart_type": "scatter",
+        "x_axis": "Respondent Age",
+        "y_axis": "Weekly Work Hours",
+        "key_features": [
+          "data points",
+          "regression line",
+          "trend"
+        ],
+        "colors": [
+          "blue points",
+          "red regression line"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_work_hours.png",
+      "generation_code": "plot_factory.plot_bivariate(data, age_var, work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_work_hours.png')"
     },
     "vars": [
       "age",
@@ -348,15 +800,37 @@
     "answer": "**age** and **work_hours** show a negligible positive correlation (r=0.02, p=0.610, N=500) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.488667+00:00",
+      "generated_at": "2025-11-19T19:21:35.889108+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
       "variables": [
         "age",
         "work_hours"
       ]
+    },
+    "visual": {
+      "plot_type": "scatter",
+      "caption": "Scatter plot showing the relationship between Respondent Age and Weekly Work Hours (N=500). Shows a weak positive correlation (r=0.02) with regression line.",
+      "alt_text": "Scatter plot with Respondent Age on x-axis and Weekly Work Hours on y-axis, showing 500 data points with regression line.",
+      "visual_elements": {
+        "chart_type": "scatter",
+        "x_axis": "Respondent Age",
+        "y_axis": "Weekly Work Hours",
+        "key_features": [
+          "data points",
+          "regression line",
+          "trend"
+        ],
+        "colors": [
+          "blue points",
+          "red regression line"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_work_hours.png",
+      "generation_code": "plot_factory.plot_bivariate(data, age_var, work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_work_hours.png')"
     },
     "vars": [
       "age",
@@ -368,15 +842,37 @@
     "answer": "**age** and **work_hours** show a negligible positive correlation (r=0.02, p=0.610, N=500) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.488667+00:00",
+      "generated_at": "2025-11-19T19:21:35.889108+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
       "variables": [
         "age",
         "work_hours"
       ]
+    },
+    "visual": {
+      "plot_type": "scatter",
+      "caption": "Scatter plot showing the relationship between Respondent Age and Weekly Work Hours (N=500). Shows a weak positive correlation (r=0.02) with regression line.",
+      "alt_text": "Scatter plot with Respondent Age on x-axis and Weekly Work Hours on y-axis, showing 500 data points with regression line.",
+      "visual_elements": {
+        "chart_type": "scatter",
+        "x_axis": "Respondent Age",
+        "y_axis": "Weekly Work Hours",
+        "key_features": [
+          "data points",
+          "regression line",
+          "trend"
+        ],
+        "colors": [
+          "blue points",
+          "red regression line"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_work_hours.png",
+      "generation_code": "plot_factory.plot_bivariate(data, age_var, work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_age_work_hours.png')"
     },
     "vars": [
       "age",
@@ -388,15 +884,37 @@
     "answer": "**income** differs across **education** groups: Bachelor degree: 71193.60, Graduate degree (Masters/PhD): 96248.16, High school or equivalent: 46054.12 (ANOVA: F=432.12, p=0.000), \u03b7\u00b2=0.63 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.494737+00:00",
+      "generated_at": "2025-11-19T19:21:35.951063+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "education",
         "income"
       ]
+    },
+    "visual": {
+      "plot_type": "boxplot",
+      "caption": "Box plots comparing Annual Income across 3 education level groups (N=500). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 3 education level categories on x-axis and Annual Income values on y-axis.",
+      "visual_elements": {
+        "chart_type": "boxplot",
+        "x_axis": "Education Level",
+        "y_axis": "Annual Income",
+        "key_features": [
+          "boxes",
+          "whiskers",
+          "outliers",
+          "medians"
+        ],
+        "colors": [
+          "Set2 color palette"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_education_income.png",
+      "generation_code": "plot_factory.plot_bivariate(data, education_var, income_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_education_income.png')"
     },
     "vars": [
       "education",
@@ -408,15 +926,37 @@
     "answer": "**income** differs across **education** groups: Bachelor degree: 71193.60, Graduate degree (Masters/PhD): 96248.16, High school or equivalent: 46054.12 (ANOVA: F=432.12, p=0.000), \u03b7\u00b2=0.63 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.494737+00:00",
+      "generated_at": "2025-11-19T19:21:35.951063+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "education",
         "income"
       ]
+    },
+    "visual": {
+      "plot_type": "boxplot",
+      "caption": "Box plots comparing Annual Income across 3 education level groups (N=500). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 3 education level categories on x-axis and Annual Income values on y-axis.",
+      "visual_elements": {
+        "chart_type": "boxplot",
+        "x_axis": "Education Level",
+        "y_axis": "Annual Income",
+        "key_features": [
+          "boxes",
+          "whiskers",
+          "outliers",
+          "medians"
+        ],
+        "colors": [
+          "Set2 color palette"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_education_income.png",
+      "generation_code": "plot_factory.plot_bivariate(data, education_var, income_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_education_income.png')"
     },
     "vars": [
       "education",
@@ -428,15 +968,37 @@
     "answer": "**income** differs across **education** groups: Bachelor degree: 71193.60, Graduate degree (Masters/PhD): 96248.16, High school or equivalent: 46054.12 (ANOVA: F=432.12, p=0.000), \u03b7\u00b2=0.63 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.494737+00:00",
+      "generated_at": "2025-11-19T19:21:35.951063+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "education",
         "income"
       ]
+    },
+    "visual": {
+      "plot_type": "boxplot",
+      "caption": "Box plots comparing Annual Income across 3 education level groups (N=500). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 3 education level categories on x-axis and Annual Income values on y-axis.",
+      "visual_elements": {
+        "chart_type": "boxplot",
+        "x_axis": "Education Level",
+        "y_axis": "Annual Income",
+        "key_features": [
+          "boxes",
+          "whiskers",
+          "outliers",
+          "medians"
+        ],
+        "colors": [
+          "Set2 color palette"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_education_income.png",
+      "generation_code": "plot_factory.plot_bivariate(data, education_var, income_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_education_income.png')"
     },
     "vars": [
       "education",
@@ -448,15 +1010,37 @@
     "answer": "**work_hours** differs across **education** groups: Bachelor degree: 38.45, Graduate degree (Masters/PhD): 40.27, High school or equivalent: 38.59 (ANOVA: F=0.93, p=0.397), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.513704+00:00",
+      "generated_at": "2025-11-19T19:21:36.099885+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "education",
         "work_hours"
       ]
+    },
+    "visual": {
+      "plot_type": "boxplot",
+      "caption": "Box plots comparing Weekly Work Hours across 3 education level groups (N=500). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 3 education level categories on x-axis and Weekly Work Hours values on y-axis.",
+      "visual_elements": {
+        "chart_type": "boxplot",
+        "x_axis": "Education Level",
+        "y_axis": "Weekly Work Hours",
+        "key_features": [
+          "boxes",
+          "whiskers",
+          "outliers",
+          "medians"
+        ],
+        "colors": [
+          "Set2 color palette"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_education_work_hours.png",
+      "generation_code": "plot_factory.plot_bivariate(data, education_var, work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_education_work_hours.png')"
     },
     "vars": [
       "education",
@@ -468,15 +1052,37 @@
     "answer": "**work_hours** differs across **education** groups: Bachelor degree: 38.45, Graduate degree (Masters/PhD): 40.27, High school or equivalent: 38.59 (ANOVA: F=0.93, p=0.397), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.513704+00:00",
+      "generated_at": "2025-11-19T19:21:36.099885+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "education",
         "work_hours"
       ]
+    },
+    "visual": {
+      "plot_type": "boxplot",
+      "caption": "Box plots comparing Weekly Work Hours across 3 education level groups (N=500). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 3 education level categories on x-axis and Weekly Work Hours values on y-axis.",
+      "visual_elements": {
+        "chart_type": "boxplot",
+        "x_axis": "Education Level",
+        "y_axis": "Weekly Work Hours",
+        "key_features": [
+          "boxes",
+          "whiskers",
+          "outliers",
+          "medians"
+        ],
+        "colors": [
+          "Set2 color palette"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_education_work_hours.png",
+      "generation_code": "plot_factory.plot_bivariate(data, education_var, work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_education_work_hours.png')"
     },
     "vars": [
       "education",
@@ -488,15 +1094,37 @@
     "answer": "**work_hours** differs across **education** groups: Bachelor degree: 38.45, Graduate degree (Masters/PhD): 40.27, High school or equivalent: 38.59 (ANOVA: F=0.93, p=0.397), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.513704+00:00",
+      "generated_at": "2025-11-19T19:21:36.099885+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "education",
         "work_hours"
       ]
+    },
+    "visual": {
+      "plot_type": "boxplot",
+      "caption": "Box plots comparing Weekly Work Hours across 3 education level groups (N=500). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 3 education level categories on x-axis and Weekly Work Hours values on y-axis.",
+      "visual_elements": {
+        "chart_type": "boxplot",
+        "x_axis": "Education Level",
+        "y_axis": "Weekly Work Hours",
+        "key_features": [
+          "boxes",
+          "whiskers",
+          "outliers",
+          "medians"
+        ],
+        "colors": [
+          "Set2 color palette"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_education_work_hours.png",
+      "generation_code": "plot_factory.plot_bivariate(data, education_var, work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_education_work_hours.png')"
     },
     "vars": [
       "education",
@@ -508,15 +1136,30 @@
     "answer": "**income** differs across **job_satisfaction** groups: 1: 43037.41, 2: 53008.02, 3: 65523.12, 4: 79676.36, 5: 93673.50 (ANOVA: F=32.01, p=0.000), \u03b7\u00b2=0.21 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.520412+00:00",
+      "generated_at": "2025-11-19T19:21:36.140617+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "income",
         "job_satisfaction"
       ]
+    },
+    "visual": {
+      "plot_type": "unknown",
+      "caption": "Bivariate plot showing Annual Income vs Job Satisfaction",
+      "alt_text": "Chart showing relationship between Annual Income and Job Satisfaction",
+      "visual_elements": {
+        "chart_type": "unknown",
+        "x_axis": "Annual Income",
+        "y_axis": "Job Satisfaction",
+        "key_features": [],
+        "colors": [],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_income_job_satisfaction.png",
+      "generation_code": "plot_factory.plot_bivariate(data, income_var, job_satisfaction_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_income_job_satisfaction.png')"
     },
     "vars": [
       "income",
@@ -528,15 +1171,30 @@
     "answer": "**income** differs across **job_satisfaction** groups: 1: 43037.41, 2: 53008.02, 3: 65523.12, 4: 79676.36, 5: 93673.50 (ANOVA: F=32.01, p=0.000), \u03b7\u00b2=0.21 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.520412+00:00",
+      "generated_at": "2025-11-19T19:21:36.140617+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "income",
         "job_satisfaction"
       ]
+    },
+    "visual": {
+      "plot_type": "unknown",
+      "caption": "Bivariate plot showing Annual Income vs Job Satisfaction",
+      "alt_text": "Chart showing relationship between Annual Income and Job Satisfaction",
+      "visual_elements": {
+        "chart_type": "unknown",
+        "x_axis": "Annual Income",
+        "y_axis": "Job Satisfaction",
+        "key_features": [],
+        "colors": [],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_income_job_satisfaction.png",
+      "generation_code": "plot_factory.plot_bivariate(data, income_var, job_satisfaction_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_income_job_satisfaction.png')"
     },
     "vars": [
       "income",
@@ -548,15 +1206,30 @@
     "answer": "**income** differs across **job_satisfaction** groups: 1: 43037.41, 2: 53008.02, 3: 65523.12, 4: 79676.36, 5: 93673.50 (ANOVA: F=32.01, p=0.000), \u03b7\u00b2=0.21 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.520412+00:00",
+      "generated_at": "2025-11-19T19:21:36.140617+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "income",
         "job_satisfaction"
       ]
+    },
+    "visual": {
+      "plot_type": "unknown",
+      "caption": "Bivariate plot showing Annual Income vs Job Satisfaction",
+      "alt_text": "Chart showing relationship between Annual Income and Job Satisfaction",
+      "visual_elements": {
+        "chart_type": "unknown",
+        "x_axis": "Annual Income",
+        "y_axis": "Job Satisfaction",
+        "key_features": [],
+        "colors": [],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_income_job_satisfaction.png",
+      "generation_code": "plot_factory.plot_bivariate(data, income_var, job_satisfaction_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_income_job_satisfaction.png')"
     },
     "vars": [
       "income",
@@ -568,15 +1241,37 @@
     "answer": "**income** and **work_hours** show a negligible positive correlation (r=0.05, p=0.247, N=500) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.524797+00:00",
+      "generated_at": "2025-11-19T19:21:36.240697+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
       "variables": [
         "income",
         "work_hours"
       ]
+    },
+    "visual": {
+      "plot_type": "scatter",
+      "caption": "Scatter plot showing the relationship between Annual Income and Weekly Work Hours (N=500). Shows a weak positive correlation (r=0.05) with regression line.",
+      "alt_text": "Scatter plot with Annual Income on x-axis and Weekly Work Hours on y-axis, showing 500 data points with regression line.",
+      "visual_elements": {
+        "chart_type": "scatter",
+        "x_axis": "Annual Income",
+        "y_axis": "Weekly Work Hours",
+        "key_features": [
+          "data points",
+          "regression line",
+          "trend"
+        ],
+        "colors": [
+          "blue points",
+          "red regression line"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_income_work_hours.png",
+      "generation_code": "plot_factory.plot_bivariate(data, income_var, work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_income_work_hours.png')"
     },
     "vars": [
       "income",
@@ -588,15 +1283,37 @@
     "answer": "**income** and **work_hours** show a negligible positive correlation (r=0.05, p=0.247, N=500) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.524797+00:00",
+      "generated_at": "2025-11-19T19:21:36.240697+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
       "variables": [
         "income",
         "work_hours"
       ]
+    },
+    "visual": {
+      "plot_type": "scatter",
+      "caption": "Scatter plot showing the relationship between Annual Income and Weekly Work Hours (N=500). Shows a weak positive correlation (r=0.05) with regression line.",
+      "alt_text": "Scatter plot with Annual Income on x-axis and Weekly Work Hours on y-axis, showing 500 data points with regression line.",
+      "visual_elements": {
+        "chart_type": "scatter",
+        "x_axis": "Annual Income",
+        "y_axis": "Weekly Work Hours",
+        "key_features": [
+          "data points",
+          "regression line",
+          "trend"
+        ],
+        "colors": [
+          "blue points",
+          "red regression line"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_income_work_hours.png",
+      "generation_code": "plot_factory.plot_bivariate(data, income_var, work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_income_work_hours.png')"
     },
     "vars": [
       "income",
@@ -608,15 +1325,37 @@
     "answer": "**income** and **work_hours** show a negligible positive correlation (r=0.05, p=0.247, N=500) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.524797+00:00",
+      "generated_at": "2025-11-19T19:21:36.240697+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
       "variables": [
         "income",
         "work_hours"
       ]
+    },
+    "visual": {
+      "plot_type": "scatter",
+      "caption": "Scatter plot showing the relationship between Annual Income and Weekly Work Hours (N=500). Shows a weak positive correlation (r=0.05) with regression line.",
+      "alt_text": "Scatter plot with Annual Income on x-axis and Weekly Work Hours on y-axis, showing 500 data points with regression line.",
+      "visual_elements": {
+        "chart_type": "scatter",
+        "x_axis": "Annual Income",
+        "y_axis": "Weekly Work Hours",
+        "key_features": [
+          "data points",
+          "regression line",
+          "trend"
+        ],
+        "colors": [
+          "blue points",
+          "red regression line"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_income_work_hours.png",
+      "generation_code": "plot_factory.plot_bivariate(data, income_var, work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_income_work_hours.png')"
     },
     "vars": [
       "income",
@@ -628,15 +1367,37 @@
     "answer": "**work_hours** differs across **job_satisfaction** groups: 1: 42.23, 2: 38.44, 3: 39.23, 4: 38.49, 5: 33.62 (ANOVA: F=0.90, p=0.462), \u03b7\u00b2=0.01 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.531115+00:00",
+      "generated_at": "2025-11-19T19:21:36.313055+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "job_satisfaction",
         "work_hours"
       ]
+    },
+    "visual": {
+      "plot_type": "boxplot",
+      "caption": "Box plots comparing Weekly Work Hours across 5 job satisfaction groups (N=500). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 5 job satisfaction categories on x-axis and Weekly Work Hours values on y-axis.",
+      "visual_elements": {
+        "chart_type": "boxplot",
+        "x_axis": "Job Satisfaction",
+        "y_axis": "Weekly Work Hours",
+        "key_features": [
+          "boxes",
+          "whiskers",
+          "outliers",
+          "medians"
+        ],
+        "colors": [
+          "Set2 color palette"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_job_satisfaction_work_hours.png",
+      "generation_code": "plot_factory.plot_bivariate(data, job_satisfaction_var, work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_job_satisfaction_work_hours.png')"
     },
     "vars": [
       "job_satisfaction",
@@ -648,15 +1409,37 @@
     "answer": "**work_hours** differs across **job_satisfaction** groups: 1: 42.23, 2: 38.44, 3: 39.23, 4: 38.49, 5: 33.62 (ANOVA: F=0.90, p=0.462), \u03b7\u00b2=0.01 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.531115+00:00",
+      "generated_at": "2025-11-19T19:21:36.313055+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "job_satisfaction",
         "work_hours"
       ]
+    },
+    "visual": {
+      "plot_type": "boxplot",
+      "caption": "Box plots comparing Weekly Work Hours across 5 job satisfaction groups (N=500). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 5 job satisfaction categories on x-axis and Weekly Work Hours values on y-axis.",
+      "visual_elements": {
+        "chart_type": "boxplot",
+        "x_axis": "Job Satisfaction",
+        "y_axis": "Weekly Work Hours",
+        "key_features": [
+          "boxes",
+          "whiskers",
+          "outliers",
+          "medians"
+        ],
+        "colors": [
+          "Set2 color palette"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_job_satisfaction_work_hours.png",
+      "generation_code": "plot_factory.plot_bivariate(data, job_satisfaction_var, work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_job_satisfaction_work_hours.png')"
     },
     "vars": [
       "job_satisfaction",
@@ -668,15 +1451,37 @@
     "answer": "**work_hours** differs across **job_satisfaction** groups: 1: 42.23, 2: 38.44, 3: 39.23, 4: 38.49, 5: 33.62 (ANOVA: F=0.90, p=0.462), \u03b7\u00b2=0.01 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T06:35:19.531115+00:00",
+      "generated_at": "2025-11-19T19:21:36.313055+00:00",
       "tool": "statqa",
-      "tool_version": "0.1.0",
+      "tool_version": "0.2.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
       "variables": [
         "job_satisfaction",
         "work_hours"
       ]
+    },
+    "visual": {
+      "plot_type": "boxplot",
+      "caption": "Box plots comparing Weekly Work Hours across 5 job satisfaction groups (N=500). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 5 job satisfaction categories on x-axis and Weekly Work Hours values on y-axis.",
+      "visual_elements": {
+        "chart_type": "boxplot",
+        "x_axis": "Job Satisfaction",
+        "y_axis": "Weekly Work Hours",
+        "key_features": [
+          "boxes",
+          "whiskers",
+          "outliers",
+          "medians"
+        ],
+        "colors": [
+          "Set2 color palette"
+        ],
+        "annotations": []
+      },
+      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_job_satisfaction_work_hours.png",
+      "generation_code": "plot_factory.plot_bivariate(data, job_satisfaction_var, work_hours_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/employee/plots/bivariate_job_satisfaction_work_hours.png')"
     },
     "vars": [
       "job_satisfaction",

@@ -6,7 +6,7 @@
 [![Downloads](https://static.pepy.tech/badge/statqa)](https://pepy.tech/project/statqa)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**StatQA** is a modern Python framework for automatically extracting structured facts, statistical insights, and Q/A pairs from tabular datasets. It converts raw columns and values into clear, human-readable statements, enabling rapid knowledge discovery, RAG corpus construction, and LLM training.
+**StatQA** is a modern Python framework for automatically extracting structured facts, statistical insights, and **multimodal Q/A pairs** from tabular datasets. It converts raw columns and values into clear, human-readable statements paired with rich visualizations, enabling rapid knowledge discovery, CLIP-style multimodal RAG corpus construction, and LLM training.
 
 ## 🎯 Key Features
 
@@ -18,9 +18,10 @@
   - Temporal: trend detection (Mann-Kendall), change points, year-over-year analysis
   - Causal: regression with confounding control, sensitivity analysis
 - **💬 Natural Language Insights**: Convert statistics to publication-ready text
-- **❓ Q/A Generation**: Create training data for LLMs with template-based and LLM-paraphrased questions
-- **🔍 Provenance Tracking**: Full metadata for reproducibility (timestamps, tools, methods, analysis types)
-- **📈 Publication-Quality Visualizations**: Automated plots for all analyses
+- **❓ Multimodal Q/A Generation**: Create CLIP-style visual-text pairs with template-based and LLM-paraphrased questions
+- **🖼️ Rich Visual Metadata**: Captions, alt-text, and visual elements for each plot (colors, annotations, features)
+- **🔍 Provenance Tracking**: Full metadata for reproducibility (timestamps, tools, methods, analysis types, plot generation)
+- **📈 Publication-Quality Visualizations**: Automated plots for all analyses with question-plot association mapping
 - **🔬 Statistical Rigor**: Multiple testing correction, effect sizes, normality tests
 - **⚡ Modern Python**: Type-safe (Pydantic), async-ready, fully typed
 
@@ -123,26 +124,95 @@ print(insight)
 # Output: "**Respondent Age**: mean=42.5, median=41.0, std=12.3, range=[18, 95]. N=1,000 [2.3% outliers]."
 ```
 
-### 4. Create Q/A Pairs for LLM Training
+### 4. Create Multimodal Q/A Pairs for LLM Training
 
 ```python
 from statqa.qa import QAGenerator
+from statqa.visualization import PlotFactory
 
 qa_gen = QAGenerator(use_llm=False)  # Template-based
-qa_pairs = qa_gen.generate_qa_pairs(result, insight)
+
+# Generate Q/A pairs with visual metadata
+plot_data = {
+    "data": data,
+    "variables": codebook.variables,
+    "output_path": "plots/univariate_age.png"
+}
+visual_metadata = qa_gen.generate_visual_metadata(result, variables=["age"], plot_data=plot_data)
+qa_pairs = qa_gen.generate_qa_pairs(result, insight, variables=["age"], visual_data=visual_metadata)
 
 for qa in qa_pairs:
     print(f"Q: {qa['question']}")
     print(f"A: {qa['answer']}")
+    print(f"Plot: {qa['visual']['primary_plot']}")
+    print(f"Caption: {qa['visual']['caption']}")
     print(f"Provenance: {qa['provenance']}\n")
 ```
 
-Each Q/A pair includes **provenance metadata** tracking:
+Each Q/A pair includes **provenance metadata** and **visual metadata** tracking:
 - **When** the answer was generated (timestamp)
 - **What tool** was used (statqa version)
-- **What compute** was performed (analysis type, analyzer)
+- **What compute** was performed (analysis type, analyzer, Python commands)
 - **How** it was generated (template vs. LLM paraphrase)
 - **Which LLM** was used (if applicable)
+- **What visualization** was created (plot type, file path, generation code)
+- **Visual elements** (captions, alt-text, colors, annotations, accessibility features)
+
+## 🖼️ Multimodal Q/A Database
+
+StatQA creates **CLIP-style multimodal databases** where each statistical question is paired with both textual answers AND rich visual metadata. This enables training of multimodal AI systems that understand both statistical text and visual representations.
+
+### Enhanced Q/A Format
+
+```json
+{
+  "question": "What is the distribution of Sepal Length?",
+  "answer": "**Sepal Length**: mean=5.84, median=5.80, std=0.83, range=[4.30, 7.90]. N=150 [non-normal distribution].",
+  "type": "distributional",
+  "provenance": {
+    "generated_at": "2025-11-19T19:21:28+00:00",
+    "tool": "statqa",
+    "tool_version": "0.2.0",
+    "generation_method": "template",
+    "analysis_type": "unknown",
+    "variables": ["sepal_length"],
+    "python_commands": ["valid_data.mean()  # Result: 5.84", "valid_data.std()  # Result: 0.83"]
+  },
+  "visual": {
+    "plot_type": "histogram",
+    "caption": "Histogram showing sepal length distribution with mean=5.84 and std=0.83 (N=150). The data shows a approximately normal distribution.",
+    "alt_text": "Histogram chart with sepal length values on x-axis and frequency density on y-axis, showing distribution shape with 150 observations.",
+    "visual_elements": {
+      "chart_type": "histogram",
+      "x_axis": "Sepal Length",
+      "y_axis": "Density",
+      "key_features": ["distribution shape", "mean line"],
+      "colors": ["blue bars", "red mean line"],
+      "annotations": ["Mean: 5.84"]
+    },
+    "primary_plot": "/path/to/univariate_sepal_length.png",
+    "generation_code": "plot_factory.plot_univariate(data['sepal_length'], sepal_length_var, 'plot.png')"
+  },
+  "vars": ["sepal_length"]
+}
+```
+
+### Question-Plot Association Mapping
+
+StatQA automatically associates relevant visualizations with each statistical insight:
+
+- **Distribution questions** → Histograms for numeric data, bar charts for categorical
+- **Correlation questions** → Scatter plots with regression lines
+- **Group comparison questions** → Box plots showing group differences  
+- **Categorical relationships** → Heatmaps with frequency counts
+
+### Accessibility & Multimodal Features
+
+Every visualization includes:
+- **Descriptive captions** with statistical context and interpretation
+- **Alt-text** for screen readers and accessibility compliance
+- **Visual elements extraction** for computer vision training (colors, features, annotations)
+- **Reproducible generation code** for programmatic recreation
 
 ## 🎨 Complete Pipeline Example
 
@@ -169,22 +239,41 @@ formatter = InsightFormatter()
 for result in results:
     result["insight"] = formatter.format_insight(result)
 
-# 5. Generate Q/A pairs
+# 5. Generate multimodal Q/A pairs with visualizations
+from pathlib import Path
 qa_gen = QAGenerator(use_llm=True, api_key="your-api-key")
-qa_results = qa_gen.generate_batch(
-    results,
-    [r["insight"] for r in results]
-)
+plots_dir = Path("plots")
+plots_dir.mkdir(exist_ok=True)
 
-# 6. Export for LLM fine-tuning
-lines = qa_gen.export_qa_dataset(qa_results, format="openai")
+all_qa_pairs = []
+for result in results:
+    # Generate visual metadata
+    plot_data = {
+        "data": data,
+        "variables": codebook.variables,
+        "output_path": plots_dir / f"univariate_{result['variable']}.png"
+    }
+    visual_metadata = qa_gen.generate_visual_metadata(result, variables=[result['variable']], plot_data=plot_data)
+    
+    # Generate Q/A pairs with visual data
+    qa_pairs = qa_gen.generate_qa_pairs(result, result["insight"], variables=[result['variable']], visual_data=visual_metadata)
+    all_qa_pairs.extend(qa_pairs)
+
+# 6. Export multimodal Q/A dataset
+import json
+with open("multimodal_qa_dataset.jsonl", "w") as f:
+    for qa in all_qa_pairs:
+        f.write(json.dumps(qa) + "\n")
+
+# Export in OpenAI fine-tuning format (visual metadata preserved in messages)
+lines = qa_gen.export_qa_dataset([{"qa_pairs": all_qa_pairs}], format="openai")
 with open("training_data.jsonl", "w") as f:
     f.write("\n".join(lines))
 ```
 
-## 📝 Q/A Provenance Tracking
+## 📝 Q/A Provenance & Visual Tracking
 
-Every Q/A pair generated by StatQA includes detailed **provenance metadata** to ensure reproducibility and traceability:
+Every Q/A pair generated by StatQA includes detailed **provenance metadata** and **visual metadata** to ensure reproducibility and traceability:
 
 ```json
 {
@@ -194,31 +283,60 @@ Every Q/A pair generated by StatQA includes detailed **provenance metadata** to 
   "provenance": {
     "generated_at": "2025-11-19T10:30:45.123456+00:00",
     "tool": "statqa",
-    "tool_version": "0.1.0",
+    "tool_version": "0.2.0",
     "generation_method": "template",
     "analysis_type": "univariate",
-    "analyzer": "UnivariateAnalyzer"
+    "analyzer": "UnivariateAnalyzer",
+    "variables": ["age"],
+    "python_commands": ["valid_data.mean()  # Result: 42.5", "valid_data.std()  # Result: 12.3"]
+  },
+  "visual": {
+    "plot_type": "histogram",
+    "caption": "Histogram showing age distribution with mean=42.5 and std=12.3 (N=1000).",
+    "alt_text": "Histogram chart with age values on x-axis and frequency density on y-axis.",
+    "visual_elements": {
+      "chart_type": "histogram",
+      "x_axis": "Age", 
+      "y_axis": "Density",
+      "colors": ["blue bars", "red mean line"],
+      "key_features": ["distribution shape", "mean line"],
+      "annotations": ["Mean: 42.5"]
+    },
+    "primary_plot": "plots/univariate_age.png",
+    "generation_code": "plot_factory.plot_univariate(data['age'], age_var, 'plots/univariate_age.png')"
   }
 }
 ```
 
-### Provenance Fields
+### Metadata Fields
 
 | Field | Description | Example Values |
 |-------|-------------|----------------|
+| **Provenance Fields** | | |
 | `generated_at` | ISO 8601 timestamp (UTC) | `2025-11-19T10:30:45+00:00` |
 | `tool` | Software used for generation | `statqa` |
-| `tool_version` | Version of statqa | `0.1.0` |
+| `tool_version` | Version of statqa | `0.2.0` |
 | `generation_method` | How the Q/A was created | `template`, `llm_paraphrase` |
 | `analysis_type` | Statistical analysis performed | `univariate`, `bivariate`, `temporal`, `causal` |
 | `analyzer` | Specific analyzer class used | `UnivariateAnalyzer`, `BivariateAnalyzer` |
+| `variables` | Variables involved in analysis | `["age"]`, `["age", "income"]` |
+| `python_commands` | Computational commands executed | `["data.mean()  # Result: 42.5"]` |
 | `llm_model` | LLM model (if applicable) | `gpt-4`, `claude-3-opus` |
+| **Visual Fields** | | |
+| `plot_type` | Type of visualization | `histogram`, `scatter`, `boxplot`, `heatmap` |
+| `caption` | Descriptive caption with context | `"Histogram showing age distribution..."` |
+| `alt_text` | Accessibility alt-text | `"Histogram chart with age values on x-axis..."` |
+| `visual_elements` | Chart components and features | `{"colors": ["blue bars"], "annotations": [...]}` |
+| `primary_plot` | Path to generated plot file | `"plots/univariate_age.png"` |
+| `generation_code` | Code to reproduce the plot | `"plot_factory.plot_univariate(...)"` |
 
-This provenance tracking enables:
-- **Reproducibility**: Recreate Q/A pairs from original data
-- **Quality Control**: Filter by generation method or analysis type
-- **Auditing**: Track when and how answers were computed
-- **Citation**: Properly attribute computational methods in research
+This comprehensive metadata tracking enables:
+- **Reproducibility**: Recreate Q/A pairs and visualizations from original data
+- **Quality Control**: Filter by generation method, analysis type, or plot quality
+- **Multimodal Training**: Rich visual-text pairs for CLIP-style model training
+- **Accessibility**: Alt-text and captions for inclusive AI applications
+- **Auditing**: Track when and how answers and plots were computed
+- **Citation**: Properly attribute computational and visualization methods in research
 
 ## 🖥️ Command-Line Interface
 
@@ -228,14 +346,14 @@ StatQA provides a powerful CLI for common workflows:
 # Parse a codebook
 statqa parse-codebook codebook.csv --output codebook.json --enrich
 
-# Run full analysis pipeline
-statqa analyze data.csv codebook.json --output-dir results/ --plots
+# Run full analysis pipeline with plots and visual metadata
+statqa analyze data.csv codebook.json --output-dir results/ --plots --multimodal
 
-# Generate Q/A pairs
-statqa generate-qa results/all_insights.json --output qa_pairs.jsonl --llm
+# Generate multimodal Q/A pairs
+statqa generate-qa results/all_insights.json --output qa_pairs.jsonl --llm --visual-metadata
 
-# Complete pipeline
-statqa pipeline data.csv codebook.csv --output-dir output/ --enrich --qa
+# Complete multimodal pipeline
+statqa pipeline data.csv codebook.csv --output-dir output/ --enrich --qa --plots --multimodal
 ```
 
 ## 📊 Supported Analyses

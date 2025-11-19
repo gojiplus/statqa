@@ -77,19 +77,52 @@ class UnivariateAnalyzer:
         """Analyze numeric variable."""
         valid_data = data.dropna()
 
+        # Initialize computation log for provenance tracking
+        computation_log = []
+        computation_log.append("valid_data = data.dropna()")
+
         if len(valid_data) == 0:
             return {"error": "No valid data"}
 
+        # Calculate statistics with computation tracking
+        mean_val = float(valid_data.mean())
+        computation_log.append(f"valid_data.mean()  # Result: {mean_val}")
+
+        median_val = float(valid_data.median())
+        computation_log.append(f"valid_data.median()  # Result: {median_val}")
+
+        std_val = float(valid_data.std())
+        computation_log.append(f"valid_data.std()  # Result: {std_val}")
+
+        min_val = float(valid_data.min())
+        computation_log.append(f"valid_data.min()  # Result: {min_val}")
+
+        max_val = float(valid_data.max())
+        computation_log.append(f"valid_data.max()  # Result: {max_val}")
+
+        q25_val = float(valid_data.quantile(0.25))
+        computation_log.append(f"valid_data.quantile(0.25)  # Result: {q25_val}")
+
+        q75_val = float(valid_data.quantile(0.75))
+        computation_log.append(f"valid_data.quantile(0.75)  # Result: {q75_val}")
+
+        skew_val = float(stats.skew(valid_data))
+        computation_log.append(f"scipy.stats.skew(valid_data)  # Result: {skew_val}")
+
+        kurt_val = float(stats.kurtosis(valid_data))
+        computation_log.append(f"scipy.stats.kurtosis(valid_data)  # Result: {kurt_val}")
+
         result: dict[str, Any] = {
-            "mean": float(valid_data.mean()),
-            "median": float(valid_data.median()),
-            "std": float(valid_data.std()),
-            "min": float(valid_data.min()),
-            "max": float(valid_data.max()),
-            "q25": float(valid_data.quantile(0.25)),
-            "q75": float(valid_data.quantile(0.75)),
-            "skewness": float(stats.skew(valid_data)),
-            "kurtosis": float(stats.kurtosis(valid_data)),
+            "mean": mean_val,
+            "median": median_val,
+            "std": std_val,
+            "min": min_val,
+            "max": max_val,
+            "q25": q25_val,
+            "q75": q75_val,
+            "skewness": skew_val,
+            "kurtosis": kurt_val,
+            "computation_log": computation_log,
         }
 
         # Robust statistics
@@ -107,6 +140,7 @@ class UnivariateAnalyzer:
         if len(valid_data) < 5000:
             try:
                 stat, p_value = stats.shapiro(valid_data)
+                computation_log.append(f"scipy.stats.shapiro(valid_data)  # stat={stat:.4f}, p={p_value:.4f}")
                 result["normality_test"] = {
                     "test": "shapiro-wilk",
                     "statistic": float(stat),
@@ -118,6 +152,7 @@ class UnivariateAnalyzer:
         else:
             try:
                 result_ad = stats.anderson(valid_data)
+                computation_log.append(f"scipy.stats.anderson(valid_data)  # stat={result_ad.statistic:.4f}")
                 result["normality_test"] = {
                     "test": "anderson-darling",
                     "statistic": float(result_ad.statistic),
@@ -141,22 +176,33 @@ class UnivariateAnalyzer:
         """Analyze categorical variable."""
         valid_data = data.dropna()
 
+        # Initialize computation log for provenance tracking
+        computation_log = []
+        computation_log.append("valid_data = data.dropna()")
+
         if len(valid_data) == 0:
             return {"error": "No valid data"}
 
-        # Frequency counts
+        # Frequency counts with computation tracking
         counts = valid_data.value_counts()
+        computation_log.append(f"counts = valid_data.value_counts()  # {len(counts)} unique values")
+
         frequencies = (counts / len(valid_data) * 100).round(2)
+        computation_log.append("frequencies = (counts / len(valid_data) * 100).round(2)")
 
         # Mode
         mode = counts.idxmax()
+        computation_log.append(f"mode = counts.idxmax()  # Result: {mode}")
+
         mode_freq = frequencies.max()
+        computation_log.append(f"mode_frequency = frequencies.max()  # Result: {mode_freq}%")
 
         result: dict[str, Any] = {
             "n_unique": len(counts),
             "mode": mode,
             "mode_frequency": float(mode_freq),
             "frequencies": frequencies.to_dict(),
+            "computation_log": computation_log,
         }
 
         # Map codes to labels if available
@@ -169,11 +215,15 @@ class UnivariateAnalyzer:
         if len(counts) > 1:
             # Shannon entropy
             props = counts / counts.sum()
+            computation_log.append("props = counts / counts.sum()")
+
             entropy = -np.sum(props * np.log2(props))
+            computation_log.append(f"entropy = -np.sum(props * np.log2(props))  # Result: {entropy:.4f}")
             result["shannon_entropy"] = float(entropy)
 
             # Gini-Simpson diversity
             gini_simpson = 1 - np.sum(props**2)
+            computation_log.append(f"gini_simpson = 1 - np.sum(props**2)  # Result: {gini_simpson:.4f}")
             result["gini_simpson"] = float(gini_simpson)
 
         # Check for rare categories (< 5% frequency)

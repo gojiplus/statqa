@@ -1,6 +1,6 @@
-# TableQA Examples
+# StatQA Examples
 
-This directory contains examples demonstrating various features of the statqa library.
+This directory contains examples demonstrating various features of the statqa library, including **multimodal Q/A database generation** with rich visual metadata and publication-quality plots.
 
 ## Quick Start
 
@@ -27,26 +27,29 @@ Generate and analyze synthetic survey data.
 ### Iris Dataset (`iris/`)
 Classic dataset with flower measurements.
 - Small, well-understood dataset
-- Continuous numeric variables
+- Continuous numeric variables  
 - Multi-class classification context
+- **39 multimodal Q/A pairs** with 15 visualizations
 
-**Best for**: Testing statistical analyses, visualization
+**Best for**: Testing statistical analyses, visualization, multimodal Q/A generation
 
 ### Employee Survey (`employee/`)
 Synthetic employee workplace survey.
 - Mix of categorical and numeric variables
 - Realistic survey structure
 - Common workplace metrics
+- **35 multimodal Q/A pairs** with 15 visualizations
 
-**Best for**: Understanding survey analysis, practicing with mixed data types
+**Best for**: Understanding survey analysis, practicing with mixed data types, multimodal datasets
 
 ### Titanic Dataset (`titanic/`)
 Historical passenger survival data.
 - Binary outcome (survival)
 - Mix of demographics and ticket information
 - Well-known dataset for comparison
+- **28 multimodal Q/A pairs** with 15 visualizations
 
-**Best for**: Classification analysis, survival analysis
+**Best for**: Classification analysis, survival analysis, CLIP-style training data
 
 ### ANES Dataset (`anes/`)
 American National Election Studies political survey (1948-2020).
@@ -70,8 +73,16 @@ python quick_start.py
 ```
 
 ### Dataset Examples
+
+**Quick Analysis:**
 ```bash
 # Iris
+cd examples/iris
+python run_analysis.py
+```
+
+**Custom Analysis:**
+```bash
 cd examples/iris
 python -c "
 import pandas as pd
@@ -93,6 +104,12 @@ for var_name, variable in codebook.variables.items():
         print(formatter.format_univariate(result))
 "
 ```
+
+**Generated Output:**
+Each example produces:
+- `qa_pairs.jsonl`: Enhanced Q/A pairs with visual metadata
+- `plots/`: Publication-quality visualizations (PNG files)  
+- `insights.json`: Statistical analysis results
 
 ### ANES (Advanced)
 ```bash
@@ -165,15 +182,27 @@ examples/
 ├── iris/                  # Iris flowers dataset
 │   ├── README.md
 │   ├── data.csv
-│   └── codebook.json
-├── employee/              # Employee survey data
+│   ├── codebook.json
+│   ├── run_analysis.py    # Complete multimodal analysis
+│   ├── qa_pairs.jsonl     # 39 Q/A pairs with visual metadata
+│   ├── insights.json      # Statistical results
+│   └── plots/             # 15 visualizations (PNG files)
+├── employee/              # Employee survey data  
 │   ├── README.md
 │   ├── data.csv
-│   └── codebook.json
+│   ├── codebook.json
+│   ├── run_analysis.py    # Complete multimodal analysis
+│   ├── qa_pairs.jsonl     # 35 Q/A pairs with visual metadata
+│   ├── insights.json      # Statistical results
+│   └── plots/             # 15 visualizations (PNG files)
 ├── titanic/               # Titanic survival data
 │   ├── README.md
 │   ├── data.csv
-│   └── codebook.json
+│   ├── codebook.json
+│   ├── run_analysis.py    # Complete multimodal analysis
+│   ├── qa_pairs.jsonl     # 28 Q/A pairs with visual metadata
+│   ├── insights.json      # Statistical results
+│   └── plots/             # 15 visualizations (PNG files)
 ├── anes/                  # ANES political survey (advanced)
 │   ├── README.md
 │   ├── parse_metadata.py
@@ -195,6 +224,9 @@ examples/
 
 1. Start with `basic_usage.py` to learn the fundamentals
 2. Try `simple_survey/` for a complete workflow
-3. Explore domain-specific examples (iris, employee, titanic)
-4. Tackle `anes/` for advanced, real-world usage
-5. Adapt examples to your own datasets
+3. **Run multimodal examples**: `cd iris && python run_analysis.py` for enhanced Q/A generation
+4. **Explore visual metadata**: Check the `plots/` directories and `qa_pairs.jsonl` format
+5. Explore domain-specific examples (iris, employee, titanic) for different data types
+6. **Build CLIP-style datasets**: Use the multimodal Q/A pairs for AI training
+7. Tackle `anes/` for advanced, real-world usage
+8. Adapt examples to your own datasets with visualization requirements

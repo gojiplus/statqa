@@ -11,8 +11,11 @@ from statqa.interpretation.formatter import InsightFormatter
 from statqa.metadata.schema import Codebook
 from statqa.qa.generator import QAGenerator
 
+
 # Get script directory
 script_dir = Path(__file__).parent
+plots_dir = script_dir / "plots"
+plots_dir.mkdir(exist_ok=True)
 
 # Load data and codebook
 data = pd.read_csv(script_dir / "data.csv")
@@ -21,6 +24,7 @@ with open(script_dir / "codebook.json") as f:
 
 # Convert variables dict to Codebook
 from statqa.metadata.schema import Variable
+
 
 variables = {}
 for var_name, var_data in variables_dict.items():
@@ -53,8 +57,16 @@ for var_name, variable in codebook.variables.items():
         insight_text = formatter.format_univariate(result)
         insights.append({"vars": [var_name], "insight": insight_text, "type": "univariate"})
 
-        # Generate QA pairs
-        qa_pairs = qa_gen.generate_qa_pairs(result, insight_text, variables=[var_name])
+        # Generate visual metadata
+        plot_data = {
+            "data": data,
+            "variables": codebook.variables,
+            "output_path": plots_dir / f"univariate_{var_name}.png"
+        }
+        visual_metadata = qa_gen.generate_visual_metadata(result, variables=[var_name], plot_data=plot_data)
+
+        # Generate QA pairs with visual data
+        qa_pairs = qa_gen.generate_qa_pairs(result, insight_text, variables=[var_name], visual_data=visual_metadata)
         for qa in qa_pairs:
             qa["vars"] = [var_name]
         all_qa_pairs.extend(qa_pairs)
@@ -77,8 +89,16 @@ for i, var1 in enumerate(var_list):
                 }
             )
 
-            # Generate QA pairs
-            qa_pairs = qa_gen.generate_qa_pairs(result, insight_text, variables=[var1.name, var2.name])
+            # Generate visual metadata
+            plot_data = {
+                "data": data,
+                "variables": codebook.variables,
+                "output_path": plots_dir / f"bivariate_{var1.name}_{var2.name}.png"
+            }
+            visual_metadata = qa_gen.generate_visual_metadata(result, variables=[var1.name, var2.name], plot_data=plot_data)
+
+            # Generate QA pairs with visual data
+            qa_pairs = qa_gen.generate_qa_pairs(result, insight_text, variables=[var1.name, var2.name], visual_data=visual_metadata)
             for qa in qa_pairs:
                 qa["vars"] = [var1.name, var2.name]
             all_qa_pairs.extend(qa_pairs)

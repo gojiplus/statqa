@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "statqa"
-version = "0.1.0"
+version = "0.2.0"
 description = "Automatically extract structured facts, insights, and Q/A pairs from tabular datasets"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -57,6 +57,9 @@ llm = [
 pdf = [
     "pdfplumber>=0.10.0",
 ]
+statistical-formats = [
+    "pyreadstat>=1.3.0",
+]
 dev = [
     "pytest>=7.4.0",
     "pytest-cov>=4.1.0",
@@ -76,7 +79,7 @@ docs = [
     "sphinx-autodoc-typehints>=1.24.0",
 ]
 all = [
-    "statqa[llm,pdf,dev,docs]",
+    "statqa[llm,pdf,statistical-formats,dev,docs]",
 ]
 
 [project.urls]
