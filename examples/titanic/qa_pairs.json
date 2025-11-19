@@ -4,11 +4,10 @@
     "answer": "**Survived**: most common category is '0' (60.2%), N=400. Distribution: 0: 60.2%, 1: 39.8% [high diversity].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.076250+00:00",
+      "generated_at": "2025-11-19T20:09:27.659305+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "survived"
       ],
@@ -23,39 +22,28 @@
         "gini_simpson = 1 - np.sum(props**2)  # Result: 0.4790"
       ]
     },
+    "variables": [
+      "survived"
+    ],
     "visual": {
-      "plot_type": "bar_chart",
+      "type": "bar_chart",
+      "file": "plots/univariate_survived.png",
       "caption": "Bar chart showing survived frequencies across 2 categories (N=400). Most common category is '0' (60.2%).",
       "alt_text": "Bar chart with 2 categories of survived on x-axis and count frequencies on y-axis.",
-      "visual_elements": {
-        "chart_type": "bar_chart",
-        "x_axis": "Survived",
-        "key_features": [
-          "frequency bars"
-        ],
-        "colors": [
-          "viridis color palette"
-        ],
-        "annotations": [],
-        "y_axis": "Count"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_survived.png",
-      "generation_code": "plot_factory.plot_univariate(data['survived'], survived_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_survived.png')"
-    },
-    "vars": [
-      "survived"
-    ]
+      "features": [
+        "frequency_bars"
+      ]
+    }
   },
   {
     "question": "What is the frequency distribution of Passenger Class?",
     "answer": "**Passenger Class**: most common category is '3' (54.8%), N=400. Distribution: 3: 54.8%, 1: 25.0%, 2: 20.2% [high diversity].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.127541+00:00",
+      "generated_at": "2025-11-19T20:09:27.710570+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "pclass"
       ],
@@ -70,39 +58,28 @@
         "gini_simpson = 1 - np.sum(props**2)  # Result: 0.5967"
       ]
     },
+    "variables": [
+      "pclass"
+    ],
     "visual": {
-      "plot_type": "bar_chart",
+      "type": "bar_chart",
+      "file": "plots/univariate_pclass.png",
       "caption": "Bar chart showing passenger class frequencies across 3 categories (N=400). Most common category is '3' (54.8%).",
       "alt_text": "Bar chart with 3 categories of passenger class on x-axis and count frequencies on y-axis.",
-      "visual_elements": {
-        "chart_type": "bar_chart",
-        "x_axis": "Passenger Class",
-        "key_features": [
-          "frequency bars"
-        ],
-        "colors": [
-          "viridis color palette"
-        ],
-        "annotations": [],
-        "y_axis": "Count"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_pclass.png",
-      "generation_code": "plot_factory.plot_univariate(data['pclass'], pclass_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_pclass.png')"
-    },
-    "vars": [
-      "pclass"
-    ]
+      "features": [
+        "frequency_bars"
+      ]
+    }
   },
   {
     "question": "What is the frequency distribution of Sex?",
     "answer": "**Sex**: most common category is 'Male' (66.8%), N=400. Distribution: Male: 66.8%, Female: 33.2% [high diversity].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.176585+00:00",
+      "generated_at": "2025-11-19T20:09:27.761145+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "sex"
       ],
@@ -117,39 +94,28 @@
         "gini_simpson = 1 - np.sum(props**2)  # Result: 0.4439"
       ]
     },
+    "variables": [
+      "sex"
+    ],
     "visual": {
-      "plot_type": "bar_chart",
+      "type": "bar_chart",
+      "file": "plots/univariate_sex.png",
       "caption": "Bar chart showing sex frequencies across 2 categories (N=400). Most common category is 'Male' (66.8%).",
       "alt_text": "Bar chart with 2 categories of sex on x-axis and count frequencies on y-axis.",
-      "visual_elements": {
-        "chart_type": "bar_chart",
-        "x_axis": "Sex",
-        "key_features": [
-          "frequency bars"
-        ],
-        "colors": [
-          "viridis color palette"
-        ],
-        "annotations": [],
-        "y_axis": "Count"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_sex.png",
-      "generation_code": "plot_factory.plot_univariate(data['sex'], sex_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_sex.png')"
-    },
-    "vars": [
-      "sex"
-    ]
+      "features": [
+        "frequency_bars"
+      ]
+    }
   },
   {
     "question": "What is the distribution of Age?",
     "answer": "**Age**: mean=31.12, median=30.75, std=13.57, range=[1.00, 66.90]. N=400 [0.2% outliers].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.250056+00:00",
+      "generated_at": "2025-11-19T20:09:27.833602+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "age"
       ],
@@ -167,43 +133,29 @@
         "scipy.stats.shapiro(valid_data)  # stat=0.9939, p=0.1095"
       ]
     },
+    "variables": [
+      "age"
+    ],
     "visual": {
-      "plot_type": "histogram",
+      "type": "histogram",
+      "file": "plots/univariate_age.png",
       "caption": "Histogram showing age distribution with mean=31.12 and std=13.57 (N=400). The data shows a approximately normal distribution.",
       "alt_text": "Histogram chart with age values on x-axis and frequency density on y-axis, showing distribution shape with 400 observations.",
-      "visual_elements": {
-        "chart_type": "histogram",
-        "x_axis": "Age",
-        "key_features": [
-          "distribution shape",
-          "mean line"
-        ],
-        "colors": [
-          "blue bars",
-          "red mean line"
-        ],
-        "annotations": [
-          "Mean: 31.12"
-        ],
-        "y_axis": "Density"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_age.png",
-      "generation_code": "plot_factory.plot_univariate(data['age'], age_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_age.png')"
-    },
-    "vars": [
-      "age"
-    ]
+      "features": [
+        "distribution_shape",
+        "mean_line"
+      ]
+    }
   },
   {
     "question": "How variable is Age?",
     "answer": "**Age**: mean=31.12, median=30.75, std=13.57, range=[1.00, 66.90]. N=400 [0.2% outliers].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.250056+00:00",
+      "generated_at": "2025-11-19T20:09:27.833602+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "age"
       ],
@@ -221,43 +173,29 @@
         "scipy.stats.shapiro(valid_data)  # stat=0.9939, p=0.1095"
       ]
     },
+    "variables": [
+      "age"
+    ],
     "visual": {
-      "plot_type": "histogram",
+      "type": "histogram",
+      "file": "plots/univariate_age.png",
       "caption": "Histogram showing age distribution with mean=31.12 and std=13.57 (N=400). The data shows a approximately normal distribution.",
       "alt_text": "Histogram chart with age values on x-axis and frequency density on y-axis, showing distribution shape with 400 observations.",
-      "visual_elements": {
-        "chart_type": "histogram",
-        "x_axis": "Age",
-        "key_features": [
-          "distribution shape",
-          "mean line"
-        ],
-        "colors": [
-          "blue bars",
-          "red mean line"
-        ],
-        "annotations": [
-          "Mean: 31.12"
-        ],
-        "y_axis": "Density"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_age.png",
-      "generation_code": "plot_factory.plot_univariate(data['age'], age_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_age.png')"
-    },
-    "vars": [
-      "age"
-    ]
+      "features": [
+        "distribution_shape",
+        "mean_line"
+      ]
+    }
   },
   {
     "question": "What is the distribution of Fare?",
     "answer": "**Fare**: mean=36.02, median=21.42, std=44.73, range=[5.00, 489.36]. N=400 [non-normal distribution, 9.0% outliers, highly skewed].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.338259+00:00",
+      "generated_at": "2025-11-19T20:09:27.921372+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "fare"
       ],
@@ -275,44 +213,30 @@
         "scipy.stats.shapiro(valid_data)  # stat=0.6189, p=0.0000"
       ]
     },
+    "variables": [
+      "fare"
+    ],
     "visual": {
-      "plot_type": "histogram",
+      "type": "histogram",
+      "file": "plots/univariate_fare.png",
       "caption": "Histogram showing fare distribution with mean=36.02 and std=44.73 (N=400). The data shows a right-skewed distribution.",
       "alt_text": "Histogram chart with fare values on x-axis and frequency density on y-axis, showing distribution shape with 400 observations.",
-      "visual_elements": {
-        "chart_type": "histogram",
-        "x_axis": "Fare",
-        "key_features": [
-          "distribution shape",
-          "mean line",
-          "skewed distribution"
-        ],
-        "colors": [
-          "blue bars",
-          "red mean line"
-        ],
-        "annotations": [
-          "Mean: 36.02"
-        ],
-        "y_axis": "Density"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_fare.png",
-      "generation_code": "plot_factory.plot_univariate(data['fare'], fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_fare.png')"
-    },
-    "vars": [
-      "fare"
-    ]
+      "features": [
+        "distribution_shape",
+        "mean_line",
+        "skewed_distribution"
+      ]
+    }
   },
   {
     "question": "How variable is Fare?",
     "answer": "**Fare**: mean=36.02, median=21.42, std=44.73, range=[5.00, 489.36]. N=400 [non-normal distribution, 9.0% outliers, highly skewed].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.338259+00:00",
+      "generated_at": "2025-11-19T20:09:27.921372+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "fare"
       ],
@@ -330,914 +254,667 @@
         "scipy.stats.shapiro(valid_data)  # stat=0.6189, p=0.0000"
       ]
     },
+    "variables": [
+      "fare"
+    ],
     "visual": {
-      "plot_type": "histogram",
+      "type": "histogram",
+      "file": "plots/univariate_fare.png",
       "caption": "Histogram showing fare distribution with mean=36.02 and std=44.73 (N=400). The data shows a right-skewed distribution.",
       "alt_text": "Histogram chart with fare values on x-axis and frequency density on y-axis, showing distribution shape with 400 observations.",
-      "visual_elements": {
-        "chart_type": "histogram",
-        "x_axis": "Fare",
-        "key_features": [
-          "distribution shape",
-          "mean line",
-          "skewed distribution"
-        ],
-        "colors": [
-          "blue bars",
-          "red mean line"
-        ],
-        "annotations": [
-          "Mean: 36.02"
-        ],
-        "y_axis": "Density"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_fare.png",
-      "generation_code": "plot_factory.plot_univariate(data['fare'], fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/univariate_fare.png')"
-    },
-    "vars": [
-      "fare"
-    ]
+      "features": [
+        "distribution_shape",
+        "mean_line",
+        "skewed_distribution"
+      ]
+    }
   },
   {
     "question": "How does age differ across survived groups?",
     "answer": "**age** differs across **survived** groups: 0: 31.02, 1: 31.25 (t-test: p=0.870), Cohen's d=-0.02 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.526760+00:00",
+      "generated_at": "2025-11-19T20:09:28.113189+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "survived",
         "age"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Age across 2 survived groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 2 survived categories on x-axis and Age values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Survived",
-        "y_axis": "Age",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_survived_age.png",
-      "generation_code": "plot_factory.plot_bivariate(data, survived_var, age_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_survived_age.png')"
-    },
-    "vars": [
+    "variables": [
       "survived",
       "age"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_survived_age.png",
+      "caption": "Box plots comparing Age across 2 survived groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 2 survived categories on x-axis and Age values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "What is the relationship between survived and age?",
     "answer": "**age** differs across **survived** groups: 0: 31.02, 1: 31.25 (t-test: p=0.870), Cohen's d=-0.02 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.526760+00:00",
+      "generated_at": "2025-11-19T20:09:28.113189+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "survived",
         "age"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Age across 2 survived groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 2 survived categories on x-axis and Age values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Survived",
-        "y_axis": "Age",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_survived_age.png",
-      "generation_code": "plot_factory.plot_bivariate(data, survived_var, age_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_survived_age.png')"
-    },
-    "vars": [
+    "variables": [
       "survived",
       "age"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_survived_age.png",
+      "caption": "Box plots comparing Age across 2 survived groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 2 survived categories on x-axis and Age values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "Does age vary by survived?",
     "answer": "**age** differs across **survived** groups: 0: 31.02, 1: 31.25 (t-test: p=0.870), Cohen's d=-0.02 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.526760+00:00",
+      "generated_at": "2025-11-19T20:09:28.113189+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "survived",
         "age"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Age across 2 survived groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 2 survived categories on x-axis and Age values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Survived",
-        "y_axis": "Age",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_survived_age.png",
-      "generation_code": "plot_factory.plot_bivariate(data, survived_var, age_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_survived_age.png')"
-    },
-    "vars": [
+    "variables": [
       "survived",
       "age"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_survived_age.png",
+      "caption": "Box plots comparing Age across 2 survived groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 2 survived categories on x-axis and Age values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "How does fare differ across survived groups?",
     "answer": "**fare** differs across **survived** groups: 0: 36.86, 1: 34.73 (t-test: p=0.642), Cohen's d=0.05 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.581746+00:00",
+      "generated_at": "2025-11-19T20:09:28.169039+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "survived",
         "fare"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Fare across 2 survived groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 2 survived categories on x-axis and Fare values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Survived",
-        "y_axis": "Fare",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_survived_fare.png",
-      "generation_code": "plot_factory.plot_bivariate(data, survived_var, fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_survived_fare.png')"
-    },
-    "vars": [
+    "variables": [
       "survived",
       "fare"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_survived_fare.png",
+      "caption": "Box plots comparing Fare across 2 survived groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 2 survived categories on x-axis and Fare values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "What is the relationship between survived and fare?",
     "answer": "**fare** differs across **survived** groups: 0: 36.86, 1: 34.73 (t-test: p=0.642), Cohen's d=0.05 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.581746+00:00",
+      "generated_at": "2025-11-19T20:09:28.169039+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "survived",
         "fare"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Fare across 2 survived groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 2 survived categories on x-axis and Fare values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Survived",
-        "y_axis": "Fare",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_survived_fare.png",
-      "generation_code": "plot_factory.plot_bivariate(data, survived_var, fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_survived_fare.png')"
-    },
-    "vars": [
+    "variables": [
       "survived",
       "fare"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_survived_fare.png",
+      "caption": "Box plots comparing Fare across 2 survived groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 2 survived categories on x-axis and Fare values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "Does fare vary by survived?",
     "answer": "**fare** differs across **survived** groups: 0: 36.86, 1: 34.73 (t-test: p=0.642), Cohen's d=0.05 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.581746+00:00",
+      "generated_at": "2025-11-19T20:09:28.169039+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "survived",
         "fare"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Fare across 2 survived groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 2 survived categories on x-axis and Fare values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Survived",
-        "y_axis": "Fare",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_survived_fare.png",
-      "generation_code": "plot_factory.plot_bivariate(data, survived_var, fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_survived_fare.png')"
-    },
-    "vars": [
+    "variables": [
       "survived",
       "fare"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_survived_fare.png",
+      "caption": "Box plots comparing Fare across 2 survived groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 2 survived categories on x-axis and Fare values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "How does age differ across pclass groups?",
     "answer": "**age** differs across **pclass** groups: 1: 30.55, 2: 31.16, 3: 31.36 (ANOVA: F=0.12, p=0.888), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.708232+00:00",
+      "generated_at": "2025-11-19T20:09:28.296234+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "pclass",
         "age"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Age across 3 passenger class groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 3 passenger class categories on x-axis and Age values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Passenger Class",
-        "y_axis": "Age",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_pclass_age.png",
-      "generation_code": "plot_factory.plot_bivariate(data, pclass_var, age_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_pclass_age.png')"
-    },
-    "vars": [
+    "variables": [
       "pclass",
       "age"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_pclass_age.png",
+      "caption": "Box plots comparing Age across 3 passenger class groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 3 passenger class categories on x-axis and Age values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "What is the relationship between pclass and age?",
     "answer": "**age** differs across **pclass** groups: 1: 30.55, 2: 31.16, 3: 31.36 (ANOVA: F=0.12, p=0.888), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.708232+00:00",
+      "generated_at": "2025-11-19T20:09:28.296234+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "pclass",
         "age"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Age across 3 passenger class groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 3 passenger class categories on x-axis and Age values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Passenger Class",
-        "y_axis": "Age",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_pclass_age.png",
-      "generation_code": "plot_factory.plot_bivariate(data, pclass_var, age_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_pclass_age.png')"
-    },
-    "vars": [
+    "variables": [
       "pclass",
       "age"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_pclass_age.png",
+      "caption": "Box plots comparing Age across 3 passenger class groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 3 passenger class categories on x-axis and Age values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "Does age vary by pclass?",
     "answer": "**age** differs across **pclass** groups: 1: 30.55, 2: 31.16, 3: 31.36 (ANOVA: F=0.12, p=0.888), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.708232+00:00",
+      "generated_at": "2025-11-19T20:09:28.296234+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "pclass",
         "age"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Age across 3 passenger class groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 3 passenger class categories on x-axis and Age values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Passenger Class",
-        "y_axis": "Age",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_pclass_age.png",
-      "generation_code": "plot_factory.plot_bivariate(data, pclass_var, age_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_pclass_age.png')"
-    },
-    "vars": [
+    "variables": [
       "pclass",
       "age"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_pclass_age.png",
+      "caption": "Box plots comparing Age across 3 passenger class groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 3 passenger class categories on x-axis and Age values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "How does fare differ across pclass groups?",
     "answer": "**fare** differs across **pclass** groups: 1: 37.22, 2: 32.41, 3: 36.80 (ANOVA: F=0.33, p=0.718), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.768390+00:00",
+      "generated_at": "2025-11-19T20:09:28.356500+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "pclass",
         "fare"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Fare across 3 passenger class groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 3 passenger class categories on x-axis and Fare values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Passenger Class",
-        "y_axis": "Fare",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_pclass_fare.png",
-      "generation_code": "plot_factory.plot_bivariate(data, pclass_var, fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_pclass_fare.png')"
-    },
-    "vars": [
+    "variables": [
       "pclass",
       "fare"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_pclass_fare.png",
+      "caption": "Box plots comparing Fare across 3 passenger class groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 3 passenger class categories on x-axis and Fare values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "What is the relationship between pclass and fare?",
     "answer": "**fare** differs across **pclass** groups: 1: 37.22, 2: 32.41, 3: 36.80 (ANOVA: F=0.33, p=0.718), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.768390+00:00",
+      "generated_at": "2025-11-19T20:09:28.356500+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "pclass",
         "fare"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Fare across 3 passenger class groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 3 passenger class categories on x-axis and Fare values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Passenger Class",
-        "y_axis": "Fare",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_pclass_fare.png",
-      "generation_code": "plot_factory.plot_bivariate(data, pclass_var, fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_pclass_fare.png')"
-    },
-    "vars": [
+    "variables": [
       "pclass",
       "fare"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_pclass_fare.png",
+      "caption": "Box plots comparing Fare across 3 passenger class groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 3 passenger class categories on x-axis and Fare values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "Does fare vary by pclass?",
     "answer": "**fare** differs across **pclass** groups: 1: 37.22, 2: 32.41, 3: 36.80 (ANOVA: F=0.33, p=0.718), \u03b7\u00b2=0.00 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.768390+00:00",
+      "generated_at": "2025-11-19T20:09:28.356500+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "pclass",
         "fare"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Fare across 3 passenger class groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 3 passenger class categories on x-axis and Fare values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Passenger Class",
-        "y_axis": "Fare",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_pclass_fare.png",
-      "generation_code": "plot_factory.plot_bivariate(data, pclass_var, fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_pclass_fare.png')"
-    },
-    "vars": [
+    "variables": [
       "pclass",
       "fare"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_pclass_fare.png",
+      "caption": "Box plots comparing Fare across 3 passenger class groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 3 passenger class categories on x-axis and Fare values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "How does age differ across sex groups?",
     "answer": "**age** differs across **sex** groups: Female: 30.67, Male: 31.34 (t-test: p=0.643), Cohen's d=-0.05 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.825300+00:00",
+      "generated_at": "2025-11-19T20:09:28.413576+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "sex",
         "age"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Age across 2 sex groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 2 sex categories on x-axis and Age values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Sex",
-        "y_axis": "Age",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_sex_age.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sex_var, age_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_sex_age.png')"
-    },
-    "vars": [
+    "variables": [
       "sex",
       "age"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_sex_age.png",
+      "caption": "Box plots comparing Age across 2 sex groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 2 sex categories on x-axis and Age values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "What is the relationship between sex and age?",
     "answer": "**age** differs across **sex** groups: Female: 30.67, Male: 31.34 (t-test: p=0.643), Cohen's d=-0.05 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.825300+00:00",
+      "generated_at": "2025-11-19T20:09:28.413576+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "sex",
         "age"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Age across 2 sex groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 2 sex categories on x-axis and Age values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Sex",
-        "y_axis": "Age",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_sex_age.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sex_var, age_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_sex_age.png')"
-    },
-    "vars": [
+    "variables": [
       "sex",
       "age"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_sex_age.png",
+      "caption": "Box plots comparing Age across 2 sex groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 2 sex categories on x-axis and Age values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "Does age vary by sex?",
     "answer": "**age** differs across **sex** groups: Female: 30.67, Male: 31.34 (t-test: p=0.643), Cohen's d=-0.05 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.825300+00:00",
+      "generated_at": "2025-11-19T20:09:28.413576+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "sex",
         "age"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Age across 2 sex groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 2 sex categories on x-axis and Age values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Sex",
-        "y_axis": "Age",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_sex_age.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sex_var, age_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_sex_age.png')"
-    },
-    "vars": [
+    "variables": [
       "sex",
       "age"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_sex_age.png",
+      "caption": "Box plots comparing Age across 2 sex groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 2 sex categories on x-axis and Age values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "How does fare differ across sex groups?",
     "answer": "**fare** differs across **sex** groups: Female: 31.66, Male: 38.18 (t-test: p=0.170), Cohen's d=-0.15 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.878547+00:00",
+      "generated_at": "2025-11-19T20:09:28.466860+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "sex",
         "fare"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Fare across 2 sex groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 2 sex categories on x-axis and Fare values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Sex",
-        "y_axis": "Fare",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_sex_fare.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sex_var, fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_sex_fare.png')"
-    },
-    "vars": [
+    "variables": [
       "sex",
       "fare"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_sex_fare.png",
+      "caption": "Box plots comparing Fare across 2 sex groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 2 sex categories on x-axis and Fare values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "What is the relationship between sex and fare?",
     "answer": "**fare** differs across **sex** groups: Female: 31.66, Male: 38.18 (t-test: p=0.170), Cohen's d=-0.15 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.878547+00:00",
+      "generated_at": "2025-11-19T20:09:28.466860+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "sex",
         "fare"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Fare across 2 sex groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 2 sex categories on x-axis and Fare values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Sex",
-        "y_axis": "Fare",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_sex_fare.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sex_var, fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_sex_fare.png')"
-    },
-    "vars": [
+    "variables": [
       "sex",
       "fare"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_sex_fare.png",
+      "caption": "Box plots comparing Fare across 2 sex groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 2 sex categories on x-axis and Fare values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "Does fare vary by sex?",
     "answer": "**fare** differs across **sex** groups: Female: 31.66, Male: 38.18 (t-test: p=0.170), Cohen's d=-0.15 (negligible).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.878547+00:00",
+      "generated_at": "2025-11-19T20:09:28.466860+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "sex",
         "fare"
       ]
     },
-    "visual": {
-      "plot_type": "boxplot",
-      "caption": "Box plots comparing Fare across 2 sex groups (N=400). Shows distribution differences and potential outliers.",
-      "alt_text": "Box plot chart with 2 sex categories on x-axis and Fare values on y-axis.",
-      "visual_elements": {
-        "chart_type": "boxplot",
-        "x_axis": "Sex",
-        "y_axis": "Fare",
-        "key_features": [
-          "boxes",
-          "whiskers",
-          "outliers",
-          "medians"
-        ],
-        "colors": [
-          "Set2 color palette"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_sex_fare.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sex_var, fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_sex_fare.png')"
-    },
-    "vars": [
+    "variables": [
       "sex",
       "fare"
-    ]
+    ],
+    "visual": {
+      "type": "boxplot",
+      "file": "plots/bivariate_sex_fare.png",
+      "caption": "Box plots comparing Fare across 2 sex groups (N=400). Shows distribution differences and potential outliers.",
+      "alt_text": "Box plot chart with 2 sex categories on x-axis and Fare values on y-axis.",
+      "features": [
+        "boxes",
+        "whiskers",
+        "outliers",
+        "medians"
+      ]
+    }
   },
   {
     "question": "Are age and fare correlated?",
     "answer": "**age** and **fare** show a negligible negative correlation (r=-0.05, p=0.329, N=400) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.976204+00:00",
+      "generated_at": "2025-11-19T20:09:28.563123+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "age",
         "fare"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Age and Fare (N=400). Shows a weak negative correlation (r=-0.05) with regression line.",
-      "alt_text": "Scatter plot with Age on x-axis and Fare on y-axis, showing 400 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Age",
-        "y_axis": "Fare",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_age_fare.png",
-      "generation_code": "plot_factory.plot_bivariate(data, age_var, fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_age_fare.png')"
-    },
-    "vars": [
+    "variables": [
       "age",
       "fare"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_age_fare.png",
+      "caption": "Scatter plot showing the relationship between Age and Fare (N=400). Shows a weak negative correlation (r=-0.05) with regression line.",
+      "alt_text": "Scatter plot with Age on x-axis and Fare on y-axis, showing 400 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "What is the relationship between age and fare?",
     "answer": "**age** and **fare** show a negligible negative correlation (r=-0.05, p=0.329, N=400) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.976204+00:00",
+      "generated_at": "2025-11-19T20:09:28.563123+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "age",
         "fare"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Age and Fare (N=400). Shows a weak negative correlation (r=-0.05) with regression line.",
-      "alt_text": "Scatter plot with Age on x-axis and Fare on y-axis, showing 400 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Age",
-        "y_axis": "Fare",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_age_fare.png",
-      "generation_code": "plot_factory.plot_bivariate(data, age_var, fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_age_fare.png')"
-    },
-    "vars": [
+    "variables": [
       "age",
       "fare"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_age_fare.png",
+      "caption": "Scatter plot showing the relationship between Age and Fare (N=400). Shows a weak negative correlation (r=-0.05) with regression line.",
+      "alt_text": "Scatter plot with Age on x-axis and Fare on y-axis, showing 400 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "How strongly are age and fare associated?",
     "answer": "**age** and **fare** show a negligible negative correlation (r=-0.05, p=0.329, N=400) [not statistically significant], effect size: negligible.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:38.976204+00:00",
+      "generated_at": "2025-11-19T20:09:28.563123+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "age",
         "fare"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Age and Fare (N=400). Shows a weak negative correlation (r=-0.05) with regression line.",
-      "alt_text": "Scatter plot with Age on x-axis and Fare on y-axis, showing 400 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Age",
-        "y_axis": "Fare",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_age_fare.png",
-      "generation_code": "plot_factory.plot_bivariate(data, age_var, fare_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/titanic/plots/bivariate_age_fare.png')"
-    },
-    "vars": [
+    "variables": [
       "age",
       "fare"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_age_fare.png",
+      "caption": "Scatter plot showing the relationship between Age and Fare (N=400). Shows a weak negative correlation (r=-0.05) with regression line.",
+      "alt_text": "Scatter plot with Age on x-axis and Fare on y-axis, showing 400 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   }
 ]

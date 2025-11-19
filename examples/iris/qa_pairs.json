@@ -4,11 +4,10 @@
     "answer": "**Sepal Length**: mean=5.84, median=5.80, std=0.83, range=[4.30, 7.90]. N=150 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.354188+00:00",
+      "generated_at": "2025-11-19T19:57:28.784209+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "sepal_length"
       ],
@@ -26,43 +25,29 @@
         "scipy.stats.shapiro(valid_data)  # stat=0.9761, p=0.0102"
       ]
     },
+    "variables": [
+      "sepal_length"
+    ],
     "visual": {
-      "plot_type": "histogram",
+      "type": "histogram",
+      "file": "plots/univariate_sepal_length.png",
       "caption": "Histogram showing sepal length distribution with mean=5.84 and std=0.83 (N=150). The data shows a approximately normal distribution.",
       "alt_text": "Histogram chart with sepal length values on x-axis and frequency density on y-axis, showing distribution shape with 150 observations.",
-      "visual_elements": {
-        "chart_type": "histogram",
-        "x_axis": "Sepal Length",
-        "key_features": [
-          "distribution shape",
-          "mean line"
-        ],
-        "colors": [
-          "blue bars",
-          "red mean line"
-        ],
-        "annotations": [
-          "Mean: 5.84"
-        ],
-        "y_axis": "Density"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_sepal_length.png",
-      "generation_code": "plot_factory.plot_univariate(data['sepal_length'], sepal_length_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_sepal_length.png')"
-    },
-    "vars": [
-      "sepal_length"
-    ]
+      "features": [
+        "distribution_shape",
+        "mean_line"
+      ]
+    }
   },
   {
     "question": "How variable is Sepal Length?",
     "answer": "**Sepal Length**: mean=5.84, median=5.80, std=0.83, range=[4.30, 7.90]. N=150 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.354188+00:00",
+      "generated_at": "2025-11-19T19:57:28.784209+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "sepal_length"
       ],
@@ -80,43 +65,29 @@
         "scipy.stats.shapiro(valid_data)  # stat=0.9761, p=0.0102"
       ]
     },
+    "variables": [
+      "sepal_length"
+    ],
     "visual": {
-      "plot_type": "histogram",
+      "type": "histogram",
+      "file": "plots/univariate_sepal_length.png",
       "caption": "Histogram showing sepal length distribution with mean=5.84 and std=0.83 (N=150). The data shows a approximately normal distribution.",
       "alt_text": "Histogram chart with sepal length values on x-axis and frequency density on y-axis, showing distribution shape with 150 observations.",
-      "visual_elements": {
-        "chart_type": "histogram",
-        "x_axis": "Sepal Length",
-        "key_features": [
-          "distribution shape",
-          "mean line"
-        ],
-        "colors": [
-          "blue bars",
-          "red mean line"
-        ],
-        "annotations": [
-          "Mean: 5.84"
-        ],
-        "y_axis": "Density"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_sepal_length.png",
-      "generation_code": "plot_factory.plot_univariate(data['sepal_length'], sepal_length_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_sepal_length.png')"
-    },
-    "vars": [
-      "sepal_length"
-    ]
+      "features": [
+        "distribution_shape",
+        "mean_line"
+      ]
+    }
   },
   {
     "question": "What is the distribution of Sepal Width?",
     "answer": "**Sepal Width**: mean=3.06, median=3.00, std=0.44, range=[2.00, 4.40]. N=150 [2.7% outliers].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.426236+00:00",
+      "generated_at": "2025-11-19T19:57:28.853897+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "sepal_width"
       ],
@@ -134,43 +105,29 @@
         "scipy.stats.shapiro(valid_data)  # stat=0.9849, p=0.1012"
       ]
     },
+    "variables": [
+      "sepal_width"
+    ],
     "visual": {
-      "plot_type": "histogram",
+      "type": "histogram",
+      "file": "plots/univariate_sepal_width.png",
       "caption": "Histogram showing sepal width distribution with mean=3.06 and std=0.44 (N=150). The data shows a approximately normal distribution.",
       "alt_text": "Histogram chart with sepal width values on x-axis and frequency density on y-axis, showing distribution shape with 150 observations.",
-      "visual_elements": {
-        "chart_type": "histogram",
-        "x_axis": "Sepal Width",
-        "key_features": [
-          "distribution shape",
-          "mean line"
-        ],
-        "colors": [
-          "blue bars",
-          "red mean line"
-        ],
-        "annotations": [
-          "Mean: 3.06"
-        ],
-        "y_axis": "Density"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_sepal_width.png",
-      "generation_code": "plot_factory.plot_univariate(data['sepal_width'], sepal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_sepal_width.png')"
-    },
-    "vars": [
-      "sepal_width"
-    ]
+      "features": [
+        "distribution_shape",
+        "mean_line"
+      ]
+    }
   },
   {
     "question": "How variable is Sepal Width?",
     "answer": "**Sepal Width**: mean=3.06, median=3.00, std=0.44, range=[2.00, 4.40]. N=150 [2.7% outliers].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.426236+00:00",
+      "generated_at": "2025-11-19T19:57:28.853897+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "sepal_width"
       ],
@@ -188,43 +145,29 @@
         "scipy.stats.shapiro(valid_data)  # stat=0.9849, p=0.1012"
       ]
     },
+    "variables": [
+      "sepal_width"
+    ],
     "visual": {
-      "plot_type": "histogram",
+      "type": "histogram",
+      "file": "plots/univariate_sepal_width.png",
       "caption": "Histogram showing sepal width distribution with mean=3.06 and std=0.44 (N=150). The data shows a approximately normal distribution.",
       "alt_text": "Histogram chart with sepal width values on x-axis and frequency density on y-axis, showing distribution shape with 150 observations.",
-      "visual_elements": {
-        "chart_type": "histogram",
-        "x_axis": "Sepal Width",
-        "key_features": [
-          "distribution shape",
-          "mean line"
-        ],
-        "colors": [
-          "blue bars",
-          "red mean line"
-        ],
-        "annotations": [
-          "Mean: 3.06"
-        ],
-        "y_axis": "Density"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_sepal_width.png",
-      "generation_code": "plot_factory.plot_univariate(data['sepal_width'], sepal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_sepal_width.png')"
-    },
-    "vars": [
-      "sepal_width"
-    ]
+      "features": [
+        "distribution_shape",
+        "mean_line"
+      ]
+    }
   },
   {
     "question": "What is the distribution of Petal Length?",
     "answer": "**Petal Length**: mean=3.76, median=4.35, std=1.77, range=[1.00, 6.90]. N=150 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.496273+00:00",
+      "generated_at": "2025-11-19T19:57:28.923973+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "petal_length"
       ],
@@ -242,43 +185,29 @@
         "scipy.stats.shapiro(valid_data)  # stat=0.8763, p=0.0000"
       ]
     },
+    "variables": [
+      "petal_length"
+    ],
     "visual": {
-      "plot_type": "histogram",
+      "type": "histogram",
+      "file": "plots/univariate_petal_length.png",
       "caption": "Histogram showing petal length distribution with mean=3.76 and std=1.77 (N=150). The data shows a approximately normal distribution.",
       "alt_text": "Histogram chart with petal length values on x-axis and frequency density on y-axis, showing distribution shape with 150 observations.",
-      "visual_elements": {
-        "chart_type": "histogram",
-        "x_axis": "Petal Length",
-        "key_features": [
-          "distribution shape",
-          "mean line"
-        ],
-        "colors": [
-          "blue bars",
-          "red mean line"
-        ],
-        "annotations": [
-          "Mean: 3.76"
-        ],
-        "y_axis": "Density"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_petal_length.png",
-      "generation_code": "plot_factory.plot_univariate(data['petal_length'], petal_length_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_petal_length.png')"
-    },
-    "vars": [
-      "petal_length"
-    ]
+      "features": [
+        "distribution_shape",
+        "mean_line"
+      ]
+    }
   },
   {
     "question": "How variable is Petal Length?",
     "answer": "**Petal Length**: mean=3.76, median=4.35, std=1.77, range=[1.00, 6.90]. N=150 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.496273+00:00",
+      "generated_at": "2025-11-19T19:57:28.923973+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "petal_length"
       ],
@@ -296,43 +225,29 @@
         "scipy.stats.shapiro(valid_data)  # stat=0.8763, p=0.0000"
       ]
     },
+    "variables": [
+      "petal_length"
+    ],
     "visual": {
-      "plot_type": "histogram",
+      "type": "histogram",
+      "file": "plots/univariate_petal_length.png",
       "caption": "Histogram showing petal length distribution with mean=3.76 and std=1.77 (N=150). The data shows a approximately normal distribution.",
       "alt_text": "Histogram chart with petal length values on x-axis and frequency density on y-axis, showing distribution shape with 150 observations.",
-      "visual_elements": {
-        "chart_type": "histogram",
-        "x_axis": "Petal Length",
-        "key_features": [
-          "distribution shape",
-          "mean line"
-        ],
-        "colors": [
-          "blue bars",
-          "red mean line"
-        ],
-        "annotations": [
-          "Mean: 3.76"
-        ],
-        "y_axis": "Density"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_petal_length.png",
-      "generation_code": "plot_factory.plot_univariate(data['petal_length'], petal_length_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_petal_length.png')"
-    },
-    "vars": [
-      "petal_length"
-    ]
+      "features": [
+        "distribution_shape",
+        "mean_line"
+      ]
+    }
   },
   {
     "question": "What is the distribution of Petal Width?",
     "answer": "**Petal Width**: mean=1.20, median=1.30, std=0.76, range=[0.10, 2.50]. N=150 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.566445+00:00",
+      "generated_at": "2025-11-19T19:57:28.996534+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "petal_width"
       ],
@@ -350,43 +265,29 @@
         "scipy.stats.shapiro(valid_data)  # stat=0.9018, p=0.0000"
       ]
     },
+    "variables": [
+      "petal_width"
+    ],
     "visual": {
-      "plot_type": "histogram",
+      "type": "histogram",
+      "file": "plots/univariate_petal_width.png",
       "caption": "Histogram showing petal width distribution with mean=1.20 and std=0.76 (N=150). The data shows a approximately normal distribution.",
       "alt_text": "Histogram chart with petal width values on x-axis and frequency density on y-axis, showing distribution shape with 150 observations.",
-      "visual_elements": {
-        "chart_type": "histogram",
-        "x_axis": "Petal Width",
-        "key_features": [
-          "distribution shape",
-          "mean line"
-        ],
-        "colors": [
-          "blue bars",
-          "red mean line"
-        ],
-        "annotations": [
-          "Mean: 1.20"
-        ],
-        "y_axis": "Density"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_petal_width.png",
-      "generation_code": "plot_factory.plot_univariate(data['petal_width'], petal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_petal_width.png')"
-    },
-    "vars": [
-      "petal_width"
-    ]
+      "features": [
+        "distribution_shape",
+        "mean_line"
+      ]
+    }
   },
   {
     "question": "How variable is Petal Width?",
     "answer": "**Petal Width**: mean=1.20, median=1.30, std=0.76, range=[0.10, 2.50]. N=150 [non-normal distribution].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.566445+00:00",
+      "generated_at": "2025-11-19T19:57:28.996534+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "petal_width"
       ],
@@ -404,43 +305,29 @@
         "scipy.stats.shapiro(valid_data)  # stat=0.9018, p=0.0000"
       ]
     },
+    "variables": [
+      "petal_width"
+    ],
     "visual": {
-      "plot_type": "histogram",
+      "type": "histogram",
+      "file": "plots/univariate_petal_width.png",
       "caption": "Histogram showing petal width distribution with mean=1.20 and std=0.76 (N=150). The data shows a approximately normal distribution.",
       "alt_text": "Histogram chart with petal width values on x-axis and frequency density on y-axis, showing distribution shape with 150 observations.",
-      "visual_elements": {
-        "chart_type": "histogram",
-        "x_axis": "Petal Width",
-        "key_features": [
-          "distribution shape",
-          "mean line"
-        ],
-        "colors": [
-          "blue bars",
-          "red mean line"
-        ],
-        "annotations": [
-          "Mean: 1.20"
-        ],
-        "y_axis": "Density"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_petal_width.png",
-      "generation_code": "plot_factory.plot_univariate(data['petal_width'], petal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_petal_width.png')"
-    },
-    "vars": [
-      "petal_width"
-    ]
+      "features": [
+        "distribution_shape",
+        "mean_line"
+      ]
+    }
   },
   {
     "question": "What is the frequency distribution of Iris Species?",
     "answer": "**Iris Species**: most common category is 'Iris setosa' (33.3%), N=150. Distribution: Iris setosa: 33.3%, Iris versicolor: 33.3%, Iris virginica: 33.3% [high diversity].",
     "type": "distributional",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.624903+00:00",
+      "generated_at": "2025-11-19T19:57:29.055583+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "unknown",
       "variables": [
         "species"
       ],
@@ -455,1203 +342,869 @@
         "gini_simpson = 1 - np.sum(props**2)  # Result: 0.6667"
       ]
     },
+    "variables": [
+      "species"
+    ],
     "visual": {
-      "plot_type": "bar_chart",
+      "type": "bar_chart",
+      "file": "plots/univariate_species.png",
       "caption": "Bar chart showing iris species frequencies across 3 categories (N=150). Most common category is 'Iris setosa' (33.3%).",
       "alt_text": "Bar chart with 3 categories of iris species on x-axis and count frequencies on y-axis.",
-      "visual_elements": {
-        "chart_type": "bar_chart",
-        "x_axis": "Iris Species",
-        "key_features": [
-          "frequency bars"
-        ],
-        "colors": [
-          "viridis color palette"
-        ],
-        "annotations": [],
-        "y_axis": "Count"
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_species.png",
-      "generation_code": "plot_factory.plot_univariate(data['species'], species_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/univariate_species.png')"
-    },
-    "vars": [
-      "species"
-    ]
+      "features": [
+        "frequency_bars"
+      ]
+    }
   },
   {
     "question": "Are sepal_length and sepal_width correlated?",
     "answer": "**sepal_length** and **sepal_width** show a weak negative correlation (r=-0.12, p=0.152, N=150) [not statistically significant], effect size: small.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.721798+00:00",
+      "generated_at": "2025-11-19T19:57:29.143677+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "sepal_width"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Length and Sepal Width (N=150). Shows a weak negative correlation (r=-0.12) with regression line.",
-      "alt_text": "Scatter plot with Sepal Length on x-axis and Sepal Width on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Length",
-        "y_axis": "Sepal Width",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_sepal_width.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_length_var, sepal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_sepal_width.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_length",
       "sepal_width"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_length_sepal_width.png",
+      "caption": "Scatter plot showing the relationship between Sepal Length and Sepal Width (N=150). Shows a weak negative correlation (r=-0.12) with regression line.",
+      "alt_text": "Scatter plot with Sepal Length on x-axis and Sepal Width on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "What is the relationship between sepal_length and sepal_width?",
     "answer": "**sepal_length** and **sepal_width** show a weak negative correlation (r=-0.12, p=0.152, N=150) [not statistically significant], effect size: small.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.721798+00:00",
+      "generated_at": "2025-11-19T19:57:29.143677+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "sepal_width"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Length and Sepal Width (N=150). Shows a weak negative correlation (r=-0.12) with regression line.",
-      "alt_text": "Scatter plot with Sepal Length on x-axis and Sepal Width on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Length",
-        "y_axis": "Sepal Width",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_sepal_width.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_length_var, sepal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_sepal_width.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_length",
       "sepal_width"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_length_sepal_width.png",
+      "caption": "Scatter plot showing the relationship between Sepal Length and Sepal Width (N=150). Shows a weak negative correlation (r=-0.12) with regression line.",
+      "alt_text": "Scatter plot with Sepal Length on x-axis and Sepal Width on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "How strongly are sepal_length and sepal_width associated?",
     "answer": "**sepal_length** and **sepal_width** show a weak negative correlation (r=-0.12, p=0.152, N=150) [not statistically significant], effect size: small.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.721798+00:00",
+      "generated_at": "2025-11-19T19:57:29.143677+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "sepal_width"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Length and Sepal Width (N=150). Shows a weak negative correlation (r=-0.12) with regression line.",
-      "alt_text": "Scatter plot with Sepal Length on x-axis and Sepal Width on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Length",
-        "y_axis": "Sepal Width",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_sepal_width.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_length_var, sepal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_sepal_width.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_length",
       "sepal_width"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_length_sepal_width.png",
+      "caption": "Scatter plot showing the relationship between Sepal Length and Sepal Width (N=150). Shows a weak negative correlation (r=-0.12) with regression line.",
+      "alt_text": "Scatter plot with Sepal Length on x-axis and Sepal Width on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "Are sepal_length and petal_length correlated?",
     "answer": "**sepal_length** and **petal_length** show a very strong positive correlation (r=0.87, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.813113+00:00",
+      "generated_at": "2025-11-19T19:57:29.238397+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "petal_length"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Length and Petal Length (N=150). Shows a strong positive correlation (r=0.87) with regression line.",
-      "alt_text": "Scatter plot with Sepal Length on x-axis and Petal Length on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Length",
-        "y_axis": "Petal Length",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_petal_length.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_length_var, petal_length_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_petal_length.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_length",
       "petal_length"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_length_petal_length.png",
+      "caption": "Scatter plot showing the relationship between Sepal Length and Petal Length (N=150). Shows a strong positive correlation (r=0.87) with regression line.",
+      "alt_text": "Scatter plot with Sepal Length on x-axis and Petal Length on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "What is the relationship between sepal_length and petal_length?",
     "answer": "**sepal_length** and **petal_length** show a very strong positive correlation (r=0.87, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.813113+00:00",
+      "generated_at": "2025-11-19T19:57:29.238397+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "petal_length"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Length and Petal Length (N=150). Shows a strong positive correlation (r=0.87) with regression line.",
-      "alt_text": "Scatter plot with Sepal Length on x-axis and Petal Length on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Length",
-        "y_axis": "Petal Length",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_petal_length.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_length_var, petal_length_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_petal_length.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_length",
       "petal_length"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_length_petal_length.png",
+      "caption": "Scatter plot showing the relationship between Sepal Length and Petal Length (N=150). Shows a strong positive correlation (r=0.87) with regression line.",
+      "alt_text": "Scatter plot with Sepal Length on x-axis and Petal Length on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "How strongly are sepal_length and petal_length associated?",
     "answer": "**sepal_length** and **petal_length** show a very strong positive correlation (r=0.87, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.813113+00:00",
+      "generated_at": "2025-11-19T19:57:29.238397+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "petal_length"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Length and Petal Length (N=150). Shows a strong positive correlation (r=0.87) with regression line.",
-      "alt_text": "Scatter plot with Sepal Length on x-axis and Petal Length on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Length",
-        "y_axis": "Petal Length",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_petal_length.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_length_var, petal_length_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_petal_length.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_length",
       "petal_length"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_length_petal_length.png",
+      "caption": "Scatter plot showing the relationship between Sepal Length and Petal Length (N=150). Shows a strong positive correlation (r=0.87) with regression line.",
+      "alt_text": "Scatter plot with Sepal Length on x-axis and Petal Length on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "Are sepal_length and petal_width correlated?",
     "answer": "**sepal_length** and **petal_width** show a very strong positive correlation (r=0.82, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.904160+00:00",
+      "generated_at": "2025-11-19T19:57:29.328282+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "petal_width"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Length and Petal Width (N=150). Shows a strong positive correlation (r=0.82) with regression line.",
-      "alt_text": "Scatter plot with Sepal Length on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Length",
-        "y_axis": "Petal Width",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_petal_width.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_length_var, petal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_petal_width.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_length",
       "petal_width"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_length_petal_width.png",
+      "caption": "Scatter plot showing the relationship between Sepal Length and Petal Width (N=150). Shows a strong positive correlation (r=0.82) with regression line.",
+      "alt_text": "Scatter plot with Sepal Length on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "What is the relationship between sepal_length and petal_width?",
     "answer": "**sepal_length** and **petal_width** show a very strong positive correlation (r=0.82, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.904160+00:00",
+      "generated_at": "2025-11-19T19:57:29.328282+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "petal_width"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Length and Petal Width (N=150). Shows a strong positive correlation (r=0.82) with regression line.",
-      "alt_text": "Scatter plot with Sepal Length on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Length",
-        "y_axis": "Petal Width",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_petal_width.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_length_var, petal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_petal_width.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_length",
       "petal_width"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_length_petal_width.png",
+      "caption": "Scatter plot showing the relationship between Sepal Length and Petal Width (N=150). Shows a strong positive correlation (r=0.82) with regression line.",
+      "alt_text": "Scatter plot with Sepal Length on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "How strongly are sepal_length and petal_width associated?",
     "answer": "**sepal_length** and **petal_width** show a very strong positive correlation (r=0.82, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.904160+00:00",
+      "generated_at": "2025-11-19T19:57:29.328282+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_length",
         "petal_width"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Length and Petal Width (N=150). Shows a strong positive correlation (r=0.82) with regression line.",
-      "alt_text": "Scatter plot with Sepal Length on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Length",
-        "y_axis": "Petal Width",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_petal_width.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_length_var, petal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_petal_width.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_length",
       "petal_width"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_length_petal_width.png",
+      "caption": "Scatter plot showing the relationship between Sepal Length and Petal Width (N=150). Shows a strong positive correlation (r=0.82) with regression line.",
+      "alt_text": "Scatter plot with Sepal Length on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "How does sepal_length differ across species groups?",
     "answer": "**sepal_length** differs across **species** groups: Iris setosa: 5.01, Iris versicolor: 5.94, Iris virginica: 6.59 (ANOVA: F=119.26, p=0.000), \u03b7\u00b2=0.62 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.942724+00:00",
+      "generated_at": "2025-11-19T19:57:29.371227+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "sepal_length",
         "species"
       ]
     },
-    "visual": {
-      "plot_type": "unknown",
-      "caption": "Bivariate plot showing Sepal Length vs Iris Species",
-      "alt_text": "Chart showing relationship between Sepal Length and Iris Species",
-      "visual_elements": {
-        "chart_type": "unknown",
-        "x_axis": "Sepal Length",
-        "y_axis": "Iris Species",
-        "key_features": [],
-        "colors": [],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_species.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_length_var, species_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_species.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_length",
       "species"
-    ]
+    ],
+    "visual": {
+      "type": "unknown",
+      "file": "plots/bivariate_sepal_length_species.png",
+      "caption": "Bivariate plot showing Sepal Length vs Iris Species",
+      "alt_text": "Chart showing relationship between Sepal Length and Iris Species",
+      "features": []
+    }
   },
   {
     "question": "What is the relationship between species and sepal_length?",
     "answer": "**sepal_length** differs across **species** groups: Iris setosa: 5.01, Iris versicolor: 5.94, Iris virginica: 6.59 (ANOVA: F=119.26, p=0.000), \u03b7\u00b2=0.62 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.942724+00:00",
+      "generated_at": "2025-11-19T19:57:29.371227+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "sepal_length",
         "species"
       ]
     },
-    "visual": {
-      "plot_type": "unknown",
-      "caption": "Bivariate plot showing Sepal Length vs Iris Species",
-      "alt_text": "Chart showing relationship between Sepal Length and Iris Species",
-      "visual_elements": {
-        "chart_type": "unknown",
-        "x_axis": "Sepal Length",
-        "y_axis": "Iris Species",
-        "key_features": [],
-        "colors": [],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_species.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_length_var, species_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_species.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_length",
       "species"
-    ]
+    ],
+    "visual": {
+      "type": "unknown",
+      "file": "plots/bivariate_sepal_length_species.png",
+      "caption": "Bivariate plot showing Sepal Length vs Iris Species",
+      "alt_text": "Chart showing relationship between Sepal Length and Iris Species",
+      "features": []
+    }
   },
   {
     "question": "Does sepal_length vary by species?",
     "answer": "**sepal_length** differs across **species** groups: Iris setosa: 5.01, Iris versicolor: 5.94, Iris virginica: 6.59 (ANOVA: F=119.26, p=0.000), \u03b7\u00b2=0.62 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:28.942724+00:00",
+      "generated_at": "2025-11-19T19:57:29.371227+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "sepal_length",
         "species"
       ]
     },
-    "visual": {
-      "plot_type": "unknown",
-      "caption": "Bivariate plot showing Sepal Length vs Iris Species",
-      "alt_text": "Chart showing relationship between Sepal Length and Iris Species",
-      "visual_elements": {
-        "chart_type": "unknown",
-        "x_axis": "Sepal Length",
-        "y_axis": "Iris Species",
-        "key_features": [],
-        "colors": [],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_species.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_length_var, species_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_length_species.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_length",
       "species"
-    ]
+    ],
+    "visual": {
+      "type": "unknown",
+      "file": "plots/bivariate_sepal_length_species.png",
+      "caption": "Bivariate plot showing Sepal Length vs Iris Species",
+      "alt_text": "Chart showing relationship between Sepal Length and Iris Species",
+      "features": []
+    }
   },
   {
     "question": "Are sepal_width and petal_length correlated?",
     "answer": "**sepal_width** and **petal_length** show a moderate negative correlation (r=-0.43, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.030026+00:00",
+      "generated_at": "2025-11-19T19:57:29.458182+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_width",
         "petal_length"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Width and Petal Length (N=150). Shows a moderate negative correlation (r=-0.43) with regression line.",
-      "alt_text": "Scatter plot with Sepal Width on x-axis and Petal Length on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Width",
-        "y_axis": "Petal Length",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_petal_length.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_width_var, petal_length_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_petal_length.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_width",
       "petal_length"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_width_petal_length.png",
+      "caption": "Scatter plot showing the relationship between Sepal Width and Petal Length (N=150). Shows a moderate negative correlation (r=-0.43) with regression line.",
+      "alt_text": "Scatter plot with Sepal Width on x-axis and Petal Length on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "What is the relationship between sepal_width and petal_length?",
     "answer": "**sepal_width** and **petal_length** show a moderate negative correlation (r=-0.43, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.030026+00:00",
+      "generated_at": "2025-11-19T19:57:29.458182+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_width",
         "petal_length"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Width and Petal Length (N=150). Shows a moderate negative correlation (r=-0.43) with regression line.",
-      "alt_text": "Scatter plot with Sepal Width on x-axis and Petal Length on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Width",
-        "y_axis": "Petal Length",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_petal_length.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_width_var, petal_length_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_petal_length.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_width",
       "petal_length"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_width_petal_length.png",
+      "caption": "Scatter plot showing the relationship between Sepal Width and Petal Length (N=150). Shows a moderate negative correlation (r=-0.43) with regression line.",
+      "alt_text": "Scatter plot with Sepal Width on x-axis and Petal Length on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "How strongly are sepal_width and petal_length associated?",
     "answer": "**sepal_width** and **petal_length** show a moderate negative correlation (r=-0.43, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.030026+00:00",
+      "generated_at": "2025-11-19T19:57:29.458182+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_width",
         "petal_length"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Width and Petal Length (N=150). Shows a moderate negative correlation (r=-0.43) with regression line.",
-      "alt_text": "Scatter plot with Sepal Width on x-axis and Petal Length on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Width",
-        "y_axis": "Petal Length",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_petal_length.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_width_var, petal_length_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_petal_length.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_width",
       "petal_length"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_width_petal_length.png",
+      "caption": "Scatter plot showing the relationship between Sepal Width and Petal Length (N=150). Shows a moderate negative correlation (r=-0.43) with regression line.",
+      "alt_text": "Scatter plot with Sepal Width on x-axis and Petal Length on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "Are sepal_width and petal_width correlated?",
     "answer": "**sepal_width** and **petal_width** show a moderate negative correlation (r=-0.37, p=0.000, N=150) [statistically significant], effect size: medium.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.117778+00:00",
+      "generated_at": "2025-11-19T19:57:29.547286+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_width",
         "petal_width"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Width and Petal Width (N=150). Shows a moderate negative correlation (r=-0.37) with regression line.",
-      "alt_text": "Scatter plot with Sepal Width on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Width",
-        "y_axis": "Petal Width",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_petal_width.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_width_var, petal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_petal_width.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_width",
       "petal_width"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_width_petal_width.png",
+      "caption": "Scatter plot showing the relationship between Sepal Width and Petal Width (N=150). Shows a moderate negative correlation (r=-0.37) with regression line.",
+      "alt_text": "Scatter plot with Sepal Width on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "What is the relationship between sepal_width and petal_width?",
     "answer": "**sepal_width** and **petal_width** show a moderate negative correlation (r=-0.37, p=0.000, N=150) [statistically significant], effect size: medium.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.117778+00:00",
+      "generated_at": "2025-11-19T19:57:29.547286+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_width",
         "petal_width"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Width and Petal Width (N=150). Shows a moderate negative correlation (r=-0.37) with regression line.",
-      "alt_text": "Scatter plot with Sepal Width on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Width",
-        "y_axis": "Petal Width",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_petal_width.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_width_var, petal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_petal_width.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_width",
       "petal_width"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_width_petal_width.png",
+      "caption": "Scatter plot showing the relationship between Sepal Width and Petal Width (N=150). Shows a moderate negative correlation (r=-0.37) with regression line.",
+      "alt_text": "Scatter plot with Sepal Width on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "How strongly are sepal_width and petal_width associated?",
     "answer": "**sepal_width** and **petal_width** show a moderate negative correlation (r=-0.37, p=0.000, N=150) [statistically significant], effect size: medium.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.117778+00:00",
+      "generated_at": "2025-11-19T19:57:29.547286+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "sepal_width",
         "petal_width"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Sepal Width and Petal Width (N=150). Shows a moderate negative correlation (r=-0.37) with regression line.",
-      "alt_text": "Scatter plot with Sepal Width on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Sepal Width",
-        "y_axis": "Petal Width",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_petal_width.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_width_var, petal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_petal_width.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_width",
       "petal_width"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_sepal_width_petal_width.png",
+      "caption": "Scatter plot showing the relationship between Sepal Width and Petal Width (N=150). Shows a moderate negative correlation (r=-0.37) with regression line.",
+      "alt_text": "Scatter plot with Sepal Width on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "How does sepal_width differ across species groups?",
     "answer": "**sepal_width** differs across **species** groups: Iris setosa: 3.43, Iris versicolor: 2.77, Iris virginica: 2.97 (ANOVA: F=49.16, p=0.000), \u03b7\u00b2=0.40 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.156444+00:00",
+      "generated_at": "2025-11-19T19:57:29.589101+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "sepal_width",
         "species"
       ]
     },
-    "visual": {
-      "plot_type": "unknown",
-      "caption": "Bivariate plot showing Sepal Width vs Iris Species",
-      "alt_text": "Chart showing relationship between Sepal Width and Iris Species",
-      "visual_elements": {
-        "chart_type": "unknown",
-        "x_axis": "Sepal Width",
-        "y_axis": "Iris Species",
-        "key_features": [],
-        "colors": [],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_species.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_width_var, species_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_species.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_width",
       "species"
-    ]
+    ],
+    "visual": {
+      "type": "unknown",
+      "file": "plots/bivariate_sepal_width_species.png",
+      "caption": "Bivariate plot showing Sepal Width vs Iris Species",
+      "alt_text": "Chart showing relationship between Sepal Width and Iris Species",
+      "features": []
+    }
   },
   {
     "question": "What is the relationship between species and sepal_width?",
     "answer": "**sepal_width** differs across **species** groups: Iris setosa: 3.43, Iris versicolor: 2.77, Iris virginica: 2.97 (ANOVA: F=49.16, p=0.000), \u03b7\u00b2=0.40 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.156444+00:00",
+      "generated_at": "2025-11-19T19:57:29.589101+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "sepal_width",
         "species"
       ]
     },
-    "visual": {
-      "plot_type": "unknown",
-      "caption": "Bivariate plot showing Sepal Width vs Iris Species",
-      "alt_text": "Chart showing relationship between Sepal Width and Iris Species",
-      "visual_elements": {
-        "chart_type": "unknown",
-        "x_axis": "Sepal Width",
-        "y_axis": "Iris Species",
-        "key_features": [],
-        "colors": [],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_species.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_width_var, species_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_species.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_width",
       "species"
-    ]
+    ],
+    "visual": {
+      "type": "unknown",
+      "file": "plots/bivariate_sepal_width_species.png",
+      "caption": "Bivariate plot showing Sepal Width vs Iris Species",
+      "alt_text": "Chart showing relationship between Sepal Width and Iris Species",
+      "features": []
+    }
   },
   {
     "question": "Does sepal_width vary by species?",
     "answer": "**sepal_width** differs across **species** groups: Iris setosa: 3.43, Iris versicolor: 2.77, Iris virginica: 2.97 (ANOVA: F=49.16, p=0.000), \u03b7\u00b2=0.40 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.156444+00:00",
+      "generated_at": "2025-11-19T19:57:29.589101+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "sepal_width",
         "species"
       ]
     },
-    "visual": {
-      "plot_type": "unknown",
-      "caption": "Bivariate plot showing Sepal Width vs Iris Species",
-      "alt_text": "Chart showing relationship between Sepal Width and Iris Species",
-      "visual_elements": {
-        "chart_type": "unknown",
-        "x_axis": "Sepal Width",
-        "y_axis": "Iris Species",
-        "key_features": [],
-        "colors": [],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_species.png",
-      "generation_code": "plot_factory.plot_bivariate(data, sepal_width_var, species_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_sepal_width_species.png')"
-    },
-    "vars": [
+    "variables": [
       "sepal_width",
       "species"
-    ]
+    ],
+    "visual": {
+      "type": "unknown",
+      "file": "plots/bivariate_sepal_width_species.png",
+      "caption": "Bivariate plot showing Sepal Width vs Iris Species",
+      "alt_text": "Chart showing relationship between Sepal Width and Iris Species",
+      "features": []
+    }
   },
   {
     "question": "Are petal_length and petal_width correlated?",
     "answer": "**petal_length** and **petal_width** show a very strong positive correlation (r=0.96, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.242988+00:00",
+      "generated_at": "2025-11-19T19:57:29.675178+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "petal_length",
         "petal_width"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Petal Length and Petal Width (N=150). Shows a strong positive correlation (r=0.96) with regression line.",
-      "alt_text": "Scatter plot with Petal Length on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Petal Length",
-        "y_axis": "Petal Width",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_length_petal_width.png",
-      "generation_code": "plot_factory.plot_bivariate(data, petal_length_var, petal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_length_petal_width.png')"
-    },
-    "vars": [
+    "variables": [
       "petal_length",
       "petal_width"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_petal_length_petal_width.png",
+      "caption": "Scatter plot showing the relationship between Petal Length and Petal Width (N=150). Shows a strong positive correlation (r=0.96) with regression line.",
+      "alt_text": "Scatter plot with Petal Length on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "What is the relationship between petal_length and petal_width?",
     "answer": "**petal_length** and **petal_width** show a very strong positive correlation (r=0.96, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.242988+00:00",
+      "generated_at": "2025-11-19T19:57:29.675178+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "petal_length",
         "petal_width"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Petal Length and Petal Width (N=150). Shows a strong positive correlation (r=0.96) with regression line.",
-      "alt_text": "Scatter plot with Petal Length on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Petal Length",
-        "y_axis": "Petal Width",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_length_petal_width.png",
-      "generation_code": "plot_factory.plot_bivariate(data, petal_length_var, petal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_length_petal_width.png')"
-    },
-    "vars": [
+    "variables": [
       "petal_length",
       "petal_width"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_petal_length_petal_width.png",
+      "caption": "Scatter plot showing the relationship between Petal Length and Petal Width (N=150). Shows a strong positive correlation (r=0.96) with regression line.",
+      "alt_text": "Scatter plot with Petal Length on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "How strongly are petal_length and petal_width associated?",
     "answer": "**petal_length** and **petal_width** show a very strong positive correlation (r=0.96, p=0.000, N=150) [statistically significant], effect size: large.",
     "type": "correlational",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.242988+00:00",
+      "generated_at": "2025-11-19T19:57:29.675178+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "numeric_numeric",
       "variables": [
         "petal_length",
         "petal_width"
       ]
     },
-    "visual": {
-      "plot_type": "scatter",
-      "caption": "Scatter plot showing the relationship between Petal Length and Petal Width (N=150). Shows a strong positive correlation (r=0.96) with regression line.",
-      "alt_text": "Scatter plot with Petal Length on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
-      "visual_elements": {
-        "chart_type": "scatter",
-        "x_axis": "Petal Length",
-        "y_axis": "Petal Width",
-        "key_features": [
-          "data points",
-          "regression line",
-          "trend"
-        ],
-        "colors": [
-          "blue points",
-          "red regression line"
-        ],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_length_petal_width.png",
-      "generation_code": "plot_factory.plot_bivariate(data, petal_length_var, petal_width_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_length_petal_width.png')"
-    },
-    "vars": [
+    "variables": [
       "petal_length",
       "petal_width"
-    ]
+    ],
+    "visual": {
+      "type": "scatter",
+      "file": "plots/bivariate_petal_length_petal_width.png",
+      "caption": "Scatter plot showing the relationship between Petal Length and Petal Width (N=150). Shows a strong positive correlation (r=0.96) with regression line.",
+      "alt_text": "Scatter plot with Petal Length on x-axis and Petal Width on y-axis, showing 150 data points with regression line.",
+      "features": [
+        "data_points",
+        "regression_line",
+        "trend"
+      ]
+    }
   },
   {
     "question": "How does petal_length differ across species groups?",
     "answer": "**petal_length** differs across **species** groups: Iris setosa: 1.46, Iris versicolor: 4.26, Iris virginica: 5.55 (ANOVA: F=1180.16, p=0.000), \u03b7\u00b2=0.94 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.279337+00:00",
+      "generated_at": "2025-11-19T19:57:29.714977+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "petal_length",
         "species"
       ]
     },
-    "visual": {
-      "plot_type": "unknown",
-      "caption": "Bivariate plot showing Petal Length vs Iris Species",
-      "alt_text": "Chart showing relationship between Petal Length and Iris Species",
-      "visual_elements": {
-        "chart_type": "unknown",
-        "x_axis": "Petal Length",
-        "y_axis": "Iris Species",
-        "key_features": [],
-        "colors": [],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_length_species.png",
-      "generation_code": "plot_factory.plot_bivariate(data, petal_length_var, species_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_length_species.png')"
-    },
-    "vars": [
+    "variables": [
       "petal_length",
       "species"
-    ]
+    ],
+    "visual": {
+      "type": "unknown",
+      "file": "plots/bivariate_petal_length_species.png",
+      "caption": "Bivariate plot showing Petal Length vs Iris Species",
+      "alt_text": "Chart showing relationship between Petal Length and Iris Species",
+      "features": []
+    }
   },
   {
     "question": "What is the relationship between species and petal_length?",
     "answer": "**petal_length** differs across **species** groups: Iris setosa: 1.46, Iris versicolor: 4.26, Iris virginica: 5.55 (ANOVA: F=1180.16, p=0.000), \u03b7\u00b2=0.94 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.279337+00:00",
+      "generated_at": "2025-11-19T19:57:29.714977+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "petal_length",
         "species"
       ]
     },
-    "visual": {
-      "plot_type": "unknown",
-      "caption": "Bivariate plot showing Petal Length vs Iris Species",
-      "alt_text": "Chart showing relationship between Petal Length and Iris Species",
-      "visual_elements": {
-        "chart_type": "unknown",
-        "x_axis": "Petal Length",
-        "y_axis": "Iris Species",
-        "key_features": [],
-        "colors": [],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_length_species.png",
-      "generation_code": "plot_factory.plot_bivariate(data, petal_length_var, species_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_length_species.png')"
-    },
-    "vars": [
+    "variables": [
       "petal_length",
       "species"
-    ]
+    ],
+    "visual": {
+      "type": "unknown",
+      "file": "plots/bivariate_petal_length_species.png",
+      "caption": "Bivariate plot showing Petal Length vs Iris Species",
+      "alt_text": "Chart showing relationship between Petal Length and Iris Species",
+      "features": []
+    }
   },
   {
     "question": "Does petal_length vary by species?",
     "answer": "**petal_length** differs across **species** groups: Iris setosa: 1.46, Iris versicolor: 4.26, Iris virginica: 5.55 (ANOVA: F=1180.16, p=0.000), \u03b7\u00b2=0.94 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.279337+00:00",
+      "generated_at": "2025-11-19T19:57:29.714977+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "petal_length",
         "species"
       ]
     },
-    "visual": {
-      "plot_type": "unknown",
-      "caption": "Bivariate plot showing Petal Length vs Iris Species",
-      "alt_text": "Chart showing relationship between Petal Length and Iris Species",
-      "visual_elements": {
-        "chart_type": "unknown",
-        "x_axis": "Petal Length",
-        "y_axis": "Iris Species",
-        "key_features": [],
-        "colors": [],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_length_species.png",
-      "generation_code": "plot_factory.plot_bivariate(data, petal_length_var, species_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_length_species.png')"
-    },
-    "vars": [
+    "variables": [
       "petal_length",
       "species"
-    ]
+    ],
+    "visual": {
+      "type": "unknown",
+      "file": "plots/bivariate_petal_length_species.png",
+      "caption": "Bivariate plot showing Petal Length vs Iris Species",
+      "alt_text": "Chart showing relationship between Petal Length and Iris Species",
+      "features": []
+    }
   },
   {
     "question": "How does petal_width differ across species groups?",
     "answer": "**petal_width** differs across **species** groups: Iris setosa: 0.25, Iris versicolor: 1.33, Iris virginica: 2.03 (ANOVA: F=960.01, p=0.000), \u03b7\u00b2=0.93 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.318563+00:00",
+      "generated_at": "2025-11-19T19:57:29.755084+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "petal_width",
         "species"
       ]
     },
-    "visual": {
-      "plot_type": "unknown",
-      "caption": "Bivariate plot showing Petal Width vs Iris Species",
-      "alt_text": "Chart showing relationship between Petal Width and Iris Species",
-      "visual_elements": {
-        "chart_type": "unknown",
-        "x_axis": "Petal Width",
-        "y_axis": "Iris Species",
-        "key_features": [],
-        "colors": [],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_width_species.png",
-      "generation_code": "plot_factory.plot_bivariate(data, petal_width_var, species_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_width_species.png')"
-    },
-    "vars": [
+    "variables": [
       "petal_width",
       "species"
-    ]
+    ],
+    "visual": {
+      "type": "unknown",
+      "file": "plots/bivariate_petal_width_species.png",
+      "caption": "Bivariate plot showing Petal Width vs Iris Species",
+      "alt_text": "Chart showing relationship between Petal Width and Iris Species",
+      "features": []
+    }
   },
   {
     "question": "What is the relationship between species and petal_width?",
     "answer": "**petal_width** differs across **species** groups: Iris setosa: 0.25, Iris versicolor: 1.33, Iris virginica: 2.03 (ANOVA: F=960.01, p=0.000), \u03b7\u00b2=0.93 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.318563+00:00",
+      "generated_at": "2025-11-19T19:57:29.755084+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "petal_width",
         "species"
       ]
     },
-    "visual": {
-      "plot_type": "unknown",
-      "caption": "Bivariate plot showing Petal Width vs Iris Species",
-      "alt_text": "Chart showing relationship between Petal Width and Iris Species",
-      "visual_elements": {
-        "chart_type": "unknown",
-        "x_axis": "Petal Width",
-        "y_axis": "Iris Species",
-        "key_features": [],
-        "colors": [],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_width_species.png",
-      "generation_code": "plot_factory.plot_bivariate(data, petal_width_var, species_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_width_species.png')"
-    },
-    "vars": [
+    "variables": [
       "petal_width",
       "species"
-    ]
+    ],
+    "visual": {
+      "type": "unknown",
+      "file": "plots/bivariate_petal_width_species.png",
+      "caption": "Bivariate plot showing Petal Width vs Iris Species",
+      "alt_text": "Chart showing relationship between Petal Width and Iris Species",
+      "features": []
+    }
   },
   {
     "question": "Does petal_width vary by species?",
     "answer": "**petal_width** differs across **species** groups: Iris setosa: 0.25, Iris versicolor: 1.33, Iris virginica: 2.03 (ANOVA: F=960.01, p=0.000), \u03b7\u00b2=0.93 (large).",
     "type": "comparative",
     "provenance": {
-      "generated_at": "2025-11-19T19:21:29.318563+00:00",
+      "generated_at": "2025-11-19T19:57:29.755084+00:00",
       "tool": "statqa",
       "tool_version": "0.2.0",
       "generation_method": "template",
-      "analysis_type": "categorical_numeric",
       "variables": [
         "petal_width",
         "species"
       ]
     },
-    "visual": {
-      "plot_type": "unknown",
-      "caption": "Bivariate plot showing Petal Width vs Iris Species",
-      "alt_text": "Chart showing relationship between Petal Width and Iris Species",
-      "visual_elements": {
-        "chart_type": "unknown",
-        "x_axis": "Petal Width",
-        "y_axis": "Iris Species",
-        "key_features": [],
-        "colors": [],
-        "annotations": []
-      },
-      "primary_plot": "/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_width_species.png",
-      "generation_code": "plot_factory.plot_bivariate(data, petal_width_var, species_var, '/Users/soodoku/Documents/GitHub/tableqa/examples/iris/plots/bivariate_petal_width_species.png')"
-    },
-    "vars": [
+    "variables": [
       "petal_width",
       "species"
-    ]
+    ],
+    "visual": {
+      "type": "unknown",
+      "file": "plots/bivariate_petal_width_species.png",
+      "caption": "Bivariate plot showing Petal Width vs Iris Species",
+      "alt_text": "Chart showing relationship between Petal Width and Iris Species",
+      "features": []
+    }
   }
 ]

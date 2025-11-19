@@ -9,6 +9,7 @@ Converts facts into multiple question/answer pairs using:
 import json
 import logging
 from datetime import UTC, datetime
+from pathlib import Path
 from typing import Any
 
 
@@ -89,7 +90,6 @@ class QAGenerator:
             "tool": "statqa",
             "tool_version": _get_statqa_version(),
             "generation_method": method,
-            "analysis_type": insight.get("analysis_type", "unknown"),
         }
 
         # Add variables if provided
@@ -142,6 +142,10 @@ class QAGenerator:
         )
         for qa in qa_pairs:
             qa["provenance"] = template_provenance.copy()
+
+            # Add variables at top level for easy access
+            if variables:
+                qa["variables"] = variables
 
             # Add visual data if provided
             if visual_data:
@@ -265,6 +269,10 @@ Return as JSON array with format:
                         "provenance": llm_provenance.copy(),
                     }
 
+                    # Add variables at top level for easy access
+                    if variables:
+                        qa_pair["variables"] = variables
+
                     # Add visual data if provided
                     if visual_data:
                         qa_pair["visual"] = visual_data.copy()
@@ -386,7 +394,8 @@ Return as a JSON array of strings: ["question 1", "question 2", ...]
 
                 plt.close(fig)
 
-                return metadata
+                # Rationalize the visual metadata structure
+                return self._rationalize_visual_metadata(metadata, output_path)
 
             elif len(variables) == 2:
                 # Bivariate analysis
@@ -408,12 +417,56 @@ Return as a JSON array of strings: ["question 1", "question 2", ...]
 
                 plt.close(fig)
 
-                return metadata
+                # Rationalize the visual metadata structure
+                return self._rationalize_visual_metadata(metadata, output_path)
 
         except Exception as e:
             logger.warning(f"Failed to generate visualization for {variables}: {e}")
 
         return None
+
+    def _rationalize_visual_metadata(
+        self, metadata: dict[str, Any], output_path: str | Path
+    ) -> dict[str, Any]:
+        """
+        Rationalize visual metadata to a simpler, flatter structure.
+
+        Args:
+            metadata: Original metadata from PlotFactory
+            output_path: Path to the generated plot file
+
+        Returns:
+            Simplified visual metadata dictionary
+        """
+        # Convert absolute path to relative path
+        path_obj = Path(output_path)
+        if path_obj.is_absolute():
+            # Try to make it relative to current working directory
+            try:
+                relative_path = path_obj.relative_to(Path.cwd())
+                file_path = str(relative_path)
+            except ValueError:
+                # If can't make relative, just use the filename with plots/ prefix
+                file_path = f"plots/{path_obj.name}"
+        else:
+            file_path = str(path_obj)
+
+        # Extract visual elements and flatten structure
+        visual_elements = metadata.get("visual_elements", {})
+        features = visual_elements.get("key_features", [])
+        if isinstance(features, list):
+            features = [feature.replace(" ", "_") for feature in features]
+
+        # Create simplified structure
+        rationalized = {
+            "type": metadata.get("plot_type", "unknown"),
+            "file": file_path,
+            "caption": metadata.get("caption", ""),
+            "alt_text": metadata.get("alt_text", ""),
+            "features": features,
+        }
+
+        return rationalized
 
     def export_qa_dataset(
         self, qa_results: list[dict[str, Any]], output_format: str = "jsonl"

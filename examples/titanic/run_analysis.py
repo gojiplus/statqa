@@ -68,8 +68,6 @@ for var_name, variable in codebook.variables.items():
         qa_pairs = qa_gen.generate_qa_pairs(
             result, insight_text, variables=[var_name], visual_data=visual_metadata
         )
-        for qa in qa_pairs:
-            qa["vars"] = [var_name]
         all_qa_pairs.extend(qa_pairs)
 
         print(f"  ✓ {var_name}")
@@ -104,8 +102,6 @@ for i, var1 in enumerate(var_list):
             qa_pairs = qa_gen.generate_qa_pairs(
                 result, insight_text, variables=[var1.name, var2.name], visual_data=visual_metadata
             )
-            for qa in qa_pairs:
-                qa["vars"] = [var1.name, var2.name]
             all_qa_pairs.extend(qa_pairs)
 
             print(f"  ✓ {var1.name} x {var2.name}")

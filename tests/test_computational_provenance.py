@@ -158,7 +158,6 @@ class TestComputationalProvenance:
             "tool",
             "tool_version",
             "generation_method",
-            "analysis_type",
             "variables",
             "python_commands",
         ]
