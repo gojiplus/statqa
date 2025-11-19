@@ -65,9 +65,11 @@ def sample_codebook(sample_variable: Variable, sample_categorical_variable: Vari
 def sample_dataframe() -> pd.DataFrame:
     """Sample dataframe for testing."""
     np.random.seed(42)
-    return pd.DataFrame({
-        "age": np.random.normal(50, 10, 100),
-        "gender": np.random.choice([1, 2, 3], size=100),
-        "income": np.random.normal(50000, 15000, 100),
-        "year": np.random.choice([2018, 2019, 2020, 2021], size=100),
-    })
+    return pd.DataFrame(
+        {
+            "age": np.random.normal(50, 10, 100),
+            "gender": np.random.choice([1, 2, 3], size=100),
+            "income": np.random.normal(50000, 15000, 100),
+            "year": np.random.choice([2018, 2019, 2020, 2021], size=100),
+        }
+    )

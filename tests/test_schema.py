@@ -1,7 +1,5 @@
 """Tests for metadata schema."""
 
-import pytest
-
 from tableqa.metadata.schema import Codebook, Variable, VariableType
 
 

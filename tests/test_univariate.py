@@ -1,7 +1,6 @@
 """Tests for univariate analysis."""
 
 import pandas as pd
-import pytest
 
 from tableqa.analysis.univariate import UnivariateAnalyzer
 from tableqa.metadata.schema import Variable
@@ -19,7 +18,9 @@ def test_numeric_univariate(sample_numeric_data: pd.Series, sample_variable: Var
     assert 40 < result["mean"] < 60  # Should be around 50
 
 
-def test_categorical_univariate(sample_categorical_data: pd.Series, sample_categorical_variable: Variable):
+def test_categorical_univariate(
+    sample_categorical_data: pd.Series, sample_categorical_variable: Variable
+):
     """Test univariate analysis on categorical data."""
     analyzer = UnivariateAnalyzer()
     result = analyzer.analyze(sample_categorical_data, sample_categorical_variable)

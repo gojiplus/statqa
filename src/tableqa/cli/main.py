@@ -9,7 +9,6 @@ Provides commands for:
 """
 
 from pathlib import Path
-from typing import Optional
 
 import typer
 from rich.console import Console
@@ -17,8 +16,6 @@ from rich.progress import track
 
 from tableqa import __version__
 from tableqa.analysis.bivariate import BivariateAnalyzer
-from tableqa.analysis.causal import CausalAnalyzer
-from tableqa.analysis.temporal import TemporalAnalyzer
 from tableqa.analysis.univariate import UnivariateAnalyzer
 from tableqa.interpretation.formatter import InsightFormatter
 from tableqa.metadata.enricher import MetadataEnricher
@@ -27,6 +24,7 @@ from tableqa.metadata.parsers.text import TextParser
 from tableqa.qa.generator import QAGenerator
 from tableqa.utils.io import load_data, save_json
 from tableqa.visualization.plots import PlotFactory
+
 
 app = typer.Typer(help="TableQA: Extract structured facts from tabular datasets")
 console = Console()
@@ -41,15 +39,11 @@ def version() -> None:
 @app.command()
 def parse_codebook(
     codebook_path: Path = typer.Argument(..., help="Path to codebook file"),
-    output: Path = typer.Option(
-        "codebook.json", "--output", "-o", help="Output JSON file"
-    ),
-    format: str = typer.Option(
-        "auto", "--format", "-f", help="Codebook format (auto, text, csv)"
-    ),
+    output: Path = typer.Option("codebook.json", "--output", "-o", help="Output JSON file"),
+    format: str = typer.Option("auto", "--format", "-f", help="Codebook format (auto, text, csv)"),
     enrich: bool = typer.Option(False, "--enrich", help="Enrich metadata with LLM"),
     llm_provider: str = typer.Option("openai", "--llm-provider", help="LLM provider"),
-    api_key: Optional[str] = typer.Option(None, "--api-key", help="LLM API key"),
+    api_key: str | None = typer.Option(None, "--api-key", help="LLM API key"),
 ) -> None:
     """Parse a codebook and extract metadata."""
     console.print(f"[blue]Parsing codebook:[/blue] {codebook_path}")
@@ -82,9 +76,7 @@ def parse_codebook(
     if enrich:
         console.print("[blue]Enriching metadata with LLM...[/blue]")
         try:
-            enricher = MetadataEnricher(
-                provider=llm_provider, api_key=api_key
-            )
+            enricher = MetadataEnricher(provider=llm_provider, api_key=api_key)
             codebook = enricher.enrich_codebook(codebook)
             console.print("[green]✓[/green] Metadata enriched")
         except Exception as e:
@@ -100,15 +92,11 @@ def parse_codebook(
 def analyze(
     data_path: Path = typer.Argument(..., help="Path to data file (CSV or ZIP)"),
     codebook_path: Path = typer.Argument(..., help="Path to codebook JSON"),
-    output_dir: Path = typer.Option(
-        "output", "--output-dir", "-o", help="Output directory"
-    ),
+    output_dir: Path = typer.Option("output", "--output-dir", "-o", help="Output directory"),
     analyses: str = typer.Option(
         "all", "--analyses", "-a", help="Comma-separated: univariate,bivariate,temporal,causal"
     ),
-    max_bivariate_pairs: int = typer.Option(
-        100, "--max-pairs", help="Maximum bivariate pairs"
-    ),
+    max_bivariate_pairs: int = typer.Option(100, "--max-pairs", help="Maximum bivariate pairs"),
     generate_plots: bool = typer.Option(True, "--plots/--no-plots", help="Generate plots"),
 ) -> None:
     """Run statistical analyses on dataset."""
@@ -119,10 +107,12 @@ def analyze(
     console.print(f"[green]✓[/green] Loaded {len(df)} rows, {len(df.columns)} columns")
 
     import json
+
     with open(codebook_path) as f:
         codebook_data = json.load(f)
 
     from tableqa.metadata.schema import Codebook
+
     codebook = Codebook(**codebook_data)
     console.print(f"[green]✓[/green] Loaded codebook with {len(codebook.variables)} variables")
 
@@ -158,6 +148,7 @@ def analyze(
                         df[var_name], var, plot_dir / f"univariate_{var_name}.png"
                     )
                     import matplotlib.pyplot as plt
+
                     plt.close(fig)
 
         save_json(results, output_dir / "univariate.json")
@@ -186,12 +177,10 @@ def analyze(
 @app.command()
 def generate_qa(
     insights_path: Path = typer.Argument(..., help="Path to insights JSON"),
-    output: Path = typer.Option(
-        "qa_pairs.jsonl", "--output", "-o", help="Output JSONL file"
-    ),
+    output: Path = typer.Option("qa_pairs.jsonl", "--output", "-o", help="Output JSONL file"),
     use_llm: bool = typer.Option(False, "--llm", help="Use LLM for paraphrasing"),
     llm_provider: str = typer.Option("openai", "--llm-provider", help="LLM provider"),
-    api_key: Optional[str] = typer.Option(None, "--api-key", help="LLM API key"),
+    api_key: str | None = typer.Option(None, "--api-key", help="LLM API key"),
     export_format: str = typer.Option(
         "jsonl", "--format", "-f", help="Export format (jsonl, openai, anthropic)"
     ),
@@ -200,6 +189,7 @@ def generate_qa(
     console.print(f"[blue]Loading insights:[/blue] {insights_path}")
 
     import json
+
     with open(insights_path) as f:
         insights = json.load(f)
 
@@ -256,7 +246,7 @@ def pipeline(
     output_dir: Path = typer.Option("output", "--output-dir", "-o", help="Output directory"),
     generate_qa: bool = typer.Option(True, "--qa/--no-qa", help="Generate Q/A pairs"),
     enrich_metadata: bool = typer.Option(False, "--enrich", help="Enrich metadata with LLM"),
-    api_key: Optional[str] = typer.Option(None, "--api-key", help="LLM API key"),
+    api_key: str | None = typer.Option(None, "--api-key", help="LLM API key"),
 ) -> None:
     """Run complete pipeline: parse → analyze → generate Q/A."""
     console.print("[bold]Starting TableQA pipeline...[/bold]\n")

@@ -3,6 +3,9 @@
 import sys
 from pathlib import Path
 
+from tableqa import __version__
+
+
 # Add source to path
 sys.path.insert(0, str(Path(__file__).parents[2] / "src"))
 
@@ -12,8 +15,6 @@ copyright = "2025, TableQA Contributors"
 author = "TableQA Contributors"
 
 # Version
-from tableqa import __version__
-
 version = __version__
 release = __version__
 

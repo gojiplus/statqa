@@ -196,7 +196,7 @@ class TemporalAnalyzer:
             after = subset[value_var.name].iloc[i:]
 
             # T-test for difference in means
-            t_stat, p_value = stats.ttest_ind(before, after)
+            _t_stat, p_value = stats.ttest_ind(before, after)
 
             if p_value < best_p:
                 best_p = p_value
@@ -224,30 +224,22 @@ class TemporalAnalyzer:
 
         return result
 
-    def _clean_data(
-        self, data: pd.DataFrame, *variables: Variable
-    ) -> pd.DataFrame:
+    def _clean_data(self, data: pd.DataFrame, *variables: Variable) -> pd.DataFrame:
         """Clean missing values based on metadata."""
         clean = data.copy()
         for var in variables:
             if var.missing_values:
-                clean[var.name] = clean[var.name].replace(
-                    {v: np.nan for v in var.missing_values}
-                )
+                clean[var.name] = clean[var.name].replace(dict.fromkeys(var.missing_values, np.nan))
         return clean
 
-    def _linear_trend(
-        self, data: pd.DataFrame, time_col: str, value_col: str
-    ) -> dict[str, Any]:
+    def _linear_trend(self, data: pd.DataFrame, time_col: str, value_col: str) -> dict[str, Any]:
         """Fit linear trend and return statistics."""
         # Create numeric time index
         time_numeric = np.arange(len(data))
         values = data[value_col].values
 
         # Linear regression
-        slope, intercept, r_value, p_value, std_err = stats.linregress(
-            time_numeric, values
-        )
+        slope, intercept, r_value, p_value, std_err = stats.linregress(time_numeric, values)
 
         return {
             "slope": float(slope),
@@ -297,12 +289,16 @@ class TemporalAnalyzer:
             "years": {
                 str(year): {
                     "value": float(value),
-                    "yoy_absolute": float(yoy_absolute.loc[year])
-                    if year in yoy_absolute.index and not np.isnan(yoy_absolute.loc[year])
-                    else None,
-                    "yoy_percent": float(yoy_percent.loc[year])
-                    if year in yoy_percent.index and not np.isnan(yoy_percent.loc[year])
-                    else None,
+                    "yoy_absolute": (
+                        float(yoy_absolute.loc[year])
+                        if year in yoy_absolute.index and not np.isnan(yoy_absolute.loc[year])
+                        else None
+                    ),
+                    "yoy_percent": (
+                        float(yoy_percent.loc[year])
+                        if year in yoy_percent.index and not np.isnan(yoy_percent.loc[year])
+                        else None
+                    ),
                 }
                 for year, value in yearly.items()
             },

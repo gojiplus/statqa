@@ -14,7 +14,6 @@ from typing import Any
 import numpy as np
 import pandas as pd
 import statsmodels.api as sm
-from statsmodels.regression.linear_model import RegressionResultsWrapper
 
 from tableqa.metadata.schema import Variable
 
@@ -155,17 +154,21 @@ class CausalAnalyzer:
             outcome_sig = self._is_significant(outcome_assoc)
 
             if treat_sig and outcome_sig:
-                result["confounders"].append({
-                    "variable": var.name,
-                    "label": var.label,
-                    "treatment_association": treat_sig,
-                    "outcome_association": outcome_sig,
-                })
+                result["confounders"].append(
+                    {
+                        "variable": var.name,
+                        "label": var.label,
+                        "treatment_association": treat_sig,
+                        "outcome_association": outcome_sig,
+                    }
+                )
             else:
-                result["non_confounders"].append({
-                    "variable": var.name,
-                    "reason": "Not associated with both treatment and outcome",
-                })
+                result["non_confounders"].append(
+                    {
+                        "variable": var.name,
+                        "reason": "Not associated with both treatment and outcome",
+                    }
+                )
 
         return result
 
@@ -179,18 +182,15 @@ class CausalAnalyzer:
         """Run linear regression and extract results."""
         # Prepare variables
         y = data[outcome_name]
-        X_vars = [treatment_name]
+        x_vars = [treatment_name]
         if control_vars:
-            X_vars.extend([v.name for v in control_vars])
+            x_vars.extend([v.name for v in control_vars])
 
-        X = data[X_vars]
-        X = sm.add_constant(X)  # Add intercept
+        x = data[x_vars]
+        x = sm.add_constant(x)  # Add intercept
 
         # Fit model
-        if self.robust_se:
-            model = sm.OLS(y, X).fit(cov_type="HC3")  # Robust standard errors
-        else:
-            model = sm.OLS(y, X).fit()
+        model = sm.OLS(y, x).fit(cov_type="HC3") if self.robust_se else sm.OLS(y, x).fit()
 
         # Extract treatment effect
         treatment_coef = model.params[treatment_name]
@@ -230,8 +230,8 @@ class CausalAnalyzer:
 
         # Diagnostics
         result["diagnostics"] = {
-            "condition_number": float(np.linalg.cond(X)),
-            "multicollinearity_warning": bool(np.linalg.cond(X) > 30),
+            "condition_number": float(np.linalg.cond(x)),
+            "multicollinearity_warning": bool(np.linalg.cond(x) > 30),
         }
 
         return result
@@ -257,13 +257,13 @@ class CausalAnalyzer:
         """
         # Model without controls
         y = data[outcome_name]
-        X_no_controls = sm.add_constant(data[[treatment_name]])
-        model_no_controls = sm.OLS(y, X_no_controls).fit()
+        x_no_controls = sm.add_constant(data[[treatment_name]])
+        model_no_controls = sm.OLS(y, x_no_controls).fit()
 
         # Model with controls
-        X_vars = [treatment_name] + [v.name for v in control_vars]
-        X_with_controls = sm.add_constant(data[X_vars])
-        model_with_controls = sm.OLS(y, X_with_controls).fit()
+        x_vars = [treatment_name] + [v.name for v in control_vars]
+        x_with_controls = sm.add_constant(data[x_vars])
+        model_with_controls = sm.OLS(y, x_with_controls).fit()
 
         # Compare treatment coefficients
         coef_no_controls = model_no_controls.params[treatment_name]
@@ -286,10 +286,10 @@ class CausalAnalyzer:
             },
             "confounding": {
                 "percent_change": float(percent_change) if not np.isnan(percent_change) else None,
-                "direction": (
-                    "positive" if coef_with_controls > coef_no_controls else "negative"
+                "direction": ("positive" if coef_with_controls > coef_no_controls else "negative"),
+                "substantial": (
+                    bool(abs(percent_change) > 10) if not np.isnan(percent_change) else False
                 ),
-                "substantial": bool(abs(percent_change) > 10) if not np.isnan(percent_change) else False,
             },
             "model_comparison": {
                 "r_squared_increase": float(
@@ -298,16 +298,12 @@ class CausalAnalyzer:
             },
         }
 
-    def _clean_data(
-        self, data: pd.DataFrame, variables: list[Variable]
-    ) -> pd.DataFrame:
+    def _clean_data(self, data: pd.DataFrame, variables: list[Variable]) -> pd.DataFrame:
         """Clean missing values based on metadata."""
         clean = data.copy()
         for var in variables:
             if var.missing_values:
-                clean[var.name] = clean[var.name].replace(
-                    {v: np.nan for v in var.missing_values}
-                )
+                clean[var.name] = clean[var.name].replace(dict.fromkeys(var.missing_values, np.nan))
         return clean
 
     def _is_significant(self, analysis_result: dict[str, Any]) -> bool:

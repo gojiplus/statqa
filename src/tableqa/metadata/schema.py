@@ -77,9 +77,7 @@ class Variable(BaseModel):
     label: str = Field(..., description="Human-readable label")
 
     # Type information
-    var_type: VariableType = Field(
-        default=VariableType.UNKNOWN, description="Statistical type"
-    )
+    var_type: VariableType = Field(default=VariableType.UNKNOWN, description="Statistical type")
     dtype: str | None = Field(default=None, description="Raw data type")
 
     # Description
@@ -89,9 +87,7 @@ class Variable(BaseModel):
     valid_values: dict[int | str, str] = Field(
         default_factory=dict, description="Mapping of codes to labels"
     )
-    missing_values: set[int | str] = Field(
-        default_factory=set, description="Missing value codes"
-    )
+    missing_values: set[int | str] = Field(default_factory=set, description="Missing value codes")
     missing_pattern: MissingPattern = Field(
         default=MissingPattern.UNKNOWN, description="Missingness pattern"
     )
@@ -113,9 +109,7 @@ class Variable(BaseModel):
     is_confounder: bool = Field(default=False, description="Is potential confounder")
 
     # Temporal metadata
-    temporal_variable: str | None = Field(
-        default=None, description="Associated time variable"
-    )
+    temporal_variable: str | None = Field(default=None, description="Associated time variable")
 
     # Additional metadata
     notes: str | None = Field(default=None, description="Additional notes")
@@ -128,7 +122,7 @@ class Variable(BaseModel):
     @classmethod
     def ensure_set(cls, v: Any) -> set[int | str]:
         """Ensure missing_values is a set."""
-        if isinstance(v, (list, tuple)):
+        if isinstance(v, list | tuple):
             return set(v)
         if isinstance(v, set):
             return v
@@ -155,9 +149,7 @@ class Variable(BaseModel):
 
     def get_cleaned_values(self) -> dict[int | str, str]:
         """Get valid values excluding missing codes."""
-        return {
-            k: v for k, v in self.valid_values.items() if k not in self.missing_values
-        }
+        return {k: v for k, v in self.valid_values.items() if k not in self.missing_values}
 
     model_config = {"use_enum_values": True, "validate_assignment": True}
 
@@ -178,12 +170,8 @@ class Codebook(BaseModel):
 
     name: str = Field(..., description="Codebook identifier")
     description: str | None = Field(default=None, description="Dataset description")
-    variables: dict[str, Variable] = Field(
-        default_factory=dict, description="Variable definitions"
-    )
-    dataset_info: dict[str, Any] = Field(
-        default_factory=dict, description="Dataset metadata"
-    )
+    variables: dict[str, Variable] = Field(default_factory=dict, description="Variable definitions")
+    dataset_info: dict[str, Any] = Field(default_factory=dict, description="Dataset metadata")
     citation: str | None = Field(default=None, description="Citation information")
     version: str | None = Field(default=None, description="Version")
     last_updated: str | None = Field(default=None, description="Last update date")
