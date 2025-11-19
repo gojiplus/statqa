@@ -1,0 +1,117 @@
+[
+  {
+    "vars": [
+      "sepal_length"
+    ],
+    "insight": "**Sepal Length**: mean=5.84, median=5.80, std=0.83, range=[4.30, 7.90]. N=150 [non-normal distribution].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "sepal_width"
+    ],
+    "insight": "**Sepal Width**: mean=3.06, median=3.00, std=0.44, range=[2.00, 4.40]. N=150 [2.7% outliers].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "petal_length"
+    ],
+    "insight": "**Petal Length**: mean=3.76, median=4.35, std=1.77, range=[1.00, 6.90]. N=150 [non-normal distribution].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "petal_width"
+    ],
+    "insight": "**Petal Width**: mean=1.20, median=1.30, std=0.76, range=[0.10, 2.50]. N=150 [non-normal distribution].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "species"
+    ],
+    "insight": "**Iris Species**: most common category is 'Iris setosa' (33.3%), N=150. Distribution: Iris setosa: 33.3%, Iris versicolor: 33.3%, Iris virginica: 33.3% [high diversity].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "sepal_length",
+      "sepal_width"
+    ],
+    "insight": "**sepal_length** and **sepal_width** show a weak negative correlation (r=-0.12, p=0.152, N=150) [not statistically significant], effect size: small.",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "sepal_length",
+      "petal_length"
+    ],
+    "insight": "**sepal_length** and **petal_length** show a very strong positive correlation (r=0.87, p=0.000, N=150) [statistically significant], effect size: large.",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "sepal_length",
+      "petal_width"
+    ],
+    "insight": "**sepal_length** and **petal_width** show a very strong positive correlation (r=0.82, p=0.000, N=150) [statistically significant], effect size: large.",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "sepal_length",
+      "species"
+    ],
+    "insight": "**sepal_length** differs across **species** groups: Iris setosa: 5.01, Iris versicolor: 5.94, Iris virginica: 6.59 (ANOVA: F=119.26, p=0.000), \u03b7\u00b2=0.62 (large).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "sepal_width",
+      "petal_length"
+    ],
+    "insight": "**sepal_width** and **petal_length** show a moderate negative correlation (r=-0.43, p=0.000, N=150) [statistically significant], effect size: large.",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "sepal_width",
+      "petal_width"
+    ],
+    "insight": "**sepal_width** and **petal_width** show a moderate negative correlation (r=-0.37, p=0.000, N=150) [statistically significant], effect size: medium.",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "sepal_width",
+      "species"
+    ],
+    "insight": "**sepal_width** differs across **species** groups: Iris setosa: 3.43, Iris versicolor: 2.77, Iris virginica: 2.97 (ANOVA: F=49.16, p=0.000), \u03b7\u00b2=0.40 (large).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "petal_length",
+      "petal_width"
+    ],
+    "insight": "**petal_length** and **petal_width** show a very strong positive correlation (r=0.96, p=0.000, N=150) [statistically significant], effect size: large.",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "petal_length",
+      "species"
+    ],
+    "insight": "**petal_length** differs across **species** groups: Iris setosa: 1.46, Iris versicolor: 4.26, Iris virginica: 5.55 (ANOVA: F=1180.16, p=0.000), \u03b7\u00b2=0.94 (large).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "petal_width",
+      "species"
+    ],
+    "insight": "**petal_width** differs across **species** groups: Iris setosa: 0.25, Iris versicolor: 1.33, Iris virginica: 2.03 (ANOVA: F=960.01, p=0.000), \u03b7\u00b2=0.93 (large).",
+    "type": "bivariate"
+  }
+]

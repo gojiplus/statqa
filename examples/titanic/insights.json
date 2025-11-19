@@ -1,0 +1,117 @@
+[
+  {
+    "vars": [
+      "survived"
+    ],
+    "insight": "**Survived**: most common category is '0' (60.2%), N=400. Distribution: 0: 60.2%, 1: 39.8% [high diversity].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "pclass"
+    ],
+    "insight": "**Passenger Class**: most common category is '3' (54.8%), N=400. Distribution: 3: 54.8%, 1: 25.0%, 2: 20.2% [high diversity].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "sex"
+    ],
+    "insight": "**Sex**: most common category is 'Male' (66.8%), N=400. Distribution: Male: 66.8%, Female: 33.2% [high diversity].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "age"
+    ],
+    "insight": "**Age**: mean=31.12, median=30.75, std=13.57, range=[1.00, 66.90]. N=400 [0.2% outliers].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "fare"
+    ],
+    "insight": "**Fare**: mean=36.02, median=21.42, std=44.73, range=[5.00, 489.36]. N=400 [non-normal distribution, 9.0% outliers, highly skewed].",
+    "type": "univariate"
+  },
+  {
+    "vars": [
+      "survived",
+      "pclass"
+    ],
+    "insight": "**survived** and **pclass** are associated (\u03c7\u00b2=26.99, p=0.000, Cram\u00e9r's V=0.26) [significant, weak effect].",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "survived",
+      "sex"
+    ],
+    "insight": "**survived** and **sex** are associated (\u03c7\u00b2=85.48, p=0.000, Cram\u00e9r's V=0.46) [significant, moderate effect].",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "survived",
+      "age"
+    ],
+    "insight": "**age** differs across **survived** groups: 0: 31.02, 1: 31.25 (t-test: p=0.870), Cohen's d=-0.02 (negligible).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "survived",
+      "fare"
+    ],
+    "insight": "**fare** differs across **survived** groups: 0: 36.86, 1: 34.73 (t-test: p=0.642), Cohen's d=0.05 (negligible).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "pclass",
+      "sex"
+    ],
+    "insight": "**pclass** and **sex** are associated (\u03c7\u00b2=0.08, p=0.961, Cram\u00e9r's V=0.01) [not statistically significant].",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "pclass",
+      "age"
+    ],
+    "insight": "**age** differs across **pclass** groups: 1: 30.55, 2: 31.16, 3: 31.36 (ANOVA: F=0.12, p=0.888), \u03b7\u00b2=0.00 (negligible).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "pclass",
+      "fare"
+    ],
+    "insight": "**fare** differs across **pclass** groups: 1: 37.22, 2: 32.41, 3: 36.80 (ANOVA: F=0.33, p=0.718), \u03b7\u00b2=0.00 (negligible).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "sex",
+      "age"
+    ],
+    "insight": "**age** differs across **sex** groups: Female: 30.67, Male: 31.34 (t-test: p=0.643), Cohen's d=-0.05 (negligible).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "sex",
+      "fare"
+    ],
+    "insight": "**fare** differs across **sex** groups: Female: 31.66, Male: 38.18 (t-test: p=0.170), Cohen's d=-0.15 (negligible).",
+    "type": "bivariate"
+  },
+  {
+    "vars": [
+      "age",
+      "fare"
+    ],
+    "insight": "**age** and **fare** show a negligible negative correlation (r=-0.05, p=0.329, N=400) [not statistically significant], effect size: negligible.",
+    "type": "bivariate"
+  }
+]

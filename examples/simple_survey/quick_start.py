@@ -192,14 +192,18 @@ def main():
     # Save codebook
     codebook_path = output_dir / "codebook.json"
     with open(codebook_path, "w") as f:
-        json.dump({var.name: var.dict() for var in codebook.variables.values()}, f, indent=2)
+        json.dump(
+            {var.name: var.model_dump(mode="json") for var in codebook.variables.values()},
+            f,
+            indent=2,
+        )
     print(f"✓ Saved codebook to {codebook_path}")
 
     # Step 3: Run univariate analyses
     print("\n[3/5] Running univariate analyses...")
     univariate_analyzer = UnivariateAnalyzer()
     formatter = InsightFormatter()
-    plotter = PlotFactory(style="seaborn", figsize=(8, 6))
+    plotter = PlotFactory(style="whitegrid", figsize=(8, 6))
 
     insights = []
     for var_name, variable in codebook.variables.items():
