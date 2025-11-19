@@ -63,10 +63,18 @@ class TextParser(BaseParser):
 
     def _read_source(self, source: str | Path) -> str:
         """Read content from source."""
-        if isinstance(source, str | Path):
-            path = Path(source)
-            if path.exists() and path.is_file():
-                return path.read_text(encoding="utf-8")
+        if isinstance(source, Path):
+            if source.exists() and source.is_file():
+                return source.read_text(encoding="utf-8")
+        elif isinstance(source, str):
+            # Check if it looks like a file path (not too long and has no newlines)
+            if len(source) < 260 and '\n' not in source:
+                path = Path(source)
+                try:
+                    if path.exists() and path.is_file():
+                        return path.read_text(encoding="utf-8")
+                except (OSError, ValueError):
+                    pass
         # Assume it's string content
         return str(source)
 

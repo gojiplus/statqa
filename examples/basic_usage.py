@@ -56,7 +56,8 @@ codebook = parser.parse(codebook_text)
 
 print(f"Parsed {len(codebook.variables)} variables:")
 for var_name, var in codebook.variables.items():
-    print(f"  - {var.label} ({var_name}): {var.var_type.value}")
+    var_type = var.var_type.value if hasattr(var.var_type, 'value') else var.var_type
+    print(f"  - {var.label} ({var_name}): {var_type}")
 
 # 3. Create sample data
 data = pd.DataFrame(
