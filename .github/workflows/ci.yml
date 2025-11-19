@@ -29,11 +29,11 @@ jobs:
 
     - name: Lint with ruff
       run: |
-        ruff check src tests
+        ruff check tableqa tests
 
     - name: Type check with mypy
       run: |
-        mypy src/tableqa --ignore-missing-imports
+        mypy tableqa --ignore-missing-imports
       continue-on-error: true
 
     - name: Run tests with pytest

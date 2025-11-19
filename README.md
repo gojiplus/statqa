@@ -265,13 +265,13 @@ pytest --cov=tableqa --cov-report=html
 
 ```bash
 # Linting
-ruff check src tests
+ruff check tableqa tests
 
 # Type checking
-mypy src/tableqa
+mypy tableqa
 
 # Formatting
-black src tests
+black tableqa tests
 ```
 
 ### Building Documentation

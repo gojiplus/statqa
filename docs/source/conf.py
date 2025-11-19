@@ -6,8 +6,8 @@ from pathlib import Path
 from tableqa import __version__
 
 
-# Add source to path
-sys.path.insert(0, str(Path(__file__).parents[2] / "src"))
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parents[2]))
 
 # Project information
 project = "tableqa"

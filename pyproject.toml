@@ -88,11 +88,7 @@ Repository = "https://github.com/gojiplus/tableqa"
 [project.scripts]
 tableqa = "tableqa.cli.main:app"
 
-[tool.setuptools]
-package-dir = {"" = "src"}
-
 [tool.setuptools.packages.find]
-where = ["src"]
 include = ["tableqa*"]
 namespaces = false
 
@@ -112,7 +108,7 @@ addopts = [
     "--cov-report=xml",
 ]
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = ["."]
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "integration: marks tests as integration tests",
@@ -121,7 +117,7 @@ markers = [
 
 # Coverage configuration
 [tool.coverage.run]
-source = ["src"]
+source = ["tableqa"]
 branch = true
 omit = [
     "*/tests/*",
@@ -149,7 +145,7 @@ exclude_lines = [
 [tool.ruff]
 target-version = "py311"
 line-length = 100
-src = ["src", "tests"]
+src = [".", "tests"]
 
 [tool.ruff.lint]
 select = [
