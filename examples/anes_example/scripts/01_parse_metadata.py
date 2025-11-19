@@ -15,8 +15,8 @@ Usage:
         --output-templates ../templates/question_templates.txt \
         --api-key YOUR_API_KEY
 """
+
 import argparse
-import json
 import logging
 import math
 import re
@@ -26,19 +26,19 @@ import openai
 import pandas as pd
 from tqdm.auto import tqdm
 
+
 try:
     import pdfplumber
 except ImportError:
     print("pdfplumber not installed. Install with: pip install tableqa[pdf]")
     raise
 
-from tableqa.metadata.schema import Variable, VariableType
 
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s [%(levelname)s] %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
 )
 
 
@@ -63,25 +63,25 @@ def parse_anes_codebook(pdf_path: str) -> pd.DataFrame:
     current = None
 
     # Patterns for parsing ANES codebook structure
-    var_pattern = re.compile(r'^(VCF\d{3,4}[a-z]?)\b\s*(.*)')
-    valid_pattern = re.compile(r'^Valid\b[:\s]*(.*)')
-    missing_pattern = re.compile(r'^(Missing|INAP\.)\b[:\s]*(.*)')
+    var_pattern = re.compile(r"^(VCF\d{3,4}[a-z]?)\b\s*(.*)")
+    valid_pattern = re.compile(r"^Valid\b[:\s]*(.*)")
+    missing_pattern = re.compile(r"^(Missing|INAP\.)\b[:\s]*(.*)")
 
     logging.info(f"Opening ANES codebook PDF: {pdf_path}")
     with pdfplumber.open(pdf_path) as pdf:
         # Locate start of "VARIABLE DESCRIPTION" section
         start_idx = 0
         for i, page in enumerate(pdf.pages):
-            text = page.extract_text() or ''
-            if 'VARIABLE DESCRIPTION' in text:
+            text = page.extract_text() or ""
+            if "VARIABLE DESCRIPTION" in text:
                 start_idx = i + 1
                 logging.info(f"Found VARIABLE DESCRIPTION section on page {start_idx + 1}")
                 break
 
         # Parse all pages starting from variable descriptions
         for page in tqdm(pdf.pages[start_idx:], desc="Parsing pages", unit="page"):
-            text = page.extract_text() or ''
-            for line in text.split('\n'):
+            text = page.extract_text() or ""
+            for line in text.split("\n"):
                 line = line.strip()
                 if not line:
                     continue
@@ -94,27 +94,27 @@ def parse_anes_codebook(pdf_path: str) -> pd.DataFrame:
                         records.append(current)
                     # Start new variable record
                     current = {
-                        'varname': m_var.group(1),
-                        'label': m_var.group(2).strip(),
-                        'valid_values': '',
-                        'missing_values': '',
-                        'notes': ''
+                        "varname": m_var.group(1),
+                        "label": m_var.group(2).strip(),
+                        "valid_values": "",
+                        "missing_values": "",
+                        "notes": "",
                     }
                 elif current:
                     # Parse valid values
                     m_valid = valid_pattern.match(line)
                     if m_valid:
-                        current['valid_values'] = m_valid.group(1).strip()
+                        current["valid_values"] = m_valid.group(1).strip()
                         continue
 
                     # Parse missing values
                     m_miss = missing_pattern.match(line)
                     if m_miss:
-                        current['missing_values'] += m_miss.group(2).strip() + '; '
+                        current["missing_values"] += m_miss.group(2).strip() + "; "
                         continue
 
                     # Accumulate other text as notes
-                    current['notes'] += line + ' '
+                    current["notes"] += line + " "
 
         # Save the last variable
         if current:
@@ -126,9 +126,9 @@ def parse_anes_codebook(pdf_path: str) -> pd.DataFrame:
 
 def generate_research_questions(
     metadata_df: pd.DataFrame,
-    api_key: str = None,
+    api_key: str | None = None,
     chunk_size: int = 20,
-    max_questions_per_chunk: int = 20
+    max_questions_per_chunk: int = 20,
 ) -> list[str]:
     """
     Generate research questions using LLM based on variable metadata.
@@ -162,10 +162,10 @@ def generate_research_questions(
         # Build context string for this chunk
         context_lines = []
         for _, row in chunk_df.iterrows():
-            var = row['varname']
-            label = row['label']
-            valid = row['valid_values']
-            miss = row['missing_values']
+            var = row["varname"]
+            label = row["label"]
+            valid = row["valid_values"]
+            miss = row["missing_values"]
 
             ctx = f"- {var} ({label})"
             if valid:
@@ -190,24 +190,26 @@ def generate_research_questions(
             "List questions as a numbered list."
         )
 
-        logging.info(f"Generating questions for chunk {chunk_idx+1}/{num_chunks} "
-                    f"(variables {start}-{end-1})")
+        logging.info(
+            f"Generating questions for chunk {chunk_idx+1}/{num_chunks} "
+            f"(variables {start}-{end-1})"
+        )
 
         try:
             resp = openai.chat.completions.create(
                 model="gpt-4",
                 messages=[
                     {"role": "system", "content": "You help scientists write research questions."},
-                    {"role": "user", "content": prompt}
+                    {"role": "user", "content": prompt},
                 ],
-                max_tokens=600
+                max_tokens=600,
             )
 
             text = resp.choices[0].message.content.strip()
 
             # Extract numbered questions
-            for line in text.split('\n'):
-                m = re.match(r'^\d+\.\s*(.+)', line)
+            for line in text.split("\n"):
+                m = re.match(r"^\d+\.\s*(.+)", line)
                 if m:
                     questions.append(m.group(1).strip())
 
@@ -225,41 +227,41 @@ def main():
         description="Parse ANES codebook and generate research questions using tableqa framework"
     )
     parser.add_argument(
-        '--codebook',
+        "--codebook",
         required=True,
-        help='Path to ANES codebook PDF (e.g., anes_timeseries_cdf_codebook_var_20220916.pdf)'
+        help="Path to ANES codebook PDF (e.g., anes_timeseries_cdf_codebook_var_20220916.pdf)",
     )
     parser.add_argument(
-        '--output-metadata',
-        default='../data/anes_metadata.csv',
-        help='Output CSV file for parsed metadata (default: ../data/anes_metadata.csv)'
+        "--output-metadata",
+        default="../data/anes_metadata.csv",
+        help="Output CSV file for parsed metadata (default: ../data/anes_metadata.csv)",
     )
     parser.add_argument(
-        '--output-templates',
-        default='../templates/question_templates.txt',
-        help='Output text file for question templates (default: ../templates/question_templates.txt)'
+        "--output-templates",
+        default="../templates/question_templates.txt",
+        help="Output text file for question templates (default: ../templates/question_templates.txt)",
     )
     parser.add_argument(
-        '--api-key',
+        "--api-key",
         default=None,
-        help='OpenAI API key (or set OPENAI_API_KEY environment variable)'
+        help="OpenAI API key (or set OPENAI_API_KEY environment variable)",
     )
     parser.add_argument(
-        '--chunk-size',
+        "--chunk-size",
         type=int,
         default=20,
-        help='Number of variables per LLM prompt (default: 20)'
+        help="Number of variables per LLM prompt (default: 20)",
     )
     parser.add_argument(
-        '--max-questions',
+        "--max-questions",
         type=int,
         default=20,
-        help='Maximum questions to generate per chunk (default: 20)'
+        help="Maximum questions to generate per chunk (default: 20)",
     )
     parser.add_argument(
-        '--skip-questions',
-        action='store_true',
-        help='Skip question generation (only parse metadata)'
+        "--skip-questions",
+        action="store_true",
+        help="Skip question generation (only parse metadata)",
     )
 
     args = parser.parse_args()
@@ -288,10 +290,10 @@ def main():
             metadata_df,
             api_key=args.api_key,
             chunk_size=args.chunk_size,
-            max_questions_per_chunk=args.max_questions
+            max_questions_per_chunk=args.max_questions,
         )
 
-        with open(args.output_templates, 'w') as f:
+        with open(args.output_templates, "w") as f:
             for i, q in enumerate(questions, 1):
                 f.write(f"{i}. {q}\n")
 
@@ -304,5 +306,5 @@ def main():
     logging.info("=" * 60)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

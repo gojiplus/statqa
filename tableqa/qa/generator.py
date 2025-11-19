@@ -8,7 +8,7 @@ Converts facts into multiple question/answer pairs using:
 
 import json
 import logging
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from typing import Any
 
 
@@ -29,6 +29,7 @@ def _get_tableqa_version() -> str:
     """Get the tableqa package version."""
     try:
         from importlib.metadata import version
+
         return version("tableqa")
     except Exception:
         return "unknown"
@@ -83,7 +84,7 @@ class QAGenerator:
             Dictionary with provenance information
         """
         provenance = {
-            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "generated_at": datetime.now(UTC).isoformat(),
             "tool": "tableqa",
             "tool_version": _get_tableqa_version(),
             "generation_method": method,
