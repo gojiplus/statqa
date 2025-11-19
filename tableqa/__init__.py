@@ -9,7 +9,8 @@ This package provides tools for:
 - Generating Q/A pairs for LLM fine-tuning or RAG
 """
 
-from tableqa.__version__ import __version__, __version_info__
+from importlib.metadata import version
+
 from tableqa.analysis.bivariate import BivariateAnalyzer
 from tableqa.analysis.causal import CausalAnalyzer
 from tableqa.analysis.temporal import TemporalAnalyzer
@@ -17,6 +18,11 @@ from tableqa.analysis.univariate import UnivariateAnalyzer
 
 # Import main public APIs
 from tableqa.metadata.schema import Codebook, Variable, VariableType
+
+
+# Get version from package metadata
+__version__ = version("tableqa")
+__version_info__ = tuple(int(i) for i in __version__.split(".") if i.isdigit())
 
 
 __all__ = [
