@@ -1,7 +1,7 @@
-TableQA Documentation
+StatQA Documentation
 =====================
 
-**TableQA** is a Python framework for automatically extracting structured facts, insights, and Q/A pairs from tabular datasets.
+**StatQA** is a Python framework for automatically extracting structured facts, insights, and Q/A pairs from tabular datasets.
 
 Features
 --------
@@ -17,12 +17,12 @@ Quick Start
 
 Installation::
 
-    pip install tableqa
+    pip install statqa
 
 Basic usage::
 
-    from tableqa import Codebook, UnivariateAnalyzer
-    from tableqa.metadata.parsers import TextParser
+    from statqa import Codebook, UnivariateAnalyzer
+    from statqa.metadata.parsers import TextParser
 
     # Parse codebook
     parser = TextParser()

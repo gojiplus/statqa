@@ -1,7 +1,7 @@
 """Utility functions and helpers."""
 
-from tableqa.utils.io import load_data, save_json
-from tableqa.utils.stats import calculate_effect_size, correct_multiple_testing
+from statqa.utils.io import load_data, save_json
+from statqa.utils.stats import calculate_effect_size, correct_multiple_testing
 
 
 __all__ = [

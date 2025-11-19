@@ -164,7 +164,7 @@ If you want to test the pipeline with a smaller dataset:
 
 For data-related questions:
 - **ANES support**: https://electionstudies.org/contact/
-- **tableqa issues**: https://github.com/gojiplus/tableqa/issues
+- **statqa issues**: https://github.com/gojiplus/statqa/issues
 
 ## File Checksums
 

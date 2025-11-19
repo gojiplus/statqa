@@ -13,8 +13,8 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-from tableqa.metadata.schema import Variable
-from tableqa.utils.stats import calculate_effect_size, cramers_v
+from statqa.metadata.schema import Variable
+from statqa.utils.stats import calculate_effect_size, cramers_v
 
 
 class BivariateAnalyzer:

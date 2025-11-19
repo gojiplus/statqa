@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 import statsmodels.api as sm
 
-from tableqa.metadata.schema import Variable
+from statqa.metadata.schema import Variable
 
 
 class CausalAnalyzer:
@@ -139,7 +139,7 @@ class CausalAnalyzer:
 
         for var in potential_confounders:
             # Test association with treatment
-            from tableqa.analysis.bivariate import BivariateAnalyzer
+            from statqa.analysis.bivariate import BivariateAnalyzer
 
             biv_analyzer = BivariateAnalyzer(significance_level=self.alpha)
 

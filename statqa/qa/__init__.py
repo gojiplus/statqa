@@ -1,7 +1,7 @@
 """Question-Answer generation from insights."""
 
-from tableqa.qa.generator import QAGenerator
-from tableqa.qa.templates import QuestionTemplate
+from statqa.qa.generator import QAGenerator
+from statqa.qa.templates import QuestionTemplate
 
 
 __all__ = ["QAGenerator", "QuestionTemplate"]

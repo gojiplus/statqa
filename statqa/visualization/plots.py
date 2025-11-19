@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
-from tableqa.metadata.schema import Variable
+from statqa.metadata.schema import Variable
 
 
 class PlotFactory:

@@ -7,7 +7,7 @@ and domain knowledge for use in LLM prompts.
 
 from typing import Any
 
-from tableqa.metadata.schema import Codebook, Variable
+from statqa.metadata.schema import Codebook, Variable
 
 
 class ContextBuilder:

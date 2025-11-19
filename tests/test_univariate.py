@@ -2,8 +2,8 @@
 
 import pandas as pd
 
-from tableqa.analysis.univariate import UnivariateAnalyzer
-from tableqa.metadata.schema import Variable
+from statqa.analysis.univariate import UnivariateAnalyzer
+from statqa.metadata.schema import Variable
 
 
 def test_numeric_univariate(sample_numeric_data: pd.Series, sample_variable: Variable):

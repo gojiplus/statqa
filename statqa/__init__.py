@@ -11,17 +11,17 @@ This package provides tools for:
 
 from importlib.metadata import version
 
-from tableqa.analysis.bivariate import BivariateAnalyzer
-from tableqa.analysis.causal import CausalAnalyzer
-from tableqa.analysis.temporal import TemporalAnalyzer
-from tableqa.analysis.univariate import UnivariateAnalyzer
+from statqa.analysis.bivariate import BivariateAnalyzer
+from statqa.analysis.causal import CausalAnalyzer
+from statqa.analysis.temporal import TemporalAnalyzer
+from statqa.analysis.univariate import UnivariateAnalyzer
 
 # Import main public APIs
-from tableqa.metadata.schema import Codebook, Variable, VariableType
+from statqa.metadata.schema import Codebook, Variable, VariableType
 
 
 # Get version from package metadata
-__version__ = version("tableqa")
+__version__ = version("statqa")
 __version_info__ = tuple(int(i) for i in __version__.split(".") if i.isdigit())
 
 

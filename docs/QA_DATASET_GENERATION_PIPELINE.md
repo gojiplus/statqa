@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes TableQA's pipeline for generating Q/A-style datasets from tabular data with metadata. The pipeline converts raw tables into structured question-answer pairs suitable for training or fine-tuning LLMs on data analysis tasks.
+This document describes StatQA's pipeline for generating Q/A-style datasets from tabular data with metadata. The pipeline converts raw tables into structured question-answer pairs suitable for training or fine-tuning LLMs on data analysis tasks.
 
 ## Pipeline Architecture
 
@@ -52,7 +52,7 @@ Output: Q/A Dataset for LLM Training
 
 **Example**:
 ```python
-from tableqa.metadata.parsers import CSVParser
+from statqa.metadata.parsers import CSVParser
 
 parser = CSVParser()
 codebook = parser.parse('codebook.csv')
@@ -84,7 +84,7 @@ codebook = parser.parse('codebook.csv')
 
 **Example**:
 ```python
-from tableqa.analysis import UnivariateAnalyzer, BivariateAnalyzer
+from statqa.analysis import UnivariateAnalyzer, BivariateAnalyzer
 
 # Univariate
 analyzer = UnivariateAnalyzer()
@@ -116,7 +116,7 @@ range=[25,000.00, 133,843.00]. N=500 [non-normal distribution].
 
 **Example**:
 ```python
-from tableqa.interpretation import InsightFormatter
+from statqa.interpretation import InsightFormatter
 
 formatter = InsightFormatter()
 insight = formatter.format_univariate(result)
@@ -143,7 +143,7 @@ insight = formatter.format_univariate(result)
 
 **Example**:
 ```python
-from tableqa.qa import QAGenerator
+from statqa.qa import QAGenerator
 
 # Template-based only
 qa_gen = QAGenerator(use_llm=False)
@@ -325,10 +325,10 @@ A: **Survived**: most common category is '0' (60.2%), N=400.
 
 ```python
 from pathlib import Path
-from tableqa.metadata.parsers import CSVParser
-from tableqa.analysis import UnivariateAnalyzer, BivariateAnalyzer
-from tableqa.interpretation import InsightFormatter
-from tableqa.qa import QAGenerator
+from statqa.metadata.parsers import CSVParser
+from statqa.analysis import UnivariateAnalyzer, BivariateAnalyzer
+from statqa.interpretation import InsightFormatter
+from statqa.qa import QAGenerator
 
 # 1. Parse codebook
 parser = CSVParser()
@@ -366,13 +366,13 @@ with open('qa_dataset.jsonl', 'w') as f:
 
 ```bash
 # Complete pipeline
-tableqa pipeline data.csv codebook.csv \
+statqa pipeline data.csv codebook.csv \
     --output-dir output/ \
     --qa \
     --enrich
 
 # Just Q/A generation from existing insights
-tableqa generate-qa insights.json \
+statqa generate-qa insights.json \
     --output qa_pairs.jsonl \
     --format openai \
     --llm

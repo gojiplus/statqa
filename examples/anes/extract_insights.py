@@ -31,10 +31,10 @@ import numpy as np
 import pandas as pd
 from tqdm.auto import tqdm
 
-from tableqa.analysis.univariate import UnivariateAnalyzer
-from tableqa.interpretation.formatter import InsightFormatter
-from tableqa.metadata.schema import Variable, VariableType
-from tableqa.visualization.plots import PlotFactory
+from statqa.analysis.univariate import UnivariateAnalyzer
+from statqa.interpretation.formatter import InsightFormatter
+from statqa.metadata.schema import Variable, VariableType
+from statqa.visualization.plots import PlotFactory
 
 
 # Configure logging

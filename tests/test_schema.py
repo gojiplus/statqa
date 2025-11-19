@@ -1,6 +1,6 @@
 """Tests for metadata schema."""
 
-from tableqa.metadata.schema import Codebook, Variable, VariableType
+from statqa.metadata.schema import Codebook, Variable, VariableType
 
 
 def test_variable_creation():

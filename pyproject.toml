@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tableqa"
+name = "statqa"
 version = "0.1.0"
 description = "Automatically extract structured facts, insights, and Q/A pairs from tabular datasets"
 readme = "README.md"
@@ -76,24 +76,24 @@ docs = [
     "sphinx-autodoc-typehints>=1.24.0",
 ]
 all = [
-    "tableqa[llm,pdf,dev,docs]",
+    "statqa[llm,pdf,dev,docs]",
 ]
 
 [project.urls]
-Homepage = "https://github.com/gojiplus/tableqa"
-Documentation = "https://gojiplus.github.io/tableqa"
-Repository = "https://github.com/gojiplus/tableqa"
-"Bug Tracker" = "https://github.com/gojiplus/tableqa/issues"
+Homepage = "https://github.com/gojiplus/statqa"
+Documentation = "https://gojiplus.github.io/statqa"
+Repository = "https://github.com/gojiplus/statqa"
+"Bug Tracker" = "https://github.com/gojiplus/statqa/issues"
 
 [project.scripts]
-tableqa = "tableqa.cli.main:app"
+statqa = "statqa.cli.main:app"
 
 [tool.setuptools.packages.find]
-include = ["tableqa*"]
+include = ["statqa*"]
 namespaces = false
 
 [tool.setuptools.package-data]
-tableqa = ["py.typed"]
+statqa = ["py.typed"]
 
 # Pytest configuration
 [tool.pytest.ini_options]
@@ -102,7 +102,7 @@ addopts = [
     "-ra",
     "--strict-markers",
     "--strict-config",
-    "--cov=tableqa",
+    "--cov=statqa",
     "--cov-report=term-missing",
     "--cov-report=html",
     "--cov-report=xml",
@@ -117,7 +117,7 @@ markers = [
 
 # Coverage configuration
 [tool.coverage.run]
-source = ["tableqa"]
+source = ["statqa"]
 branch = true
 omit = [
     "*/tests/*",
@@ -173,7 +173,7 @@ ignore = [
 "tests/**/*.py" = ["S101", "PLR2004"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["tableqa"]
+known-first-party = ["statqa"]
 force-single-line = false
 lines-after-imports = 2
 

@@ -1,18 +1,18 @@
-"""Sphinx configuration for tableqa documentation."""
+"""Sphinx configuration for statqa documentation."""
 
 import sys
 from pathlib import Path
 
-from tableqa import __version__
+from statqa import __version__
 
 
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parents[2]))
 
 # Project information
-project = "tableqa"
-copyright = "2025, TableQA Contributors"
-author = "TableQA Contributors"
+project = "statqa"
+copyright = "2025, StatQA Contributors"
+author = "StatQA Contributors"
 
 # Version
 version = __version__

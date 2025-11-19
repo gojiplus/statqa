@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from tableqa.metadata.schema import Codebook, Variable, VariableType
+from statqa.metadata.schema import Codebook, Variable, VariableType
 
 
 @pytest.fixture

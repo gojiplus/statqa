@@ -1,6 +1,6 @@
 # Titanic Survival Dataset
 
-The famous Titanic dataset demonstrating tableqa with historical passenger data.
+The famous Titanic dataset demonstrating statqa with historical passenger data.
 
 ## Dataset
 
@@ -20,10 +20,10 @@ This dataset contains information about Titanic passengers including:
 ```python
 import pandas as pd
 import json
-from tableqa.analysis.univariate import UnivariateAnalyzer
-from tableqa.analysis.bivariate import BivariateAnalyzer
-from tableqa.interpretation.formatter import InsightFormatter
-from tableqa.metadata.model import Codebook
+from statqa.analysis.univariate import UnivariateAnalyzer
+from statqa.analysis.bivariate import BivariateAnalyzer
+from statqa.interpretation.formatter import InsightFormatter
+from statqa.metadata.model import Codebook
 
 # Load data and codebook
 data = pd.read_csv('data.csv')

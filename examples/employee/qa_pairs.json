@@ -5,7 +5,7 @@
     "type": "distributional",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.441589+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "unknown",
@@ -23,7 +23,7 @@
     "type": "distributional",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.441589+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "unknown",
@@ -41,7 +41,7 @@
     "type": "distributional",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.445528+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "unknown",
@@ -59,7 +59,7 @@
     "type": "distributional",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.450398+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "unknown",
@@ -77,7 +77,7 @@
     "type": "distributional",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.450398+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "unknown",
@@ -95,7 +95,7 @@
     "type": "distributional",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.454096+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "unknown",
@@ -113,7 +113,7 @@
     "type": "distributional",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.460281+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "unknown",
@@ -131,7 +131,7 @@
     "type": "distributional",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.460281+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "unknown",
@@ -149,7 +149,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.469569+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -169,7 +169,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.469569+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -189,7 +189,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.469569+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -209,7 +209,7 @@
     "type": "correlational",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.475453+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
@@ -229,7 +229,7 @@
     "type": "correlational",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.475453+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
@@ -249,7 +249,7 @@
     "type": "correlational",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.475453+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
@@ -269,7 +269,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.484123+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -289,7 +289,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.484123+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -309,7 +309,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.484123+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -329,7 +329,7 @@
     "type": "correlational",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.488667+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
@@ -349,7 +349,7 @@
     "type": "correlational",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.488667+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
@@ -369,7 +369,7 @@
     "type": "correlational",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.488667+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
@@ -389,7 +389,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.494737+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -409,7 +409,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.494737+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -429,7 +429,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.494737+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -449,7 +449,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.513704+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -469,7 +469,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.513704+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -489,7 +489,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.513704+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -509,7 +509,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.520412+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -529,7 +529,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.520412+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -549,7 +549,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.520412+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -569,7 +569,7 @@
     "type": "correlational",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.524797+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
@@ -589,7 +589,7 @@
     "type": "correlational",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.524797+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
@@ -609,7 +609,7 @@
     "type": "correlational",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.524797+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "numeric_numeric",
@@ -629,7 +629,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.531115+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -649,7 +649,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.531115+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",
@@ -669,7 +669,7 @@
     "type": "comparative",
     "provenance": {
       "generated_at": "2025-11-19T06:35:19.531115+00:00",
-      "tool": "tableqa",
+      "tool": "statqa",
       "tool_version": "0.1.0",
       "generation_method": "template",
       "analysis_type": "categorical_numeric",

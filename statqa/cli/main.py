@@ -14,16 +14,16 @@ import typer
 from rich.console import Console
 from rich.progress import track
 
-from tableqa import __version__
-from tableqa.analysis.bivariate import BivariateAnalyzer
-from tableqa.analysis.univariate import UnivariateAnalyzer
-from tableqa.interpretation.formatter import InsightFormatter
-from tableqa.metadata.enricher import MetadataEnricher
-from tableqa.metadata.parsers.csv import CSVParser
-from tableqa.metadata.parsers.text import TextParser
-from tableqa.qa.generator import QAGenerator
-from tableqa.utils.io import load_data, save_json
-from tableqa.visualization.plots import PlotFactory
+from statqa import __version__
+from statqa.analysis.bivariate import BivariateAnalyzer
+from statqa.analysis.univariate import UnivariateAnalyzer
+from statqa.interpretation.formatter import InsightFormatter
+from statqa.metadata.enricher import MetadataEnricher
+from statqa.metadata.parsers.csv import CSVParser
+from statqa.metadata.parsers.text import TextParser
+from statqa.qa.generator import QAGenerator
+from statqa.utils.io import load_data, save_json
+from statqa.visualization.plots import PlotFactory
 
 
 app = typer.Typer(help="TableQA: Extract structured facts from tabular datasets")
@@ -111,7 +111,7 @@ def analyze(
     with open(codebook_path) as f:
         codebook_data = json.load(f)
 
-    from tableqa.metadata.schema import Codebook
+    from statqa.metadata.schema import Codebook
 
     codebook = Codebook(**codebook_data)
     console.print(f"[green]✓[/green] Loaded codebook with {len(codebook.variables)} variables")

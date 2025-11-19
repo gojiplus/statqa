@@ -19,18 +19,18 @@ try:
 except ImportError:
     HAS_OPENAI = False
 
-from tableqa.qa.templates import QuestionTemplate, infer_question_type
+from statqa.qa.templates import QuestionTemplate, infer_question_type
 
 
 logger = logging.getLogger(__name__)
 
 
-def _get_tableqa_version() -> str:
-    """Get the tableqa package version."""
+def _get_statqa_version() -> str:
+    """Get the statqa package version."""
     try:
         from importlib.metadata import version
 
-        return version("tableqa")
+        return version("statqa")
     except Exception:
         return "unknown"
 
@@ -86,8 +86,8 @@ class QAGenerator:
         """
         provenance = {
             "generated_at": datetime.now(UTC).isoformat(),
-            "tool": "tableqa",
-            "tool_version": _get_tableqa_version(),
+            "tool": "statqa",
+            "tool_version": _get_statqa_version(),
             "generation_method": method,
             "analysis_type": insight.get("analysis_type", "unknown"),
         }
