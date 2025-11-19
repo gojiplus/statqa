@@ -1,8 +1,8 @@
 # StatQA
 
+[![PyPI version](https://img.shields.io/pypi/v/statqa.svg)](https://pypi.org/project/statqa/)
 [![CI](https://github.com/gojiplus/statqa/actions/workflows/ci.yml/badge.svg)](https://github.com/gojiplus/statqa/actions/workflows/ci.yml)
 [![Documentation](https://github.com/gojiplus/statqa/actions/workflows/docs.yml/badge.svg)](https://gojiplus.github.io/statqa)
-[![PyPI version](https://badge.fury.io/py/statqa.svg)](https://pypi.org/project/statqa/)
 [![Downloads](https://static.pepy.tech/badge/statqa)](https://pepy.tech/project/statqa)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
