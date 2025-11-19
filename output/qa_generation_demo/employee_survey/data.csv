@@ -1,0 +1,501 @@
+age,education,income,job_satisfaction,work_hours
+56,Bachelor,60347,2,36
+69,High School,58917,3,45
+46,Bachelor,70855,3,27
+32,High School,49028,2,59
+60,High School,67927,3,31
+25,Bachelor,77617,3,46
+38,Bachelor,78074,2,27
+56,Bachelor,86087,4,44
+36,Bachelor,64525,2,23
+40,Graduate,82411,3,52
+28,Bachelor,54327,4,20
+28,High School,25000,2,38
+41,Bachelor,100843,2,50
+70,High School,28451,2,35
+53,Bachelor,66681,4,33
+57,High School,40847,4,24
+41,High School,49611,2,45
+20,Graduate,107236,4,47
+39,Graduate,107907,3,21
+70,Bachelor,61253,3,25
+19,Bachelor,67493,5,28
+41,High School,49238,2,52
+61,High School,41269,3,44
+47,High School,69110,3,32
+55,Bachelor,77364,4,28
+19,Bachelor,81023,3,32
+38,Bachelor,79943,3,50
+50,High School,62602,3,30
+29,Graduate,97715,4,23
+39,Bachelor,50547,3,53
+61,Bachelor,75995,4,57
+42,Bachelor,60229,3,23
+66,Bachelor,62070,3,57
+44,High School,53795,3,38
+59,High School,63574,4,25
+45,Bachelor,70319,3,53
+33,High School,49632,1,37
+32,High School,70533,4,32
+64,High School,48611,2,42
+68,High School,84025,3,38
+61,Graduate,103482,3,30
+72,Bachelor,43588,4,20
+69,Bachelor,81300,2,43
+74,High School,50717,5,26
+20,Bachelor,89346,4,44
+54,Bachelor,80097,3,40
+68,High School,42923,3,34
+24,Bachelor,51635,3,20
+38,High School,41864,3,31
+26,Bachelor,57242,3,26
+56,Bachelor,61292,3,34
+35,High School,53828,3,40
+21,High School,70048,3,38
+42,Bachelor,75920,3,48
+31,Bachelor,52061,3,44
+67,Graduate,101669,4,52
+26,Bachelor,87949,4,51
+43,High School,35853,1,54
+70,High School,42989,3,57
+19,Bachelor,70220,3,45
+37,High School,33226,2,30
+45,Bachelor,79724,3,54
+64,Graduate,93185,4,27
+24,Bachelor,76292,4,33
+61,High School,31687,2,29
+25,Bachelor,63438,3,21
+64,Bachelor,80835,3,28
+52,Bachelor,64407,2,22
+31,Graduate,120904,3,40
+34,High School,39005,3,45
+53,Graduate,98370,4,27
+67,Graduate,108988,4,21
+57,High School,25000,3,25
+21,High School,25000,3,47
+19,High School,25000,2,48
+23,High School,63938,3,45
+71,High School,36722,3,44
+59,Bachelor,108372,4,31
+21,High School,36536,3,24
+71,High School,47768,3,53
+46,Graduate,118131,4,56
+35,High School,75091,4,34
+43,Graduate,125922,4,55
+61,High School,63125,2,34
+51,High School,60360,3,42
+27,Bachelor,78887,3,25
+53,Bachelor,81675,3,40
+31,Graduate,86732,3,42
+48,Bachelor,57727,2,35
+65,Graduate,94949,3,34
+32,High School,42447,1,44
+25,High School,38201,3,55
+31,Bachelor,80445,3,30
+40,Graduate,109329,3,34
+74,Graduate,96326,4,23
+57,Bachelor,92162,4,40
+38,High School,27874,1,32
+33,Bachelor,67095,2,41
+62,High School,34247,2,38
+35,Graduate,67001,2,53
+64,Graduate,93759,4,33
+70,Bachelor,68173,3,23
+41,Bachelor,92701,3,46
+43,Bachelor,79462,2,48
+42,High School,29637,3,47
+62,Graduate,122811,3,54
+58,Bachelor,88315,3,27
+46,Graduate,103731,4,35
+32,High School,41602,4,55
+62,Graduate,80608,2,49
+18,High School,39416,1,37
+42,High School,61331,3,21
+24,Graduate,123268,5,32
+26,High School,68148,4,23
+41,High School,37667,3,45
+18,Graduate,78205,3,44
+61,Graduate,97113,4,49
+25,Bachelor,43473,2,30
+41,Bachelor,74847,3,26
+28,Bachelor,67785,3,50
+68,High School,38009,3,29
+34,High School,25000,4,58
+25,Bachelor,77704,3,32
+52,Bachelor,62009,3,50
+52,Bachelor,52451,3,26
+50,Bachelor,26916,1,55
+22,High School,44587,2,39
+59,Bachelor,96583,3,23
+56,High School,69918,3,26
+58,Bachelor,63143,3,20
+45,Bachelor,60966,2,32
+24,Graduate,102031,4,41
+26,High School,30024,2,40
+25,High School,49526,3,41
+29,High School,56491,3,47
+51,Bachelor,88403,3,28
+50,Bachelor,68497,4,45
+65,High School,41944,2,28
+72,High School,31830,2,34
+40,Bachelor,57596,3,29
+41,High School,41602,2,43
+54,Graduate,100510,3,27
+52,Bachelor,83703,3,43
+61,High School,32952,3,35
+57,High School,67390,3,45
+39,Graduate,90933,4,46
+44,High School,44679,3,56
+52,High School,33791,2,23
+18,Graduate,58636,3,43
+52,Graduate,108260,4,38
+54,Graduate,106052,4,55
+64,Bachelor,65780,3,58
+31,High School,46004,1,29
+20,High School,52739,3,44
+18,Bachelor,46561,4,37
+22,Bachelor,62064,4,38
+43,Bachelor,81913,4,55
+72,Graduate,76185,4,29
+31,High School,49403,3,52
+56,Bachelor,49651,3,24
+44,High School,51996,2,54
+26,Bachelor,69465,3,53
+32,High School,25000,3,52
+32,High School,62471,4,40
+43,High School,33981,2,36
+59,Bachelor,57846,3,41
+30,Bachelor,73008,3,56
+68,Bachelor,87229,4,34
+49,Graduate,79762,2,54
+56,High School,45925,1,47
+66,High School,51432,2,26
+69,Graduate,105396,3,51
+49,High School,47646,2,30
+21,Graduate,89494,3,29
+47,High School,32586,2,28
+54,Graduate,96292,5,33
+40,High School,28917,3,32
+56,Graduate,51179,3,44
+62,Bachelor,76548,4,21
+32,Graduate,108559,3,54
+60,High School,25000,3,26
+46,Bachelor,54854,3,40
+53,Graduate,104287,4,37
+30,Bachelor,100862,3,22
+49,Bachelor,70311,2,58
+24,Bachelor,59079,3,30
+68,Bachelor,67256,3,58
+39,Bachelor,90623,3,43
+45,Bachelor,60310,2,38
+19,Graduate,83012,4,23
+59,High School,37758,2,45
+62,High School,30700,4,57
+74,Graduate,96840,3,51
+70,Graduate,119370,4,58
+23,Bachelor,74846,3,55
+45,Bachelor,66214,3,59
+45,High School,40622,2,56
+61,High School,25000,2,52
+61,Bachelor,83246,3,55
+37,High School,43832,2,22
+47,Bachelor,67292,4,28
+28,High School,92896,3,27
+72,Graduate,99481,3,52
+45,Graduate,83723,3,25
+42,Bachelor,63604,1,58
+56,Bachelor,87226,3,23
+50,High School,46699,4,32
+18,Graduate,73425,4,21
+74,Bachelor,83788,3,24
+44,High School,34977,2,46
+74,Graduate,123099,4,51
+69,Graduate,111200,4,40
+30,Graduate,88290,3,27
+58,Bachelor,89215,4,57
+20,Bachelor,71017,4,27
+56,Bachelor,82791,4,22
+23,Graduate,102270,4,22
+25,Graduate,82304,3,41
+44,High School,35346,3,25
+26,High School,60449,3,21
+54,High School,39978,2,42
+50,Graduate,88945,3,21
+68,Graduate,80673,3,57
+59,High School,51353,4,36
+61,Bachelor,100937,3,54
+41,High School,28987,1,53
+32,Graduate,95363,4,42
+71,Graduate,116183,4,49
+49,Graduate,93805,4,27
+49,Bachelor,76785,3,41
+41,Bachelor,54064,3,55
+58,High School,51424,4,24
+69,High School,42192,1,32
+66,Graduate,109785,3,48
+66,Graduate,112810,4,50
+69,Graduate,133843,3,35
+29,Graduate,103694,4,49
+56,Bachelor,74886,4,35
+19,Bachelor,72915,3,31
+20,Graduate,89702,4,36
+66,Graduate,100077,3,35
+54,High School,40568,2,31
+66,Bachelor,72526,3,27
+73,High School,64763,3,39
+34,Graduate,79901,4,22
+66,Bachelor,87098,4,35
+19,High School,64756,2,49
+19,Bachelor,68228,3,42
+45,Bachelor,38172,3,47
+71,High School,35882,3,59
+40,High School,64454,4,24
+54,Bachelor,69656,2,39
+49,Bachelor,55010,2,59
+50,Bachelor,62428,2,20
+18,Bachelor,82609,3,49
+36,Graduate,103201,4,40
+19,Bachelor,66416,4,39
+70,Bachelor,64497,3,25
+61,Graduate,89123,3,41
+43,Bachelor,56163,3,37
+49,High School,69230,2,27
+23,High School,40165,4,58
+49,Bachelor,88257,2,51
+72,Bachelor,92819,4,52
+21,Bachelor,84974,5,35
+72,High School,38525,3,31
+28,High School,51055,3,57
+73,High School,44637,2,53
+34,High School,31444,2,33
+55,Bachelor,74865,4,55
+41,High School,27314,1,52
+22,Bachelor,87815,4,42
+69,Graduate,88030,2,21
+51,High School,48017,3,40
+23,Bachelor,74249,3,21
+39,Bachelor,66116,3,46
+28,High School,53800,2,28
+65,Bachelor,62876,3,20
+33,Graduate,108069,5,30
+50,Graduate,74810,2,22
+26,High School,46895,3,42
+23,Graduate,124083,4,45
+33,Bachelor,54995,3,23
+46,High School,34833,2,37
+20,Bachelor,77708,3,25
+37,Graduate,97693,4,54
+53,Bachelor,75259,4,41
+36,High School,52337,3,34
+43,Bachelor,79520,4,41
+20,High School,61645,2,56
+36,High School,51147,2,31
+37,High School,41381,3,57
+49,High School,55088,4,37
+24,High School,73498,3,54
+69,High School,43010,2,49
+58,Bachelor,55382,3,43
+50,High School,61606,2,49
+57,High School,43194,3,33
+56,Graduate,62409,4,25
+35,Bachelor,82711,3,22
+57,Bachelor,61970,3,35
+18,High School,43642,3,26
+28,High School,49979,2,33
+45,High School,47857,3,28
+74,High School,55641,4,34
+42,High School,38467,2,40
+67,High School,52696,3,54
+40,High School,41106,2,21
+48,High School,56082,3,46
+47,Bachelor,79230,3,21
+59,High School,30968,2,54
+52,High School,61289,4,37
+24,Bachelor,61960,4,33
+33,Bachelor,82120,3,39
+43,High School,50509,1,37
+65,Bachelor,97572,4,29
+74,Bachelor,66648,3,44
+69,High School,39760,3,21
+66,Graduate,94708,2,44
+19,Graduate,90452,4,52
+18,High School,56999,2,55
+65,High School,25000,3,50
+29,Graduate,79194,3,33
+22,Bachelor,53982,2,20
+54,High School,59254,3,35
+49,High School,70659,4,22
+72,High School,43433,3,54
+26,Bachelor,67467,3,25
+58,Bachelor,71050,4,44
+52,High School,62428,2,32
+36,Bachelor,56089,4,53
+65,Bachelor,73575,3,27
+33,High School,59627,2,40
+20,High School,52516,2,53
+37,Bachelor,72843,3,23
+41,Graduate,110015,4,44
+71,Bachelor,29451,2,34
+73,Bachelor,80168,4,23
+50,High School,35188,1,31
+41,Bachelor,42540,3,51
+69,Bachelor,77668,2,51
+28,High School,65604,3,47
+66,High School,42938,3,32
+25,High School,59293,3,50
+53,High School,69184,1,33
+55,High School,64723,3,39
+57,High School,69599,3,37
+37,High School,56131,3,48
+52,High School,46131,4,25
+65,Graduate,70970,2,51
+42,Bachelor,66309,3,48
+52,Bachelor,57351,4,21
+42,Bachelor,102564,2,42
+46,Bachelor,67361,3,38
+35,High School,46848,2,50
+63,Bachelor,78272,3,24
+35,Bachelor,70654,3,38
+19,Bachelor,95425,3,53
+71,Bachelor,60660,2,29
+52,High School,47919,3,44
+33,High School,33862,2,21
+58,High School,25199,2,30
+53,Bachelor,60823,3,50
+50,Bachelor,69444,2,34
+21,High School,38560,3,28
+50,Graduate,84613,4,42
+31,Bachelor,48905,2,38
+38,High School,43753,2,28
+65,High School,25000,3,54
+37,High School,56400,2,40
+73,High School,46236,2,28
+25,High School,25000,3,47
+24,High School,40361,3,26
+20,High School,33717,2,35
+34,High School,49787,2,35
+50,Graduate,115106,5,52
+65,High School,25000,4,23
+29,Bachelor,71725,4,23
+68,Bachelor,67598,3,58
+39,Graduate,105070,3,59
+72,High School,48197,2,36
+39,High School,33720,3,56
+63,Graduate,90214,4,58
+47,Graduate,83059,4,48
+55,Graduate,111140,4,55
+55,High School,45319,2,57
+62,High School,73517,4,58
+68,Bachelor,69090,2,56
+71,Graduate,84373,3,54
+25,Bachelor,47294,3,26
+44,Bachelor,42952,4,46
+44,High School,25000,4,47
+51,Bachelor,74006,4,41
+38,High School,52630,3,33
+47,High School,25000,3,26
+50,Bachelor,83425,4,56
+45,Bachelor,62754,3,41
+64,High School,47201,4,24
+50,High School,69183,3,21
+22,Bachelor,83452,4,46
+65,High School,40972,3,40
+36,Bachelor,56632,3,57
+21,High School,25000,3,34
+52,Bachelor,59212,2,40
+66,Bachelor,66833,3,29
+34,High School,30192,2,42
+61,High School,43031,3,58
+45,High School,46152,3,24
+47,High School,41627,3,20
+46,Graduate,85249,4,32
+63,High School,47529,3,40
+70,Graduate,101629,4,45
+23,High School,28644,2,40
+52,Bachelor,91163,3,37
+58,Bachelor,68521,4,56
+54,Bachelor,70282,4,51
+41,Bachelor,80623,3,55
+46,Bachelor,73498,3,36
+66,High School,59297,2,54
+63,Graduate,99306,3,30
+70,Graduate,85813,4,40
+48,Graduate,100422,4,45
+52,High School,27844,3,23
+50,Bachelor,71628,3,53
+69,Graduate,94501,3,37
+38,High School,41878,2,59
+49,High School,43071,3,54
+40,Bachelor,41772,3,48
+50,Bachelor,61769,3,48
+20,Graduate,96392,3,57
+35,High School,47397,1,40
+42,Bachelor,54584,4,32
+59,High School,63985,3,36
+48,High School,32007,2,28
+71,High School,59541,3,20
+20,Graduate,101407,3,21
+57,Bachelor,60306,4,48
+63,Bachelor,96629,4,52
+41,High School,27095,3,29
+67,Graduate,108787,3,59
+49,High School,60008,4,40
+64,Graduate,84940,4,47
+39,Bachelor,90886,3,30
+40,High School,41249,3,53
+19,Bachelor,74330,2,27
+44,High School,48904,3,41
+59,Bachelor,67985,2,27
+19,Bachelor,82162,2,34
+43,High School,56902,2,36
+34,Graduate,68772,4,42
+57,High School,64565,3,43
+50,Bachelor,45062,4,38
+26,Graduate,110488,3,24
+60,Bachelor,86900,2,51
+71,High School,28635,2,20
+65,Graduate,88837,4,42
+56,Bachelor,53414,3,56
+46,High School,41776,2,27
+59,High School,40379,3,32
+72,Bachelor,81694,4,27
+43,Bachelor,89654,4,42
+52,Bachelor,90935,4,20
+67,Graduate,86567,3,43
+42,Bachelor,66861,2,54
+41,High School,25000,2,43
+30,High School,32911,3,36
+24,High School,59472,2,24
+74,Bachelor,94233,3,39
+53,High School,26484,3,40
+62,Bachelor,61113,3,59
+37,Bachelor,69603,3,50
+18,Graduate,99202,3,55
+25,High School,32855,2,30
+63,Graduate,101360,3,34
+33,High School,37892,3,38
+31,Graduate,94783,4,26
+29,High School,53194,1,47
+68,High School,45096,2,24
+40,Bachelor,63454,2,24
+32,High School,43355,2,49
+45,High School,43674,3,51
+51,Bachelor,64449,2,27
+19,Bachelor,66118,2,29
+49,Bachelor,93979,3,57
+40,Bachelor,78413,3,51
+39,Bachelor,65567,3,47
+68,High School,55454,2,36
+42,High School,39992,3,50
+39,High School,62596,3,27
+39,Graduate,100544,3,59
+66,Bachelor,68390,4,44
+69,Bachelor,76715,4,28
+59,Bachelor,46436,2,21
+23,Graduate,78098,4,34
+32,High School,27091,3,22
+71,Bachelor,72144,2,55
+60,Bachelor,95987,4,23
+54,Bachelor,103469,5,33
+50,High School,54570,2,44
+25,Graduate,102512,3,29

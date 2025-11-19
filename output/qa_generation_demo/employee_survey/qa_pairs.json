@@ -1,0 +1,231 @@
+[
+  {
+    "question": "What is the distribution of Respondent Age?",
+    "answer": "**Respondent Age**: mean=46.27, median=46.50, std=16.19, range=[18.00, 74.00]. N=500 [non-normal distribution].",
+    "type": "distributional",
+    "dataset": "Employee Survey",
+    "insight_type": "univariate",
+    "variables": "age"
+  },
+  {
+    "question": "How variable is Respondent Age?",
+    "answer": "**Respondent Age**: mean=46.27, median=46.50, std=16.19, range=[18.00, 74.00]. N=500 [non-normal distribution].",
+    "type": "distributional",
+    "dataset": "Employee Survey",
+    "insight_type": "univariate",
+    "variables": "age"
+  },
+  {
+    "question": "What is the frequency distribution of Education Level?",
+    "answer": "**Education Level**: most common category is 'High school or equivalent' (41.2%), N=500. Distribution: High school or equivalent: 41.2%, Bachelor degree: 38.6%, Graduate degree (Masters/PhD): 20.2% [high diversity].",
+    "type": "distributional",
+    "dataset": "Employee Survey",
+    "insight_type": "univariate",
+    "variables": "education"
+  },
+  {
+    "question": "What is the distribution of Annual Income?",
+    "answer": "**Annual Income**: mean=65897.15, median=64511.00, std=23807.36, range=[25000.00, 133843.00]. N=500 [non-normal distribution].",
+    "type": "distributional",
+    "dataset": "Employee Survey",
+    "insight_type": "univariate",
+    "variables": "income"
+  },
+  {
+    "question": "How variable is Annual Income?",
+    "answer": "**Annual Income**: mean=65897.15, median=64511.00, std=23807.36, range=[25000.00, 133843.00]. N=500 [non-normal distribution].",
+    "type": "distributional",
+    "dataset": "Employee Survey",
+    "insight_type": "univariate",
+    "variables": "income"
+  },
+  {
+    "question": "What is the frequency distribution of Job Satisfaction?",
+    "answer": "**Job Satisfaction**: most common category is '3' (46.8%), N=500. Distribution: 3: 46.8%, 4: 25.2%, 2: 23.0%, 1: 3.4%, 5: 1.6%.",
+    "type": "distributional",
+    "dataset": "Employee Survey",
+    "insight_type": "univariate",
+    "variables": "job_satisfaction"
+  },
+  {
+    "question": "What is the distribution of Weekly Work Hours?",
+    "answer": "**Weekly Work Hours**: mean=38.87, median=39.00, std=11.56, range=[20.00, 59.00]. N=500 [non-normal distribution].",
+    "type": "distributional",
+    "dataset": "Employee Survey",
+    "insight_type": "univariate",
+    "variables": "work_hours"
+  },
+  {
+    "question": "How variable is Weekly Work Hours?",
+    "answer": "**Weekly Work Hours**: mean=38.87, median=39.00, std=11.56, range=[20.00, 59.00]. N=500 [non-normal distribution].",
+    "type": "distributional",
+    "dataset": "Employee Survey",
+    "insight_type": "univariate",
+    "variables": "work_hours"
+  },
+  {
+    "question": "How does age differ across education groups?",
+    "answer": "**age** differs across **education** groups: Bachelor degree: 46.04, Graduate degree (Masters/PhD): 47.68, High school or equivalent: 45.78 (ANOVA: F=0.50, p=0.609), \u03b7\u00b2=0.00 (negligible).",
+    "type": "comparative",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "age",
+      "education"
+    ]
+  },
+  {
+    "question": "What is the relationship between education and age?",
+    "answer": "**age** differs across **education** groups: Bachelor degree: 46.04, Graduate degree (Masters/PhD): 47.68, High school or equivalent: 45.78 (ANOVA: F=0.50, p=0.609), \u03b7\u00b2=0.00 (negligible).",
+    "type": "comparative",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "age",
+      "education"
+    ]
+  },
+  {
+    "question": "Does age vary by education?",
+    "answer": "**age** differs across **education** groups: Bachelor degree: 46.04, Graduate degree (Masters/PhD): 47.68, High school or equivalent: 45.78 (ANOVA: F=0.50, p=0.609), \u03b7\u00b2=0.00 (negligible).",
+    "type": "comparative",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "age",
+      "education"
+    ]
+  },
+  {
+    "question": "Are age and income correlated?",
+    "answer": "**age** and **income** show a negligible positive correlation (r=0.06, p=0.151, N=500) [not statistically significant], effect size: negligible.",
+    "type": "correlational",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "age",
+      "income"
+    ]
+  },
+  {
+    "question": "What is the relationship between age and income?",
+    "answer": "**age** and **income** show a negligible positive correlation (r=0.06, p=0.151, N=500) [not statistically significant], effect size: negligible.",
+    "type": "correlational",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "age",
+      "income"
+    ]
+  },
+  {
+    "question": "How strongly are age and income associated?",
+    "answer": "**age** and **income** show a negligible positive correlation (r=0.06, p=0.151, N=500) [not statistically significant], effect size: negligible.",
+    "type": "correlational",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "age",
+      "income"
+    ]
+  },
+  {
+    "question": "How does age differ across job_satisfaction groups?",
+    "answer": "**age** differs across **job_satisfaction** groups: 1: 41.41, 2: 46.42, 3: 45.69, 4: 48.17, 5: 41.12 (ANOVA: F=1.10, p=0.357), \u03b7\u00b2=0.01 (negligible).",
+    "type": "comparative",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "age",
+      "job_satisfaction"
+    ]
+  },
+  {
+    "question": "What is the relationship between job_satisfaction and age?",
+    "answer": "**age** differs across **job_satisfaction** groups: 1: 41.41, 2: 46.42, 3: 45.69, 4: 48.17, 5: 41.12 (ANOVA: F=1.10, p=0.357), \u03b7\u00b2=0.01 (negligible).",
+    "type": "comparative",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "age",
+      "job_satisfaction"
+    ]
+  },
+  {
+    "question": "Does age vary by job_satisfaction?",
+    "answer": "**age** differs across **job_satisfaction** groups: 1: 41.41, 2: 46.42, 3: 45.69, 4: 48.17, 5: 41.12 (ANOVA: F=1.10, p=0.357), \u03b7\u00b2=0.01 (negligible).",
+    "type": "comparative",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "age",
+      "job_satisfaction"
+    ]
+  },
+  {
+    "question": "Are age and work_hours correlated?",
+    "answer": "**age** and **work_hours** show a negligible positive correlation (r=0.02, p=0.610, N=500) [not statistically significant], effect size: negligible.",
+    "type": "correlational",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "age",
+      "work_hours"
+    ]
+  },
+  {
+    "question": "What is the relationship between age and work_hours?",
+    "answer": "**age** and **work_hours** show a negligible positive correlation (r=0.02, p=0.610, N=500) [not statistically significant], effect size: negligible.",
+    "type": "correlational",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "age",
+      "work_hours"
+    ]
+  },
+  {
+    "question": "How strongly are age and work_hours associated?",
+    "answer": "**age** and **work_hours** show a negligible positive correlation (r=0.02, p=0.610, N=500) [not statistically significant], effect size: negligible.",
+    "type": "correlational",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "age",
+      "work_hours"
+    ]
+  },
+  {
+    "question": "How does income differ across education groups?",
+    "answer": "**income** differs across **education** groups: Bachelor degree: 71193.60, Graduate degree (Masters/PhD): 96248.16, High school or equivalent: 46054.12 (ANOVA: F=432.12, p=0.000), \u03b7\u00b2=0.63 (large).",
+    "type": "comparative",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "education",
+      "income"
+    ]
+  },
+  {
+    "question": "What is the relationship between education and income?",
+    "answer": "**income** differs across **education** groups: Bachelor degree: 71193.60, Graduate degree (Masters/PhD): 96248.16, High school or equivalent: 46054.12 (ANOVA: F=432.12, p=0.000), \u03b7\u00b2=0.63 (large).",
+    "type": "comparative",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "education",
+      "income"
+    ]
+  },
+  {
+    "question": "Does income vary by education?",
+    "answer": "**income** differs across **education** groups: Bachelor degree: 71193.60, Graduate degree (Masters/PhD): 96248.16, High school or equivalent: 46054.12 (ANOVA: F=432.12, p=0.000), \u03b7\u00b2=0.63 (large).",
+    "type": "comparative",
+    "dataset": "Employee Survey",
+    "insight_type": "bivariate",
+    "variables": [
+      "education",
+      "income"
+    ]
+  }
+]
