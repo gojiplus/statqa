@@ -19,10 +19,10 @@ Usage:
 Dependencies:
     tableqa package with all analysis modules
 """
+
 import argparse
 import json
 import logging
-import os
 import re
 import zipfile
 from pathlib import Path
@@ -32,16 +32,16 @@ import pandas as pd
 from tqdm.auto import tqdm
 
 from tableqa.analysis.univariate import UnivariateAnalyzer
-from tableqa.analysis.bivariate import BivariateAnalyzer
 from tableqa.interpretation.formatter import InsightFormatter
-from tableqa.metadata.schema import Variable, VariableType, Codebook
+from tableqa.metadata.schema import Variable, VariableType
 from tableqa.visualization.plots import PlotFactory
+
 
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s [%(levelname)s] %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
 )
 
 
@@ -62,7 +62,7 @@ def load_data_from_zip(zip_path: str, pattern: str = r"(?i)\.csv$") -> pd.DataFr
     with zipfile.ZipFile(zip_path) as z:
         for member in z.namelist():
             # Skip macOS metadata files
-            if member.startswith('__MACOSX/') or not re.search(pattern, member):
+            if member.startswith("__MACOSX/") or not re.search(pattern, member):
                 continue
 
             logging.info(f"  → Reading {member}")
@@ -96,18 +96,17 @@ def load_anes_metadata(meta_path: str) -> tuple[dict, dict, dict]:
     valid_map = {}
 
     for _, row in meta.iterrows():
-        var = row['varname']
-        label_map[var] = str(row.get('label', '') or var)
+        var = row["varname"]
+        label_map[var] = str(row.get("label", "") or var)
 
         # Parse valid values and missing codes
-        valid = str(row.get('valid_values', '') or '')
+        valid = str(row.get("valid_values", "") or "")
         missing = {int(m) for m in re.findall(r"Missing\s+(\d+)", valid)}
         missing_map[var] = missing
 
         # Parse value coding
         codes = {
-            int(m.group(1)): m.group(2).strip()
-            for m in re.finditer(r"(\d+)\.\s*([^\n;]+)", valid)
+            int(m.group(1)): m.group(2).strip() for m in re.finditer(r"(\d+)\.\s*([^\n;]+)", valid)
         }
         valid_map[var] = codes
 
@@ -116,10 +115,7 @@ def load_anes_metadata(meta_path: str) -> tuple[dict, dict, dict]:
 
 
 def profile_variables(
-    df: pd.DataFrame,
-    labels: dict,
-    missing_map: dict,
-    output_dir: str
+    df: pd.DataFrame, labels: dict, missing_map: dict, output_dir: str
 ) -> pd.DataFrame:
     """
     Create a profile of all variables in the dataset.
@@ -142,16 +138,18 @@ def profile_variables(
         miss_count = int(series.isna().sum())
         unique_count = int(series.nunique(dropna=True))
 
-        profiles.append({
-            'varname': var,
-            'label': labels.get(var, var),
-            'dtype': str(series.dtype),
-            'unique': unique_count,
-            'missing_pct': round(miss_count / n * 100, 1)
-        })
+        profiles.append(
+            {
+                "varname": var,
+                "label": labels.get(var, var),
+                "dtype": str(series.dtype),
+                "unique": unique_count,
+                "missing_pct": round(miss_count / n * 100, 1),
+            }
+        )
 
     profile_df = pd.DataFrame(profiles)
-    profile_path = Path(output_dir) / 'variable_profile.csv'
+    profile_path = Path(output_dir) / "variable_profile.csv"
     profile_df.to_csv(profile_path, index=False)
     logging.info(f"✓ Saved variable profile to {profile_path}")
 
@@ -172,9 +170,9 @@ def infer_variable_types(profile_df: pd.DataFrame) -> tuple[dict, set]:
     skip = set()
 
     for _, row in profile_df.iterrows():
-        var = row['varname']
-        unique_count = int(row['unique'])
-        dtype = row['dtype']
+        var = row["varname"]
+        unique_count = int(row["unique"])
+        dtype = row["dtype"]
 
         # Skip variables with only one unique value
         if unique_count <= 1:
@@ -182,13 +180,15 @@ def infer_variable_types(profile_df: pd.DataFrame) -> tuple[dict, set]:
             continue
 
         # Infer type based on dtype
-        if dtype.startswith(('int', 'float')):
-            types[var] = 'numeric'
+        if dtype.startswith(("int", "float")):
+            types[var] = "numeric"
         else:
-            types[var] = 'categorical'
+            types[var] = "categorical"
 
-    logging.info(f"Inferred types for {len(types)} variables; "
-                f"skipping {len(skip)} single-level variables")
+    logging.info(
+        f"Inferred types for {len(types)} variables; "
+        f"skipping {len(skip)} single-level variables"
+    )
     return types, skip
 
 
@@ -199,7 +199,7 @@ def run_univariate_analysis(
     labels: dict,
     missing_map: dict,
     valid_map: dict,
-    output_dir: str
+    output_dir: str,
 ) -> dict | None:
     """
     Run univariate analysis for a single variable using tableqa.
@@ -219,13 +219,13 @@ def run_univariate_analysis(
     pretty_name = labels.get(var, var)
 
     # Clean missing values
-    series = df[var].replace({m: np.nan for m in missing_map.get(var, [])})
+    series = df[var].replace(dict.fromkeys(missing_map.get(var, []), np.nan))
 
     fig_path = None
 
-    if vtype == 'numeric':
+    if vtype == "numeric":
         # Convert to numeric
-        series = pd.to_numeric(series, errors='coerce')
+        series = pd.to_numeric(series, errors="coerce")
         miss_count = int(series.isna().sum())
         data = series.dropna()
 
@@ -234,17 +234,13 @@ def run_univariate_analysis(
 
         # Use tableqa's UnivariateAnalyzer
         analyzer = UnivariateAnalyzer()
-        var_meta = Variable(
-            name=var,
-            label=pretty_name,
-            type=VariableType.NUMERIC_CONTINUOUS
-        )
+        var_meta = Variable(name=var, label=pretty_name, type=VariableType.NUMERIC_CONTINUOUS)
 
         try:
             result = analyzer.analyze(data, var_meta)
 
             # Generate visualization
-            plotter = PlotFactory(style='seaborn', figsize=(6, 4))
+            plotter = PlotFactory(style="seaborn", figsize=(6, 4))
             fig_path = Path(output_dir) / f"univariate_{var}.png"
             plotter.plot_univariate(data, var_meta, output_path=str(fig_path))
 
@@ -268,34 +264,36 @@ def run_univariate_analysis(
         pct = (counts / total * 100).round(1)
 
         # Create visualization
-        plotter = PlotFactory(style='seaborn', figsize=(6, 4))
+        plotter = PlotFactory(style="seaborn", figsize=(6, 4))
         fig_path = Path(output_dir) / f"univariate_{var}.png"
 
         # Simple bar plot for categorical
         import matplotlib.pyplot as plt
+
         fig, ax = plt.subplots(figsize=(6, 4), dpi=100)
         pct.plot.bar(ax=ax)
         ax.set_title(f"Distribution of {pretty_name} ({var})")
-        ax.set_ylabel('Percentage (%)')
-        fig.text(0.5, 0.01, f"N={total}, dropped {miss_count} missing; no weights",
-                ha='center', fontsize=8)
-        fig.savefig(fig_path, bbox_inches='tight')
+        ax.set_ylabel("Percentage (%)")
+        fig.text(
+            0.5,
+            0.01,
+            f"N={total}, dropped {miss_count} missing; no weights",
+            ha="center",
+            fontsize=8,
+        )
+        fig.savefig(fig_path, bbox_inches="tight")
         plt.close(fig)
 
         # Format insight
         top_value = pct.idxmax()
-        top_desc = valid_map.get(var, {}).get(top_value, '')
+        top_desc = valid_map.get(var, {}).get(top_value, "")
         insight_text = (
             f"**{pretty_name}** ({var}): Most common value is {top_value} "
             f"('{top_desc}') at {pct.max():.1f}%. "
             f"N={total}, dropped {miss_count} missing. (No weights applied.)"
         )
 
-    return {
-        'vars': [var],
-        'insight': insight_text,
-        'figure': str(fig_path) if fig_path else None
-    }
+    return {"vars": [var], "insight": insight_text, "figure": str(fig_path) if fig_path else None}
 
 
 def run_bivariate_analysis(
@@ -306,7 +304,7 @@ def run_bivariate_analysis(
     labels: dict,
     missing_map: dict,
     valid_map: dict,
-    output_dir: str
+    output_dir: str,
 ) -> dict | None:
     """
     Run bivariate analysis between two variables using tableqa.
@@ -328,33 +326,36 @@ def run_bivariate_analysis(
     label_y = labels.get(y, y)
 
     # Skip weight variables
-    if 'weight' in label_x.lower() or 'weight' in label_y.lower():
+    if "weight" in label_x.lower() or "weight" in label_y.lower():
         return None
 
     # Prepare data
     sub = df[[x, y]].copy()
-    sub[x] = pd.to_numeric(sub[x].replace({m: np.nan for m in missing_map.get(x, [])}),
-                          errors='coerce')
-    sub[y] = pd.to_numeric(sub[y].replace({m: np.nan for m in missing_map.get(y, [])}),
-                          errors='coerce')
+    sub[x] = pd.to_numeric(
+        sub[x].replace(dict.fromkeys(missing_map.get(x, []), np.nan)), errors="coerce"
+    )
+    sub[y] = pd.to_numeric(
+        sub[y].replace(dict.fromkeys(missing_map.get(y, []), np.nan)), errors="coerce"
+    )
 
-    if types.get(x) == 'numeric' and types.get(y) == 'numeric':
-        # Numeric × Numeric: Correlation
+    if types.get(x) == "numeric" and types.get(y) == "numeric":
+        # Numeric x Numeric: Correlation
         data = sub.dropna()
         if data.shape[0] < 10:
             return None
 
         from scipy.stats import pearsonr
+
         r, p = pearsonr(data[x], data[y])
 
         insight_text = (
             f"Correlation **{label_x}** ↔ **{label_y}**: r={r:.2f} "
             f"(N={len(data)}), p={p:.3f}. (No weights applied.)"
         )
-        return {'vars': [x, y], 'insight': insight_text, 'figure': None}
+        return {"vars": [x, y], "insight": insight_text, "figure": None}
 
-    elif types.get(x) == 'categorical' and types.get(y) == 'numeric':
-        # Categorical × Numeric: Group means
+    elif types.get(x) == "categorical" and types.get(y) == "numeric":
+        # Categorical x Numeric: Group means
         data = sub.dropna()
         grp = data.groupby(x)[y].mean().dropna()
 
@@ -363,13 +364,14 @@ def run_bivariate_analysis(
 
         # Create visualization
         import matplotlib.pyplot as plt
+
         fig, ax = plt.subplots(figsize=(6, 4), dpi=100)
         grp.plot.bar(ax=ax)
         ax.set_title(f"Mean {label_y} by {label_x}")
-        fig.text(0.5, 0.01, f"Dropped missing; no weights", ha='center', fontsize=8)
+        fig.text(0.5, 0.01, "Dropped missing; no weights", ha="center", fontsize=8)
 
         fig_path = Path(output_dir) / f"bivariate_{x}_{y}.png"
-        fig.savefig(fig_path, bbox_inches='tight')
+        fig.savefig(fig_path, bbox_inches="tight")
         plt.close(fig)
 
         # Format insight
@@ -379,7 +381,7 @@ def run_bivariate_analysis(
             f"Dropped missing; no weights applied."
         )
 
-        return {'vars': [x, y], 'insight': insight_text, 'figure': str(fig_path)}
+        return {"vars": [x, y], "insight": insight_text, "figure": str(fig_path)}
 
     return None
 
@@ -389,31 +391,21 @@ def main():
     parser = argparse.ArgumentParser(
         description="Extract statistical insights from ANES data using tableqa framework"
     )
+    parser.add_argument("--data-zip", required=True, help="Path to ANES data ZIP file")
+    parser.add_argument("--metadata", required=True, help="Path to ANES metadata CSV")
     parser.add_argument(
-        '--data-zip',
-        required=True,
-        help='Path to ANES data ZIP file'
+        "--output-dir", required=True, help="Output directory for insights and visualizations"
     )
     parser.add_argument(
-        '--metadata',
-        required=True,
-        help='Path to ANES metadata CSV'
-    )
-    parser.add_argument(
-        '--output-dir',
-        required=True,
-        help='Output directory for insights and visualizations'
-    )
-    parser.add_argument(
-        '--max-vars',
+        "--max-vars",
         type=int,
         default=50,
-        help='Maximum number of variables for bivariate analysis (default: 50)'
+        help="Maximum number of variables for bivariate analysis (default: 50)",
     )
     parser.add_argument(
-        '--skip-bivariate',
-        action='store_true',
-        help='Skip bivariate analysis (only run univariate)'
+        "--skip-bivariate",
+        action="store_true",
+        help="Skip bivariate analysis (only run univariate)",
     )
 
     args = parser.parse_args()
@@ -470,14 +462,20 @@ def main():
         logging.info("Step 6: Running bivariate analyses")
         logging.info("=" * 60)
 
-        vars_subset = [v for v in types if v not in skip][:args.max_vars]
+        vars_subset = [v for v in types if v not in skip][: args.max_vars]
         bivariate_count = 0
 
         for i in tqdm(range(len(vars_subset)), desc="Bivariate", unit="pair"):
             for j in range(i + 1, len(vars_subset)):
                 insight = run_bivariate_analysis(
-                    df, vars_subset[i], vars_subset[j],
-                    types, labels, missing_map, valid_map, str(output_dir)
+                    df,
+                    vars_subset[i],
+                    vars_subset[j],
+                    types,
+                    labels,
+                    missing_map,
+                    valid_map,
+                    str(output_dir),
                 )
                 if insight:
                     insights.append(insight)
@@ -490,8 +488,8 @@ def main():
     logging.info("Step 7: Saving results")
     logging.info("=" * 60)
 
-    output_file = output_dir / 'insights.json'
-    with open(output_file, 'w') as f:
+    output_file = output_dir / "insights.json"
+    with open(output_file, "w") as f:
         json.dump(insights, f, indent=2)
 
     logging.info(f"✓ Saved {len(insights)} total insights to {output_file}")
@@ -506,5 +504,5 @@ def main():
     logging.info(f"  Variable profile: {output_dir / 'variable_profile.csv'}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

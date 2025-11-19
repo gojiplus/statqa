@@ -8,6 +8,7 @@ No external data files required - everything is generated on-the-fly.
 Usage:
     python quick_start.py
 """
+
 import json
 from pathlib import Path
 
@@ -34,36 +35,36 @@ def generate_synthetic_survey(n: int = 1000, seed: int = 42) -> pd.DataFrame:
     """
     np.random.seed(seed)
 
-    data = pd.DataFrame({
-        'age': np.random.randint(18, 81, n),
-        'gender': np.random.choice(['Male', 'Female'], n),
-        'education': np.random.choice(
-            ['High School', 'Bachelor', 'Master', 'PhD'],
-            n,
-            p=[0.3, 0.4, 0.2, 0.1]
-        ),
-        'income': np.random.randint(20000, 200000, n),
-        'satisfaction': np.random.randint(1, 6, n),
-        'political_interest': np.random.randint(1, 6, n),
-        'region': np.random.choice(['North', 'South', 'East', 'West'], n),
-        'year': np.random.choice([2020, 2021, 2022, 2023], n)
-    })
+    data = pd.DataFrame(
+        {
+            "age": np.random.randint(18, 81, n),
+            "gender": np.random.choice(["Male", "Female"], n),
+            "education": np.random.choice(
+                ["High School", "Bachelor", "Master", "PhD"], n, p=[0.3, 0.4, 0.2, 0.1]
+            ),
+            "income": np.random.randint(20000, 200000, n),
+            "satisfaction": np.random.randint(1, 6, n),
+            "political_interest": np.random.randint(1, 6, n),
+            "region": np.random.choice(["North", "South", "East", "West"], n),
+            "year": np.random.choice([2020, 2021, 2022, 2023], n),
+        }
+    )
 
     # Add some correlations for interesting insights
     # Education → Income correlation
-    edu_income_map = {'High School': 50000, 'Bachelor': 70000, 'Master': 95000, 'PhD': 140000}
-    base_income = data['education'].map(edu_income_map)
-    data['income'] = (base_income + np.random.normal(0, 20000, n)).clip(20000, 200000).astype(int)
+    edu_income_map = {"High School": 50000, "Bachelor": 70000, "Master": 95000, "PhD": 140000}
+    base_income = data["education"].map(edu_income_map)
+    data["income"] = (base_income + np.random.normal(0, 20000, n)).clip(20000, 200000).astype(int)
 
     # Income → Satisfaction correlation
-    income_effect = (data['income'] - data['income'].mean()) / data['income'].std()
+    income_effect = (data["income"] - data["income"].mean()) / data["income"].std()
     satisfaction_base = 3 + 0.5 * income_effect + np.random.normal(0, 0.8, n)
-    data['satisfaction'] = satisfaction_base.clip(1, 5).round().astype(int)
+    data["satisfaction"] = satisfaction_base.clip(1, 5).round().astype(int)
 
     # Age → Political interest correlation
-    age_effect = (data['age'] - data['age'].mean()) / data['age'].std()
+    age_effect = (data["age"] - data["age"].mean()) / data["age"].std()
     interest_base = 3 + 0.3 * age_effect + np.random.normal(0, 0.9, n)
-    data['political_interest'] = interest_base.clip(1, 5).round().astype(int)
+    data["political_interest"] = interest_base.clip(1, 5).round().astype(int)
 
     return data
 
@@ -76,90 +77,90 @@ def create_codebook() -> Codebook:
         Codebook object with variable definitions
     """
     variables = {
-        'age': Variable(
-            name='age',
-            label='Respondent Age',
+        "age": Variable(
+            name="age",
+            label="Respondent Age",
             type=VariableType.NUMERIC_CONTINUOUS,
-            description='Age of respondent in years',
-            value_labels=None
+            description="Age of respondent in years",
+            value_labels=None,
         ),
-        'gender': Variable(
-            name='gender',
-            label='Gender',
+        "gender": Variable(
+            name="gender",
+            label="Gender",
             type=VariableType.CATEGORICAL_NOMINAL,
-            description='Self-reported gender',
-            value_labels={'Male': 'Male', 'Female': 'Female'}
+            description="Self-reported gender",
+            value_labels={"Male": "Male", "Female": "Female"},
         ),
-        'education': Variable(
-            name='education',
-            label='Education Level',
+        "education": Variable(
+            name="education",
+            label="Education Level",
             type=VariableType.CATEGORICAL_ORDINAL,
-            description='Highest level of education completed',
+            description="Highest level of education completed",
             value_labels={
-                'High School': 'High school diploma or equivalent',
-                'Bachelor': "Bachelor's degree",
-                'Master': "Master's degree",
-                'PhD': 'Doctoral degree'
-            }
+                "High School": "High school diploma or equivalent",
+                "Bachelor": "Bachelor's degree",
+                "Master": "Master's degree",
+                "PhD": "Doctoral degree",
+            },
         ),
-        'income': Variable(
-            name='income',
-            label='Annual Income',
+        "income": Variable(
+            name="income",
+            label="Annual Income",
             type=VariableType.NUMERIC_CONTINUOUS,
-            description='Total annual household income in USD',
-            value_labels=None
+            description="Total annual household income in USD",
+            value_labels=None,
         ),
-        'satisfaction': Variable(
-            name='satisfaction',
-            label='Job Satisfaction',
+        "satisfaction": Variable(
+            name="satisfaction",
+            label="Job Satisfaction",
             type=VariableType.CATEGORICAL_ORDINAL,
-            description='Overall job satisfaction rating',
+            description="Overall job satisfaction rating",
             value_labels={
-                '1': 'Very Dissatisfied',
-                '2': 'Dissatisfied',
-                '3': 'Neutral',
-                '4': 'Satisfied',
-                '5': 'Very Satisfied'
-            }
+                "1": "Very Dissatisfied",
+                "2": "Dissatisfied",
+                "3": "Neutral",
+                "4": "Satisfied",
+                "5": "Very Satisfied",
+            },
         ),
-        'political_interest': Variable(
-            name='political_interest',
-            label='Political Interest',
+        "political_interest": Variable(
+            name="political_interest",
+            label="Political Interest",
             type=VariableType.CATEGORICAL_ORDINAL,
-            description='Level of interest in politics and current events',
+            description="Level of interest in politics and current events",
             value_labels={
-                '1': 'Not at all interested',
-                '2': 'Slightly interested',
-                '3': 'Moderately interested',
-                '4': 'Very interested',
-                '5': 'Extremely interested'
-            }
+                "1": "Not at all interested",
+                "2": "Slightly interested",
+                "3": "Moderately interested",
+                "4": "Very interested",
+                "5": "Extremely interested",
+            },
         ),
-        'region': Variable(
-            name='region',
-            label='Geographic Region',
+        "region": Variable(
+            name="region",
+            label="Geographic Region",
             type=VariableType.CATEGORICAL_NOMINAL,
-            description='Region of residence',
+            description="Region of residence",
             value_labels={
-                'North': 'Northern region',
-                'South': 'Southern region',
-                'East': 'Eastern region',
-                'West': 'Western region'
-            }
+                "North": "Northern region",
+                "South": "Southern region",
+                "East": "Eastern region",
+                "West": "Western region",
+            },
         ),
-        'year': Variable(
-            name='year',
-            label='Survey Year',
+        "year": Variable(
+            name="year",
+            label="Survey Year",
             type=VariableType.NUMERIC_DISCRETE,
-            description='Year the survey was conducted',
-            value_labels=None
-        )
+            description="Year the survey was conducted",
+            value_labels=None,
+        ),
     }
 
     return Codebook(
-        name='Simple Survey',
-        description='Synthetic survey data for demonstration purposes',
-        variables=variables
+        name="Simple Survey",
+        description="Synthetic survey data for demonstration purposes",
+        variables=variables,
     )
 
 
@@ -170,7 +171,7 @@ def main():
     print("=" * 70)
 
     # Create output directory
-    output_dir = Path('output')
+    output_dir = Path("output")
     output_dir.mkdir(exist_ok=True)
 
     # Step 1: Generate data
@@ -179,7 +180,7 @@ def main():
     print(f"✓ Generated {len(data):,} respondents with {len(data.columns)} variables")
 
     # Save data
-    data_path = output_dir / 'survey_data.csv'
+    data_path = output_dir / "survey_data.csv"
     data.to_csv(data_path, index=False)
     print(f"✓ Saved data to {data_path}")
 
@@ -189,20 +190,16 @@ def main():
     print(f"✓ Created codebook with {len(codebook.variables)} variables")
 
     # Save codebook
-    codebook_path = output_dir / 'codebook.json'
-    with open(codebook_path, 'w') as f:
-        json.dump(
-            {var.name: var.dict() for var in codebook.variables.values()},
-            f,
-            indent=2
-        )
+    codebook_path = output_dir / "codebook.json"
+    with open(codebook_path, "w") as f:
+        json.dump({var.name: var.dict() for var in codebook.variables.values()}, f, indent=2)
     print(f"✓ Saved codebook to {codebook_path}")
 
     # Step 3: Run univariate analyses
     print("\n[3/5] Running univariate analyses...")
     univariate_analyzer = UnivariateAnalyzer()
     formatter = InsightFormatter()
-    plotter = PlotFactory(style='seaborn', figsize=(8, 6))
+    plotter = PlotFactory(style="seaborn", figsize=(8, 6))
 
     insights = []
     for var_name, variable in codebook.variables.items():
@@ -210,18 +207,20 @@ def main():
             result = univariate_analyzer.analyze(data[var_name], variable)
 
             # Generate visualization
-            fig_path = output_dir / f'univariate_{var_name}.png'
+            fig_path = output_dir / f"univariate_{var_name}.png"
             plotter.plot_univariate(data[var_name], variable, output_path=str(fig_path))
 
             # Format insight
             insight_text = formatter.format_univariate(result)
 
-            insights.append({
-                'type': 'univariate',
-                'vars': [var_name],
-                'insight': insight_text,
-                'figure': str(fig_path)
-            })
+            insights.append(
+                {
+                    "type": "univariate",
+                    "vars": [var_name],
+                    "insight": insight_text,
+                    "figure": str(fig_path),
+                }
+            )
 
         except Exception as e:
             print(f"  ⚠ Skipped {var_name}: {e}")
@@ -248,28 +247,25 @@ def main():
 
                 # Generate visualization (if applicable)
                 fig_path = None
-                if result.get('visualization_type'):
-                    fig_path = output_dir / f'bivariate_{var1_name}_{var2_name}.png'
-                    plotter.plot_bivariate(
-                        data,
-                        var1,
-                        var2,
-                        output_path=str(fig_path)
-                    )
+                if result.get("visualization_type"):
+                    fig_path = output_dir / f"bivariate_{var1_name}_{var2_name}.png"
+                    plotter.plot_bivariate(data, var1, var2, output_path=str(fig_path))
 
                 # Format insight
                 insight_text = formatter.format_bivariate(result)
 
-                insights.append({
-                    'type': 'bivariate',
-                    'vars': [var1_name, var2_name],
-                    'insight': insight_text,
-                    'figure': str(fig_path) if fig_path else None
-                })
+                insights.append(
+                    {
+                        "type": "bivariate",
+                        "vars": [var1_name, var2_name],
+                        "insight": insight_text,
+                        "figure": str(fig_path) if fig_path else None,
+                    }
+                )
 
                 bivariate_count += 1
 
-            except Exception as e:
+            except Exception:
                 # Skip pairs that can't be analyzed
                 pass
 
@@ -277,8 +273,8 @@ def main():
 
     # Step 5: Save insights
     print("\n[5/5] Saving results...")
-    insights_path = output_dir / 'insights.json'
-    with open(insights_path, 'w') as f:
+    insights_path = output_dir / "insights.json"
+    with open(insights_path, "w") as f:
         json.dump(insights, f, indent=2)
 
     print(f"✓ Saved {len(insights)} total insights to {insights_path}")
@@ -304,10 +300,10 @@ def main():
     print("-" * 70)
     for insight in insights[:5]:
         print(f"• {insight['insight'][:100]}...")
-        if insight['figure']:
+        if insight["figure"]:
             print(f"  → Figure: {Path(insight['figure']).name}")
         print()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
