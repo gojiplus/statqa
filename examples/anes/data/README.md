@@ -56,7 +56,7 @@ The ANES data files are **included in this repository** for demonstration purpos
 
 All required files are already included in the `raw/` directory:
 - ✅ **ANES Time Series Cumulative Data File (CSV)**: `anes_timeseries_cdf_csv_20220916.csv.zip`
-- ✅ **Variable Codebook (PDF)**: `anes_timeseries_cdf_codebook_var_20220916.pdf`  
+- ✅ **Variable Codebook (PDF)**: `anes_timeseries_cdf_codebook_var_20220916.pdf`
 - ✅ **Appendix Codebook (PDF)**: `anes_timeseries_cdf_codebook_app_20220916.pdf`
 
 ### Optional: Download Latest Version

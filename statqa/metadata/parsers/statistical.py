@@ -133,7 +133,7 @@ class StatisticalFormatParser(BaseParser):
                         missing_values.add(lo)
                     if hi is not None and hi != lo:
                         missing_values.add(hi)
-                elif isinstance(missing_range, (list, tuple)):
+                elif isinstance(missing_range, list | tuple):
                     missing_values.update(missing_range)
 
                 var_data["missing_values"] = missing_values

@@ -85,12 +85,12 @@ for var_name, variable in codebook.variables.items():
     if var_name in data.columns:
         result = analyzer.analyze(data[var_name], variable)
         insight = formatter.format_univariate(result)
-        
+
         # Generate visual metadata
-        plot_data = {"data": data, "variables": codebook.variables, 
+        plot_data = {"data": data, "variables": codebook.variables,
                     "output_path": f"plots/univariate_{var_name}.png"}
         visual_metadata = qa_gen.generate_visual_metadata(result, variables=[var_name], plot_data=plot_data)
-        
+
         # Generate enhanced Q/A pairs
         qa_pairs = qa_gen.generate_qa_pairs(result, insight, variables=[var_name], visual_data=visual_metadata)
         print(f"Generated {len(qa_pairs)} Q/A pairs for {var_name}")
@@ -102,7 +102,7 @@ The example creates 15 plots in the `plots/` directory:
 
 **Univariate (5 plots):**
 - `univariate_sepal_length.png`: Histogram of sepal length distribution
-- `univariate_sepal_width.png`: Histogram of sepal width distribution  
+- `univariate_sepal_width.png`: Histogram of sepal width distribution
 - `univariate_petal_length.png`: Histogram of petal length distribution
 - `univariate_petal_width.png`: Histogram of petal width distribution
 - `univariate_species.png`: Bar chart of species frequencies

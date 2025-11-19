@@ -111,8 +111,11 @@ class QAGenerator:
         return provenance
 
     def generate_qa_pairs(
-        self, insight: dict[str, Any], formatted_answer: str, variables: list[str] | None = None,
-        visual_data: dict[str, Any] | None = None
+        self,
+        insight: dict[str, Any],
+        formatted_answer: str,
+        variables: list[str] | None = None,
+        visual_data: dict[str, Any] | None = None,
     ) -> list[dict[str, str]]:
         """
         Generate Q/A pairs from a statistical insight.
@@ -134,10 +137,12 @@ class QAGenerator:
         qa_pairs = template.generate(insight, formatted_answer)
 
         # Add provenance to template-based questions
-        template_provenance = self._create_provenance(insight, method="template", variables=variables)
+        template_provenance = self._create_provenance(
+            insight, method="template", variables=variables
+        )
         for qa in qa_pairs:
             qa["provenance"] = template_provenance.copy()
-            
+
             # Add visual data if provided
             if visual_data:
                 qa["visual"] = visual_data.copy()
@@ -178,8 +183,11 @@ class QAGenerator:
         return results
 
     def _paraphrase_questions(
-        self, qa_pairs: list[dict[str, str]], insight: dict[str, Any], variables: list[str] | None = None,
-        visual_data: dict[str, Any] | None = None
+        self,
+        qa_pairs: list[dict[str, str]],
+        insight: dict[str, Any],
+        variables: list[str] | None = None,
+        visual_data: dict[str, Any] | None = None,
     ) -> list[dict[str, str]]:
         """
         Use LLM to generate paraphrased questions.
@@ -243,7 +251,9 @@ Return as JSON array with format:
 
             # Build Q/A pairs from paraphrases
             paraphrased_pairs = []
-            llm_provenance = self._create_provenance(insight, method="llm_paraphrase", variables=variables)
+            llm_provenance = self._create_provenance(
+                insight, method="llm_paraphrase", variables=variables
+            )
 
             for item in paraphrase_data:
                 for paraphrase in item.get("paraphrases", []):
@@ -254,11 +264,11 @@ Return as JSON array with format:
                         "source": "llm_paraphrase",
                         "provenance": llm_provenance.copy(),
                     }
-                    
+
                     # Add visual data if provided
                     if visual_data:
                         qa_pair["visual"] = visual_data.copy()
-                        
+
                     paraphrased_pairs.append(qa_pair)
 
             return paraphrased_pairs
@@ -349,55 +359,60 @@ Return as a JSON array of strings: ["question 1", "question 2", ...]
         if not plot_data or not variables:
             return None
 
-        analysis_type = insight.get("analysis_type", "unknown")
-        question_type = infer_question_type(insight)
-        
+        # Get analysis info for future use
+        _ = insight.get("analysis_type", "unknown")
+        _ = infer_question_type(insight)
+
         # Import PlotFactory here to avoid circular imports
         from statqa.visualization.plots import PlotFactory
-        
+
         plot_factory = PlotFactory()
-        
+
         try:
             if len(variables) == 1:
                 # Univariate analysis
                 var_name = variables[0]
                 data_series = plot_data["data"][var_name]
                 variable_obj = plot_data["variables"][var_name]
-                
+
                 output_path = plot_data.get("output_path", f"plots/univariate_{var_name}.png")
-                
+
                 fig, metadata = plot_factory.plot_univariate(
                     data_series, variable_obj, output_path, return_metadata=True
                 )
-                
+
                 # Close figure to free memory
                 import matplotlib.pyplot as plt
+
                 plt.close(fig)
-                
+
                 return metadata
-                
+
             elif len(variables) == 2:
                 # Bivariate analysis
                 var1_name, var2_name = variables[:2]
                 dataframe = plot_data["data"]
                 var1_obj = plot_data["variables"][var1_name]
                 var2_obj = plot_data["variables"][var2_name]
-                
-                output_path = plot_data.get("output_path", f"plots/bivariate_{var1_name}_{var2_name}.png")
-                
+
+                output_path = plot_data.get(
+                    "output_path", f"plots/bivariate_{var1_name}_{var2_name}.png"
+                )
+
                 fig, metadata = plot_factory.plot_bivariate(
                     dataframe, var1_obj, var2_obj, output_path, return_metadata=True
                 )
-                
+
                 # Close figure to free memory
                 import matplotlib.pyplot as plt
+
                 plt.close(fig)
-                
+
                 return metadata
-                
+
         except Exception as e:
             logger.warning(f"Failed to generate visualization for {variables}: {e}")
-            
+
         return None
 
     def export_qa_dataset(

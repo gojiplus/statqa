@@ -26,6 +26,7 @@ from statqa.metadata.parsers.text import TextParser
 # Optional statistical format parser
 try:
     from statqa.metadata.parsers.statistical import StatisticalFormatParser
+
     HAS_STATISTICAL_PARSER = True
 except ImportError:
     HAS_STATISTICAL_PARSER = False
@@ -48,7 +49,9 @@ def version() -> None:
 def parse_codebook(
     codebook_path: Path = typer.Argument(..., help="Path to codebook file"),
     output: Path = typer.Option("codebook.json", "--output", "-o", help="Output JSON file"),
-    format: str = typer.Option("auto", "--format", "-f", help="Codebook format (auto, text, csv, statistical)"),
+    format: str = typer.Option(
+        "auto", "--format", "-f", help="Codebook format (auto, text, csv, statistical)"
+    ),
     enrich: bool = typer.Option(False, "--enrich", help="Enrich metadata with LLM"),
     llm_provider: str = typer.Option("openai", "--llm-provider", help="LLM provider"),
     api_key: str | None = typer.Option(None, "--api-key", help="LLM API key"),
@@ -78,7 +81,9 @@ def parse_codebook(
         parser = TextParser()
     elif format == "statistical":
         if not HAS_STATISTICAL_PARSER:
-            console.print("[red]Error:[/red] Statistical format support not available. Install with: pip install statqa[statistical-formats]")
+            console.print(
+                "[red]Error:[/red] Statistical format support not available. Install with: pip install statqa[statistical-formats]"
+            )
             raise typer.Exit(1)
         parser = StatisticalFormatParser()
     else:

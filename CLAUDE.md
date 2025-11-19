@@ -71,7 +71,7 @@ statqa pipeline data.csv codebook.csv --output-dir output/ --enrich --qa
 
 **Analysis Pipeline** (`statqa/analysis/`)
 - `univariate.py`: Single variable statistics (mean, median, distribution tests)
-- `bivariate.py`: Relationship analysis (correlation, chi-square, t-tests)  
+- `bivariate.py`: Relationship analysis (correlation, chi-square, t-tests)
 - `temporal.py`: Time series analysis (trends, change points)
 - `causal.py`: Causal inference with confounding control
 
@@ -143,7 +143,7 @@ The `examples/` directory contains real-world usage patterns:
 
 1. Create analyzer class in appropriate `analysis/` module
 2. Implement `analyze()` method returning standardized dict structure
-3. Add formatter support in `interpretation/formatter.py` 
+3. Add formatter support in `interpretation/formatter.py`
 4. Add Q/A templates in `qa/templates.py`
 5. Update CLI commands if needed
 

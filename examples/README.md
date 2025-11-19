@@ -27,7 +27,7 @@ Generate and analyze synthetic survey data.
 ### Iris Dataset (`iris/`)
 Classic dataset with flower measurements.
 - Small, well-understood dataset
-- Continuous numeric variables  
+- Continuous numeric variables
 - Multi-class classification context
 - **39 multimodal Q/A pairs** with 15 visualizations
 
@@ -108,7 +108,7 @@ for var_name, variable in codebook.variables.items():
 **Generated Output:**
 Each example produces:
 - `qa_pairs.jsonl`: Enhanced Q/A pairs with visual metadata
-- `plots/`: Publication-quality visualizations (PNG files)  
+- `plots/`: Publication-quality visualizations (PNG files)
 - `insights.json`: Statistical analysis results
 
 ### ANES (Advanced)
@@ -187,7 +187,7 @@ examples/
 │   ├── qa_pairs.jsonl     # 39 Q/A pairs with visual metadata
 │   ├── insights.json      # Statistical results
 │   └── plots/             # 15 visualizations (PNG files)
-├── employee/              # Employee survey data  
+├── employee/              # Employee survey data
 │   ├── README.md
 │   ├── data.csv
 │   ├── codebook.json

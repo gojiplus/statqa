@@ -17,9 +17,7 @@ class TestComputationalProvenance:
         data = pd.Series([1.0, 2.0, 3.0, 4.0, 5.0], name="test_var")
 
         variable = Variable(
-            name="test_var",
-            label="Test Variable",
-            var_type=VariableType.NUMERIC_CONTINUOUS
+            name="test_var", label="Test Variable", var_type=VariableType.NUMERIC_CONTINUOUS
         )
 
         # Run analysis
@@ -49,7 +47,7 @@ class TestComputationalProvenance:
             name="category_var",
             label="Category Variable",
             var_type=VariableType.CATEGORICAL_NOMINAL,
-            valid_values={1: "Option A", 2: "Option B", 3: "Option C"}
+            valid_values={1: "Option A", 2: "Option B", 3: "Option C"},
         )
 
         # Run analysis
@@ -73,9 +71,7 @@ class TestComputationalProvenance:
         data = pd.Series([4.3, 5.8, 6.1, 5.2, 7.9], name="sepal_length")
 
         variable = Variable(
-            name="sepal_length",
-            label="Sepal Length",
-            var_type=VariableType.NUMERIC_CONTINUOUS
+            name="sepal_length", label="Sepal Length", var_type=VariableType.NUMERIC_CONTINUOUS
         )
 
         # Run full pipeline
@@ -109,11 +105,7 @@ class TestComputationalProvenance:
         """Test that computation results are included in log comments."""
         data = pd.Series([10.0, 20.0, 30.0], name="test")
 
-        variable = Variable(
-            name="test",
-            label="Test",
-            var_type=VariableType.NUMERIC_CONTINUOUS
-        )
+        variable = Variable(name="test", label="Test", var_type=VariableType.NUMERIC_CONTINUOUS)
 
         analyzer = UnivariateAnalyzer()
         result = analyzer.analyze(data, variable)
@@ -131,11 +123,7 @@ class TestComputationalProvenance:
         # Create data that will trigger Shapiro-Wilk test (< 5000 samples)
         data = pd.Series([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], name="test")
 
-        variable = Variable(
-            name="test",
-            label="Test",
-            var_type=VariableType.NUMERIC_CONTINUOUS
-        )
+        variable = Variable(name="test", label="Test", var_type=VariableType.NUMERIC_CONTINUOUS)
 
         analyzer = UnivariateAnalyzer()
         result = analyzer.analyze(data, variable)
@@ -149,9 +137,7 @@ class TestComputationalProvenance:
         data = pd.Series([1.0, 2.0, 3.0], name="test")
 
         variable = Variable(
-            name="test",
-            label="Test Variable",
-            var_type=VariableType.NUMERIC_CONTINUOUS
+            name="test", label="Test Variable", var_type=VariableType.NUMERIC_CONTINUOUS
         )
 
         analyzer = UnivariateAnalyzer()
@@ -174,7 +160,7 @@ class TestComputationalProvenance:
             "generation_method",
             "analysis_type",
             "variables",
-            "python_commands"
+            "python_commands",
         ]
 
         for field in required_fields:
@@ -185,4 +171,6 @@ class TestComputationalProvenance:
         for cmd in prov["python_commands"]:
             assert isinstance(cmd, str)
             # Commands should either be function calls or assignments
-            assert any(pattern in cmd for pattern in ["=", "(", "Result:"]), f"Invalid command format: {cmd}"
+            assert any(
+                pattern in cmd for pattern in ["=", "(", "Result:"]
+            ), f"Invalid command format: {cmd}"

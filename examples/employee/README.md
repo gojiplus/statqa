@@ -6,7 +6,7 @@ A synthetic workplace survey dataset demonstrating StatQA's **multimodal Q/A dat
 
 The Employee Survey dataset contains workplace measurements for 500 employees:
 - Age demographics
-- Education levels  
+- Education levels
 - Income distribution
 - Job satisfaction ratings
 - Work hours patterns

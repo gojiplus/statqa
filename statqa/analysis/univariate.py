@@ -140,7 +140,9 @@ class UnivariateAnalyzer:
         if len(valid_data) < 5000:
             try:
                 stat, p_value = stats.shapiro(valid_data)
-                computation_log.append(f"scipy.stats.shapiro(valid_data)  # stat={stat:.4f}, p={p_value:.4f}")
+                computation_log.append(
+                    f"scipy.stats.shapiro(valid_data)  # stat={stat:.4f}, p={p_value:.4f}"
+                )
                 result["normality_test"] = {
                     "test": "shapiro-wilk",
                     "statistic": float(stat),
@@ -152,7 +154,9 @@ class UnivariateAnalyzer:
         else:
             try:
                 result_ad = stats.anderson(valid_data)
-                computation_log.append(f"scipy.stats.anderson(valid_data)  # stat={result_ad.statistic:.4f}")
+                computation_log.append(
+                    f"scipy.stats.anderson(valid_data)  # stat={result_ad.statistic:.4f}"
+                )
                 result["normality_test"] = {
                     "test": "anderson-darling",
                     "statistic": float(result_ad.statistic),
@@ -218,12 +222,16 @@ class UnivariateAnalyzer:
             computation_log.append("props = counts / counts.sum()")
 
             entropy = -np.sum(props * np.log2(props))
-            computation_log.append(f"entropy = -np.sum(props * np.log2(props))  # Result: {entropy:.4f}")
+            computation_log.append(
+                f"entropy = -np.sum(props * np.log2(props))  # Result: {entropy:.4f}"
+            )
             result["shannon_entropy"] = float(entropy)
 
             # Gini-Simpson diversity
             gini_simpson = 1 - np.sum(props**2)
-            computation_log.append(f"gini_simpson = 1 - np.sum(props**2)  # Result: {gini_simpson:.4f}")
+            computation_log.append(
+                f"gini_simpson = 1 - np.sum(props**2)  # Result: {gini_simpson:.4f}"
+            )
             result["gini_simpson"] = float(gini_simpson)
 
         # Check for rare categories (< 5% frequency)

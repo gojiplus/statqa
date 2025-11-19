@@ -7,7 +7,7 @@ Features
 --------
 
 * **Metadata Understanding**: Parse codebooks and enrich with LLM
-* **Statistical Analysis**: Univariate, bivariate, temporal, and causal analyses  
+* **Statistical Analysis**: Univariate, bivariate, temporal, and causal analyses
 * **Natural Language Insights**: Convert statistics to human-readable text
 * **Multimodal Q/A Generation**: Create CLIP-style visual-text pairs for AI training
 * **Rich Visual Metadata**: Captions, alt-text, and visual elements for each plot
@@ -34,7 +34,7 @@ Basic usage with multimodal Q/A generation::
     # Run analysis with visualization
     analyzer = UnivariateAnalyzer()
     result = analyzer.analyze(data["age"], codebook.variables["age"])
-    
+
     # Generate multimodal Q/A pairs
     qa_gen = QAGenerator()
     plot_data = {"data": data, "variables": codebook.variables, "output_path": "plots/age.png"}

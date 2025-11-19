@@ -128,9 +128,7 @@ class PlotFactory:
             fig.savefig(output_path, bbox_inches="tight", dpi=self.dpi)
 
         if return_metadata:
-            metadata = self._generate_bivariate_metadata(
-                subset, var1, var2, plot_type, output_path
-            )
+            metadata = self._generate_bivariate_metadata(subset, var1, var2, plot_type, output_path)
             return fig, metadata
 
         return fig
@@ -361,7 +359,7 @@ class PlotFactory:
             mean_val = data.mean()
             std_val = data.std()
             n_obs = len(data)
-            
+
             # Detect distribution shape
             skewness = data.skew()
             if abs(skewness) < 0.5:
@@ -495,7 +493,7 @@ class PlotFactory:
             # Add distribution characteristics
             if abs(data.skew()) > 0.5:
                 elements["key_features"].append("skewed distribution")
-        
+
         elif plot_type == "bar_chart":
             elements["y_axis"] = "Count"
             elements["colors"] = ["viridis color palette"]

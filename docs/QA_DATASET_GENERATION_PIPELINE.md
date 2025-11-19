@@ -164,8 +164,8 @@ plot_data = {
     "output_path": "plots/univariate_age.png"
 }
 visual_metadata = qa_gen.generate_visual_metadata(
-    result, 
-    variables=["age"], 
+    result,
+    variables=["age"],
     plot_data=plot_data
 )
 
@@ -177,7 +177,7 @@ visual_metadata = qa_gen.generate_visual_metadata(
     "visual_elements": {
         "chart_type": "histogram",
         "x_axis": "Age",
-        "y_axis": "Density", 
+        "y_axis": "Density",
         "colors": ["blue bars", "red mean line"],
         "key_features": ["distribution shape", "mean line"],
         "annotations": ["Mean: 42.5"]
@@ -236,16 +236,16 @@ visual_metadata = qa_gen.generate_visual_metadata(
 
 # Generate Q/A pairs with visual data
 qa_pairs = qa_gen.generate_qa_pairs(
-    result, formatted_answer, 
-    variables=["age"], 
+    result, formatted_answer,
+    variables=["age"],
     visual_data=visual_metadata
 )
 
 # With LLM paraphrasing (visual metadata preserved)
 qa_gen = QAGenerator(use_llm=True, api_key="your-key")
 qa_pairs = qa_gen.generate_qa_pairs(
-    result, formatted_answer, 
-    variables=["age"], 
+    result, formatted_answer,
+    variables=["age"],
     visual_data=visual_metadata
 )
 ```
@@ -349,7 +349,7 @@ We tested the enhanced pipeline on 3 public datasets with comprehensive multimod
 **Variables**: age, education, income, job_satisfaction, work_hours
 
 **Results**:
-- 5 univariate insights + 10 bivariate insights  
+- 5 univariate insights + 10 bivariate insights
 - 15 publication-quality visualizations generated
 - **35 multimodal Q/A pairs** with visual metadata
 - Plot types: histograms, box plots, heatmaps
@@ -406,7 +406,7 @@ We tested the enhanced pipeline on 3 public datasets with comprehensive multimod
   "question": "What is the frequency distribution of Survived?",
   "answer": "**Survived**: most common category is '0' (60.2%), N=400. Distribution: 0: 60.2%, 1: 39.8% [high diversity].",
   "visual": {
-    "plot_type": "bar_chart", 
+    "plot_type": "bar_chart",
     "caption": "Bar chart showing survival frequencies across 2 categories (N=400). Most common category is 'No survival' (60.2%).",
     "primary_plot": "/plots/univariate_survived.png"
   }
@@ -487,7 +487,7 @@ We tested the enhanced pipeline on 3 public datasets with comprehensive multimod
    - Social science terminology
    - Business/finance language
 
-4. **Quality Filtering** 
+4. **Quality Filtering**
    - Skip non-significant findings (optional)
    - Prioritize large effect sizes
    - Filter out redundant Q/A pairs
@@ -640,7 +640,7 @@ The enhanced multimodal Q/A dataset generation pipeline successfully:
 
 ✅ Processes tabular data with rich metadata parsing
 ✅ Runs comprehensive statistical analyses (univariate, bivariate, temporal, causal)
-✅ Generates publication-quality insights and visualizations  
+✅ Generates publication-quality insights and visualizations
 ✅ Creates diverse, high-quality multimodal Q/A pairs with visual metadata
 ✅ Provides complete accessibility support (alt-text, captions)
 ✅ Enables CLIP-style visual-text pairing for advanced AI training

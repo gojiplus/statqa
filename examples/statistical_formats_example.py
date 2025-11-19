@@ -32,7 +32,7 @@ def create_sample_spss_file():
         "gender": [1, 2, 1, 2, 1, 1, 2, 1, 2, 1],
         "education": [3, 4, 2, 4, 1, 2, 3, 4, 3, 2],
         "satisfaction": [4, 5, 3, 2, 5, 4, 3, 4, 2, 5],
-        "income": [45000, 65000, 55000, 35000, 85000, 95000, 42000, 58000, 48000, 72000]
+        "income": [45000, 65000, 55000, 35000, 85000, 95000, 42000, 58000, 48000, 72000],
     }
 
     df = pd.DataFrame(data)
@@ -44,15 +44,15 @@ def create_sample_spss_file():
             1: "High School or Less",
             2: "Some College",
             3: "Bachelor's Degree",
-            4: "Graduate Degree"
+            4: "Graduate Degree",
         },
         "satisfaction": {
             1: "Very Dissatisfied",
             2: "Dissatisfied",
             3: "Neutral",
             4: "Satisfied",
-            5: "Very Satisfied"
-        }
+            5: "Very Satisfied",
+        },
     }
 
     column_labels = {
@@ -61,20 +61,22 @@ def create_sample_spss_file():
         "gender": "Gender Identity",
         "education": "Highest Education Level",
         "satisfaction": "Job Satisfaction Level",
-        "income": "Annual Household Income (USD)"
+        "income": "Annual Household Income (USD)",
     }
 
     # Create temporary SPSS file
-    temp_file = tempfile.NamedTemporaryFile(suffix=".sav", delete=False)
+    with tempfile.NamedTemporaryFile(suffix=".sav", delete=False) as temp_file:
+        temp_path = temp_file.name
+
     pyreadstat.write_sav(
         df,
-        temp_file.name,
+        temp_path,
         variable_value_labels=variable_value_labels,
         column_labels=column_labels,
-        file_label="Sample Employee Satisfaction Survey"
+        file_label="Sample Employee Satisfaction Survey",
     )
 
-    return Path(temp_file.name)
+    return Path(temp_path)
 
 
 def main():
@@ -145,7 +147,9 @@ def main():
         print(f"Age Analysis: {age_insight}")
 
         # Analyze satisfaction variable
-        satisfaction_results = analyzer.analyze(df["satisfaction"], codebook.variables["satisfaction"])
+        satisfaction_results = analyzer.analyze(
+            df["satisfaction"], codebook.variables["satisfaction"]
+        )
         satisfaction_insight = formatter.format_univariate(satisfaction_results)
 
         print(f"Satisfaction Analysis: {satisfaction_insight}")

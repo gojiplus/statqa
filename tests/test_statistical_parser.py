@@ -6,14 +6,12 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
+from statqa.metadata.parsers.statistical import StatisticalFormatParser
 from statqa.metadata.schema import Codebook, VariableType
 
 
 # Test requires pyreadstat - skip if not available
-pytest.importorskip("pyreadstat")
-import pyreadstat
-
-from statqa.metadata.parsers.statistical import StatisticalFormatParser
+pyreadstat = pytest.importorskip("pyreadstat")
 
 
 @pytest.fixture
@@ -31,14 +29,20 @@ def sample_spss_data():
     # Add metadata
     variable_value_labels = {
         "gender": {1: "Male", 2: "Female"},
-        "satisfaction": {1: "Very Dissatisfied", 2: "Dissatisfied", 3: "Neutral", 4: "Satisfied", 5: "Very Satisfied"}
+        "satisfaction": {
+            1: "Very Dissatisfied",
+            2: "Dissatisfied",
+            3: "Neutral",
+            4: "Satisfied",
+            5: "Very Satisfied",
+        },
     }
 
     column_labels = {
         "age": "Respondent Age",
         "gender": "Gender",
         "income": "Annual Income",
-        "satisfaction": "Job Satisfaction"
+        "satisfaction": "Job Satisfaction",
     }
 
     return df, variable_value_labels, column_labels
@@ -55,7 +59,7 @@ def temp_spss_file(sample_spss_data):
             f.name,
             variable_value_labels=variable_value_labels,
             column_labels=column_labels,
-            file_label="Test Survey Data"
+            file_label="Test Survey Data",
         )
         yield Path(f.name)
 
@@ -74,7 +78,7 @@ def temp_stata_file(sample_spss_data):
             f.name,
             variable_value_labels=variable_value_labels,
             column_labels=column_labels,
-            file_label="Test Survey Data"
+            file_label="Test Survey Data",
         )
         yield Path(f.name)
 
