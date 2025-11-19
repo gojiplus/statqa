@@ -3,7 +3,6 @@
 [![PyPI version](https://img.shields.io/pypi/v/statqa.svg)](https://pypi.org/project/statqa/)
 [![CI](https://github.com/gojiplus/statqa/actions/workflows/ci.yml/badge.svg)](https://github.com/gojiplus/statqa/actions/workflows/ci.yml)
 [![Documentation](https://github.com/gojiplus/statqa/actions/workflows/docs.yml/badge.svg)](https://gojiplus.github.io/statqa)
-[![Downloads](https://static.pepy.tech/badge/statqa)](https://pepy.tech/project/statqa)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **StatQA** is a modern Python framework for automatically extracting structured facts, statistical insights, and **multimodal Q/A pairs** from tabular datasets. It converts raw columns and values into clear, human-readable statements paired with rich visualizations, enabling rapid knowledge discovery, CLIP-style multimodal RAG corpus construction, and LLM training.
