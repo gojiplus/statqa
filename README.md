@@ -350,8 +350,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [ ] Support for additional codebook formats (SPSS, Stata, SAS)
 - [ ] Web interface for interactive analysis
-- [ ] Integration with popular survey platforms
-- [ ] Advanced causal inference methods (instrumental variables, DiD)
-- [ ] Automated report generation (Markdown, LaTeX, HTML)
-- [ ] Cloud deployment templates
-
