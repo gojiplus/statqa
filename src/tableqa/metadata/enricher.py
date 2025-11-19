@@ -13,19 +13,23 @@ import json
 import logging
 from typing import Any
 
+
 try:
     import openai
+
     HAS_OPENAI = True
 except ImportError:
     HAS_OPENAI = False
 
 try:
     import anthropic
+
     HAS_ANTHROPIC = True
 except ImportError:
     HAS_ANTHROPIC = False
 
 from tableqa.metadata.schema import Codebook, Variable, VariableType
+
 
 logger = logging.getLogger(__name__)
 
@@ -63,19 +67,13 @@ class MetadataEnricher:
             self.model = model or "gpt-4"
         elif self.provider == "anthropic":
             if not HAS_ANTHROPIC:
-                raise ImportError(
-                    "anthropic package required. Install with: pip install anthropic"
-                )
-            self.client = (
-                anthropic.Anthropic(api_key=api_key) if api_key else anthropic.Anthropic()
-            )
+                raise ImportError("anthropic package required. Install with: pip install anthropic")
+            self.client = anthropic.Anthropic(api_key=api_key) if api_key else anthropic.Anthropic()
             self.model = model or "claude-3-sonnet-20240229"
         else:
             raise ValueError(f"Unknown provider: {provider}")
 
-    def enrich_variable(
-        self, variable: Variable, dataset_context: str | None = None
-    ) -> Variable:
+    def enrich_variable(self, variable: Variable, dataset_context: str | None = None) -> Variable:
         """
         Enrich a single variable's metadata.
 
@@ -139,13 +137,9 @@ class MetadataEnricher:
 
         return codebook
 
-    def _build_variable_prompt(
-        self, variable: Variable, dataset_context: str | None = None
-    ) -> str:
+    def _build_variable_prompt(self, variable: Variable, dataset_context: str | None = None) -> str:
         """Build prompt for variable enrichment."""
-        context = (
-            f"\nDataset context: {dataset_context}" if dataset_context else ""
-        )
+        context = f"\nDataset context: {dataset_context}" if dataset_context else ""
 
         prompt = f"""Analyze this survey/dataset variable and provide enriched metadata.
 

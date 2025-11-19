@@ -63,37 +63,41 @@ class QuestionTemplate:
         var_label = insight.get("label", insight.get("variable", "Variable"))
 
         if "mean" in insight:
-            questions.extend([
-                {
-                    "question": f"What is the average {var_label}?",
-                    "answer": answer,
-                    "type": "descriptive",
-                },
-                {
-                    "question": f"What is the mean value of {var_label}?",
-                    "answer": answer,
-                    "type": "descriptive",
-                },
-                {
-                    "question": f"Describe the central tendency of {var_label}.",
-                    "answer": answer,
-                    "type": "descriptive",
-                },
-            ])
+            questions.extend(
+                [
+                    {
+                        "question": f"What is the average {var_label}?",
+                        "answer": answer,
+                        "type": "descriptive",
+                    },
+                    {
+                        "question": f"What is the mean value of {var_label}?",
+                        "answer": answer,
+                        "type": "descriptive",
+                    },
+                    {
+                        "question": f"Describe the central tendency of {var_label}.",
+                        "answer": answer,
+                        "type": "descriptive",
+                    },
+                ]
+            )
 
         if "mode" in insight:
-            questions.extend([
-                {
-                    "question": f"What is the most common category for {var_label}?",
-                    "answer": answer,
-                    "type": "descriptive",
-                },
-                {
-                    "question": f"Which {var_label} value appears most frequently?",
-                    "answer": answer,
-                    "type": "descriptive",
-                },
-            ])
+            questions.extend(
+                [
+                    {
+                        "question": f"What is the most common category for {var_label}?",
+                        "answer": answer,
+                        "type": "descriptive",
+                    },
+                    {
+                        "question": f"Which {var_label} value appears most frequently?",
+                        "answer": answer,
+                        "type": "descriptive",
+                    },
+                ]
+            )
 
         return questions
 
@@ -105,23 +109,25 @@ class QuestionTemplate:
         var_num = insight.get("var_numeric")
 
         if var_cat and var_num:
-            questions.extend([
-                {
-                    "question": f"How does {var_num} differ across {var_cat} groups?",
-                    "answer": answer,
-                    "type": "comparative",
-                },
-                {
-                    "question": f"What is the relationship between {var_cat} and {var_num}?",
-                    "answer": answer,
-                    "type": "comparative",
-                },
-                {
-                    "question": f"Does {var_num} vary by {var_cat}?",
-                    "answer": answer,
-                    "type": "comparative",
-                },
-            ])
+            questions.extend(
+                [
+                    {
+                        "question": f"How does {var_num} differ across {var_cat} groups?",
+                        "answer": answer,
+                        "type": "comparative",
+                    },
+                    {
+                        "question": f"What is the relationship between {var_cat} and {var_num}?",
+                        "answer": answer,
+                        "type": "comparative",
+                    },
+                    {
+                        "question": f"Does {var_num} vary by {var_cat}?",
+                        "answer": answer,
+                        "type": "comparative",
+                    },
+                ]
+            )
 
         return questions
 
@@ -132,23 +138,25 @@ class QuestionTemplate:
         value_var = insight.get("value_variable", "Variable")
         time_var = insight.get("time_variable", "time")
 
-        questions.extend([
-            {
-                "question": f"How has {value_var} changed over {time_var}?",
-                "answer": answer,
-                "type": "temporal",
-            },
-            {
-                "question": f"Is there a trend in {value_var} over {time_var}?",
-                "answer": answer,
-                "type": "temporal",
-            },
-            {
-                "question": f"Has {value_var} increased or decreased over {time_var}?",
-                "answer": answer,
-                "type": "temporal",
-            },
-        ])
+        questions.extend(
+            [
+                {
+                    "question": f"How has {value_var} changed over {time_var}?",
+                    "answer": answer,
+                    "type": "temporal",
+                },
+                {
+                    "question": f"Is there a trend in {value_var} over {time_var}?",
+                    "answer": answer,
+                    "type": "temporal",
+                },
+                {
+                    "question": f"Has {value_var} increased or decreased over {time_var}?",
+                    "answer": answer,
+                    "type": "temporal",
+                },
+            ]
+        )
 
         return questions
 
@@ -175,11 +183,13 @@ class QuestionTemplate:
 
         if controls:
             controls_str = ", ".join(controls)
-            base_questions.append({
-                "question": f"Controlling for {controls_str}, what is the effect of {treatment} on {outcome}?",
-                "answer": answer,
-                "type": "causal",
-            })
+            base_questions.append(
+                {
+                    "question": f"Controlling for {controls_str}, what is the effect of {treatment} on {outcome}?",
+                    "answer": answer,
+                    "type": "causal",
+                }
+            )
 
         questions.extend(base_questions)
         return questions
@@ -191,51 +201,59 @@ class QuestionTemplate:
         var1 = insight.get("var1", "Variable 1")
         var2 = insight.get("var2", "Variable 2")
 
-        questions.extend([
-            {
-                "question": f"Are {var1} and {var2} correlated?",
-                "answer": answer,
-                "type": "correlational",
-            },
-            {
-                "question": f"What is the relationship between {var1} and {var2}?",
-                "answer": answer,
-                "type": "correlational",
-            },
-            {
-                "question": f"How strongly are {var1} and {var2} associated?",
-                "answer": answer,
-                "type": "correlational",
-            },
-        ])
+        questions.extend(
+            [
+                {
+                    "question": f"Are {var1} and {var2} correlated?",
+                    "answer": answer,
+                    "type": "correlational",
+                },
+                {
+                    "question": f"What is the relationship between {var1} and {var2}?",
+                    "answer": answer,
+                    "type": "correlational",
+                },
+                {
+                    "question": f"How strongly are {var1} and {var2} associated?",
+                    "answer": answer,
+                    "type": "correlational",
+                },
+            ]
+        )
 
         return questions
 
-    def _generate_distributional(self, insight: dict[str, Any], answer: str) -> list[dict[str, str]]:
+    def _generate_distributional(
+        self, insight: dict[str, Any], answer: str
+    ) -> list[dict[str, str]]:
         """Generate distributional questions (shape, spread)."""
         questions = []
         var_label = insight.get("label", insight.get("variable", "Variable"))
 
         if "std" in insight or "skewness" in insight:
-            questions.extend([
-                {
-                    "question": f"What is the distribution of {var_label}?",
-                    "answer": answer,
-                    "type": "distributional",
-                },
-                {
-                    "question": f"How variable is {var_label}?",
-                    "answer": answer,
-                    "type": "distributional",
-                },
-            ])
+            questions.extend(
+                [
+                    {
+                        "question": f"What is the distribution of {var_label}?",
+                        "answer": answer,
+                        "type": "distributional",
+                    },
+                    {
+                        "question": f"How variable is {var_label}?",
+                        "answer": answer,
+                        "type": "distributional",
+                    },
+                ]
+            )
 
         if "frequencies" in insight:
-            questions.append({
-                "question": f"What is the frequency distribution of {var_label}?",
-                "answer": answer,
-                "type": "distributional",
-            })
+            questions.append(
+                {
+                    "question": f"What is the frequency distribution of {var_label}?",
+                    "answer": answer,
+                    "type": "distributional",
+                }
+            )
 
         return questions
 

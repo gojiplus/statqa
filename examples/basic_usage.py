@@ -9,8 +9,9 @@ This example demonstrates:
 """
 
 import pandas as pd
-from tableqa.analysis.univariate import UnivariateAnalyzer
+
 from tableqa.analysis.bivariate import BivariateAnalyzer
+from tableqa.analysis.univariate import UnivariateAnalyzer
 from tableqa.interpretation.formatter import InsightFormatter
 from tableqa.metadata.parsers.text import TextParser
 from tableqa.qa.generator import QAGenerator
@@ -58,18 +59,20 @@ for var_name, var in codebook.variables.items():
     print(f"  - {var.label} ({var_name}): {var.var_type.value}")
 
 # 3. Create sample data
-data = pd.DataFrame({
-    "age": [25, 32, 45, 28, 51, 39, 44, 29, 35, 48],
-    "gender": [1, 2, 2, 1, 2, 1, 2, 2, 1, 2],
-    "satisfaction": [4, 5, 3, 4, 2, 5, 4, 5, 3, 4],
-})
+data = pd.DataFrame(
+    {
+        "age": [25, 32, 45, 28, 51, 39, 44, 29, 35, 48],
+        "gender": [1, 2, 2, 1, 2, 1, 2, 2, 1, 2],
+        "satisfaction": [4, 5, 3, 4, 2, 5, 4, 5, 3, 4],
+    }
+)
 
 print(f"\nData shape: {data.shape}")
 
 # 4. Run univariate analyses
-print("\n" + "="*60)
+print("\n" + "=" * 60)
 print("UNIVARIATE ANALYSES")
-print("="*60)
+print("=" * 60)
 
 analyzer = UnivariateAnalyzer()
 formatter = InsightFormatter()
@@ -81,9 +84,9 @@ for var_name in codebook.variables:
         print(f"\n{insight}")
 
 # 5. Run bivariate analysis
-print("\n" + "="*60)
+print("\n" + "=" * 60)
 print("BIVARIATE ANALYSES")
-print("="*60)
+print("=" * 60)
 
 biv_analyzer = BivariateAnalyzer()
 age_var = codebook.variables["age"]
@@ -103,9 +106,9 @@ if result2:
     print(f"\n{insight2}")
 
 # 6. Generate Q/A pairs
-print("\n" + "="*60)
+print("\n" + "=" * 60)
 print("GENERATED Q/A PAIRS")
-print("="*60)
+print("=" * 60)
 
 qa_gen = QAGenerator(use_llm=False)  # Template-based only
 
@@ -121,6 +124,6 @@ for i, qa in enumerate(qa_pairs[:3], 1):
     print(f"A{i}: {qa['answer']}")
     print()
 
-print("\n" + "="*60)
+print("\n" + "=" * 60)
 print("Example complete!")
-print("="*60)
+print("=" * 60)

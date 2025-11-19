@@ -32,7 +32,7 @@ def calculate_effect_size(
 
     elif effect_type == "r_to_d":
         # Convert correlation to Cohen's d
-        if isinstance(data1, (int, float)):
+        if isinstance(data1, int | float):
             r = data1
         else:
             raise ValueError("r_to_d expects a correlation coefficient")
@@ -85,7 +85,11 @@ def cramers_v(contingency_table: pd.DataFrame | np.ndarray) -> float:
         Cramér's V (0 to 1)
     """
     chi2, _, _, _ = stats.chi2_contingency(contingency_table)
-    n = contingency_table.sum().sum() if isinstance(contingency_table, pd.DataFrame) else contingency_table.sum()
+    n = (
+        contingency_table.sum().sum()
+        if isinstance(contingency_table, pd.DataFrame)
+        else contingency_table.sum()
+    )
     min_dim = min(contingency_table.shape) - 1
     return np.sqrt(chi2 / (n * min_dim))
 
@@ -118,13 +122,9 @@ def correct_multiple_testing(
             p_values, alpha=alpha, method="bonferroni"
         )
     elif method == "fdr_bh":
-        reject, corrected, _, _ = multitest.multipletests(
-            p_values, alpha=alpha, method="fdr_bh"
-        )
+        reject, corrected, _, _ = multitest.multipletests(p_values, alpha=alpha, method="fdr_bh")
     elif method == "fdr_by":
-        reject, corrected, _, _ = multitest.multipletests(
-            p_values, alpha=alpha, method="fdr_by"
-        )
+        reject, corrected, _, _ = multitest.multipletests(p_values, alpha=alpha, method="fdr_by")
     else:
         raise ValueError(f"Unknown correction method: {method}")
 
@@ -242,9 +242,6 @@ def mann_kendall_trend(series: pd.Series | np.ndarray) -> dict[str, float]:
 
     tau, p_value = kendalltau(time, series)
 
-    if p_value < 0.05:
-        trend = "increasing" if tau > 0 else "decreasing"
-    else:
-        trend = "no_trend"
+    trend = ("increasing" if tau > 0 else "decreasing") if p_value < 0.05 else "no_trend"
 
     return {"tau": float(tau), "p_value": float(p_value), "trend": trend}

@@ -2,9 +2,9 @@
 Bivariate statistical analysis.
 
 Analyzes relationships between pairs of variables:
-- Numeric × Numeric: Pearson/Spearman correlation, regression
-- Categorical × Categorical: Chi-square, Cramér's V
-- Categorical × Numeric: Group comparisons, ANOVA
+- Numeric x Numeric: Pearson/Spearman correlation, regression
+- Categorical x Categorical: Chi-square, Cramér's V
+- Categorical x Numeric: Group comparisons, ANOVA
 """
 
 from typing import Any
@@ -72,24 +72,18 @@ class BivariateAnalyzer:
             return self._analyze_categorical_numeric(subset, var1, var2)
         elif var1.is_numeric() and var2.is_categorical():
             # Swap order
-            return self._analyze_categorical_numeric(
-                subset[[var2.name, var1.name]], var2, var1
-            )
+            return self._analyze_categorical_numeric(subset[[var2.name, var1.name]], var2, var1)
 
         return None
 
-    def _clean_data(
-        self, data: pd.DataFrame, var1: Variable, var2: Variable
-    ) -> pd.DataFrame:
+    def _clean_data(self, data: pd.DataFrame, var1: Variable, var2: Variable) -> pd.DataFrame:
         """Clean missing values based on metadata."""
         clean = data.copy()
 
         # Replace missing codes with NaN
         for var in [var1, var2]:
             if var.missing_values:
-                clean[var.name] = clean[var.name].replace(
-                    {v: np.nan for v in var.missing_values}
-                )
+                clean[var.name] = clean[var.name].replace(dict.fromkeys(var.missing_values, np.nan))
 
         return clean
 
@@ -252,9 +246,7 @@ class BivariateAnalyzer:
             # Eta-squared (effect size for ANOVA)
             # SS_between / SS_total
             grand_mean = clean_data[var_num.name].mean()
-            ss_between = sum(
-                len(g) * (g.mean() - grand_mean) ** 2 for g in group_data
-            )
+            ss_between = sum(len(g) * (g.mean() - grand_mean) ** 2 for g in group_data)
             ss_total = sum((clean_data[var_num.name] - grand_mean) ** 2)
             eta_squared = ss_between / ss_total if ss_total > 0 else 0
 

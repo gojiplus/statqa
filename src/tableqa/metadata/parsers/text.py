@@ -63,7 +63,7 @@ class TextParser(BaseParser):
 
     def _read_source(self, source: str | Path) -> str:
         """Read content from source."""
-        if isinstance(source, (str, Path)):
+        if isinstance(source, str | Path):
             path = Path(source)
             if path.exists() and path.is_file():
                 return path.read_text(encoding="utf-8")
@@ -78,7 +78,7 @@ class TextParser(BaseParser):
             return match.group(1).strip()
 
         # Use filename if available
-        if isinstance(source, (str, Path)):
+        if isinstance(source, str | Path):
             path = Path(source)
             if path.exists():
                 return path.stem

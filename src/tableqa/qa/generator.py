@@ -10,6 +10,7 @@ import json
 import logging
 from typing import Any
 
+
 try:
     import openai
 
@@ -18,6 +19,7 @@ except ImportError:
     HAS_OPENAI = False
 
 from tableqa.qa.templates import QuestionTemplate, infer_question_type
+
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +55,9 @@ class QAGenerator:
                 self.client = openai.OpenAI(api_key=api_key) if api_key else openai.OpenAI()
                 self.model = llm_model or "gpt-4"
             else:
-                raise ValueError(f"LLM provider {llm_provider} not yet supported for Q/A generation")
+                raise ValueError(
+                    f"LLM provider {llm_provider} not yet supported for Q/A generation"
+                )
 
     def generate_qa_pairs(
         self, insight: dict[str, Any], formatted_answer: str
@@ -176,12 +180,14 @@ Return as JSON array with format:
             paraphrased_pairs = []
             for item in paraphrase_data:
                 for paraphrase in item.get("paraphrases", []):
-                    paraphrased_pairs.append({
-                        "question": paraphrase,
-                        "answer": answer,
-                        "type": qa_pairs[0]["type"] if qa_pairs else "descriptive",
-                        "source": "llm_paraphrase",
-                    })
+                    paraphrased_pairs.append(
+                        {
+                            "question": paraphrase,
+                            "answer": answer,
+                            "type": qa_pairs[0]["type"] if qa_pairs else "descriptive",
+                            "source": "llm_paraphrase",
+                        }
+                    )
 
             return paraphrased_pairs
 
@@ -275,7 +281,10 @@ Return as a JSON array of strings: ["question 1", "question 2", ...]
                     # OpenAI fine-tuning format
                     entry = {
                         "messages": [
-                            {"role": "system", "content": "You are a data analyst answering questions about statistical findings."},
+                            {
+                                "role": "system",
+                                "content": "You are a data analyst answering questions about statistical findings.",
+                            },
                             {"role": "user", "content": qa["question"]},
                             {"role": "assistant", "content": qa["answer"]},
                         ]

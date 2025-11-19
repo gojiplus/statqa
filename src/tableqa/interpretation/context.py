@@ -159,9 +159,7 @@ class ContextBuilder:
 
         return "\n\n".join(parts)
 
-    def build_codebook_summary(
-        self, codebook: Codebook, max_variables: int | None = None
-    ) -> str:
+    def build_codebook_summary(self, codebook: Codebook, max_variables: int | None = None) -> str:
         """
         Build comprehensive codebook summary for LLM context.
 
@@ -183,7 +181,7 @@ class ContextBuilder:
         lines.append(f"\n## Variables ({len(codebook.variables)} total)")
 
         # List variables (up to max)
-        for i, (var_name, var) in enumerate(list(codebook.variables.items())[:max_vars]):
+        for _i, (var_name, var) in enumerate(list(codebook.variables.items())[:max_vars]):
             lines.append(f"\n### {var.label} ({var_name})")
             lines.append(f"- Type: {var.var_type.value}")
 
@@ -259,9 +257,7 @@ Keep the interpretation concise (2-3 sentences).
 """
         return prompt
 
-    def _build_enhancement_prompt(
-        self, result: dict[str, Any], variables: list[Variable]
-    ) -> str:
+    def _build_enhancement_prompt(self, result: dict[str, Any], variables: list[Variable]) -> str:
         """Build prompt for enhancing analysis with domain knowledge."""
         var_context = "\n".join(
             [f"- {v.label}: {v.description or 'No description'}" for v in variables]
@@ -284,9 +280,7 @@ Format as a brief expert commentary (3-4 sentences).
 """
         return prompt
 
-    def _build_question_prompt(
-        self, result: dict[str, Any], variables: list[Variable]
-    ) -> str:
+    def _build_question_prompt(self, result: dict[str, Any], variables: list[Variable]) -> str:
         """Build prompt for generating questions from results."""
         var_context = ", ".join([v.label for v in variables])
 
@@ -320,13 +314,19 @@ Format as a numbered list.
 
         # Type-specific formatting
         if "pearson" in result:
-            lines.append(f"Correlation: r={result['pearson']['r']:.3f}, p={result['pearson']['p_value']:.3f}")
+            lines.append(
+                f"Correlation: r={result['pearson']['r']:.3f}, p={result['pearson']['p_value']:.3f}"
+            )
 
         if "t_test" in result:
-            lines.append(f"T-test: t={result['t_test']['statistic']:.3f}, p={result['t_test']['p_value']:.3f}")
+            lines.append(
+                f"T-test: t={result['t_test']['statistic']:.3f}, p={result['t_test']['p_value']:.3f}"
+            )
 
         if "anova" in result:
-            lines.append(f"ANOVA: F={result['anova']['f_statistic']:.3f}, p={result['anova']['p_value']:.3f}")
+            lines.append(
+                f"ANOVA: F={result['anova']['f_statistic']:.3f}, p={result['anova']['p_value']:.3f}"
+            )
 
         if "treatment_effect" in result:
             te = result["treatment_effect"]
