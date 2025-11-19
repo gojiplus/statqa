@@ -65,15 +65,14 @@ class TextParser(BaseParser):
         """Read content from source."""
         if isinstance(source, Path):
             return source.read_text(encoding="utf-8")
-        if isinstance(source, str):
-            # Check if it looks like a file path (not too long and no newlines)
-            if len(source) < 4096 and "\n" not in source:
-                path = Path(source)
-                try:
-                    if path.exists() and path.is_file():
-                        return path.read_text(encoding="utf-8")
-                except (OSError, ValueError):
-                    pass
+        # Check if it looks like a file path (not too long and no newlines)
+        if isinstance(source, str) and len(source) < 4096 and "\n" not in source:
+            path = Path(source)
+            try:
+                if path.exists() and path.is_file():
+                    return path.read_text(encoding="utf-8")
+            except (OSError, ValueError):
+                pass
         # Treat as string content
         return str(source)
 
