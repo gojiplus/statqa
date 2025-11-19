@@ -71,7 +71,7 @@ class QAGenerator:
                 )
 
     def _create_provenance(
-        self, insight: dict[str, Any], method: str = "template"
+        self, insight: dict[str, Any], method: str = "template", variables: list[str] | None = None
     ) -> dict[str, Any]:
         """
         Create provenance metadata for a Q/A pair.
@@ -79,6 +79,7 @@ class QAGenerator:
         Args:
             insight: Statistical analysis result
             method: Generation method ('template' or 'llm_paraphrase')
+            variables: List of variable names involved in the analysis
 
         Returns:
             Dictionary with provenance information
@@ -91,6 +92,10 @@ class QAGenerator:
             "analysis_type": insight.get("analysis_type", "unknown"),
         }
 
+        # Add variables if provided
+        if variables:
+            provenance["variables"] = variables
+
         # Add analyzer information if available
         if "analyzer" in insight:
             provenance["analyzer"] = insight["analyzer"]
@@ -102,7 +107,7 @@ class QAGenerator:
         return provenance
 
     def generate_qa_pairs(
-        self, insight: dict[str, Any], formatted_answer: str
+        self, insight: dict[str, Any], formatted_answer: str, variables: list[str] | None = None
     ) -> list[dict[str, str]]:
         """
         Generate Q/A pairs from a statistical insight.
@@ -110,6 +115,7 @@ class QAGenerator:
         Args:
             insight: Statistical analysis result
             formatted_answer: Natural language answer
+            variables: List of variable names involved in the analysis
 
         Returns:
             List of Q/A pair dictionaries with keys: question, answer, type, provenance
@@ -122,14 +128,14 @@ class QAGenerator:
         qa_pairs = template.generate(insight, formatted_answer)
 
         # Add provenance to template-based questions
-        template_provenance = self._create_provenance(insight, method="template")
+        template_provenance = self._create_provenance(insight, method="template", variables=variables)
         for qa in qa_pairs:
             qa["provenance"] = template_provenance.copy()
 
         # LLM paraphrasing
         if self.use_llm and qa_pairs:
             try:
-                paraphrased = self._paraphrase_questions(qa_pairs, insight)
+                paraphrased = self._paraphrase_questions(qa_pairs, insight, variables)
                 qa_pairs.extend(paraphrased)
             except Exception as e:
                 logger.warning(f"LLM paraphrasing failed: {e}")
@@ -162,7 +168,7 @@ class QAGenerator:
         return results
 
     def _paraphrase_questions(
-        self, qa_pairs: list[dict[str, str]], insight: dict[str, Any]
+        self, qa_pairs: list[dict[str, str]], insight: dict[str, Any], variables: list[str] | None = None
     ) -> list[dict[str, str]]:
         """
         Use LLM to generate paraphrased questions.
@@ -170,6 +176,7 @@ class QAGenerator:
         Args:
             qa_pairs: Original Q/A pairs
             insight: Statistical insight for context
+            variables: List of variable names involved in the analysis
 
         Returns:
             List of paraphrased Q/A pairs
@@ -225,7 +232,7 @@ Return as JSON array with format:
 
             # Build Q/A pairs from paraphrases
             paraphrased_pairs = []
-            llm_provenance = self._create_provenance(insight, method="llm_paraphrase")
+            llm_provenance = self._create_provenance(insight, method="llm_paraphrase", variables=variables)
 
             for item in paraphrase_data:
                 for paraphrase in item.get("paraphrases", []):
