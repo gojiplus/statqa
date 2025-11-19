@@ -346,18 +346,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- Built with modern Python tools: Pydantic, pandas, statsmodels, typer
-- Inspired by survey data analysis workflows (ANES, GSS, etc.)
-- Statistical methods from standard social science practice
-
-## 📬 Contact & Support
-
-- **Issues**: [GitHub Issues](https://github.com/gojiplus/statqa/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/gojiplus/statqa/discussions)
-- **Email**: maintainers@statqa.org
-
 ## 🗺️ Roadmap
 
 - [ ] Support for additional codebook formats (SPSS, Stata, SAS)
@@ -367,6 +355,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Automated report generation (Markdown, LaTeX, HTML)
 - [ ] Cloud deployment templates
 
----
-
-**Made with ❤️ for data scientists, researchers, and LLM engineers**
