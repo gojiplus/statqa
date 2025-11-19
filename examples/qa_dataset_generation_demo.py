@@ -343,8 +343,12 @@ def run_pipeline_on_dataset(
 
     for insight in results['insights']:
         try:
+            # Add analysis_type to analysis dict for provenance tracking
+            analysis = insight['analysis'].copy()
+            analysis['analysis_type'] = insight['type']
+
             qa_pairs = qa_generator.generate_qa_pairs(
-                insight['analysis'],
+                analysis,
                 insight['insight']
             )
 
