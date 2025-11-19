@@ -52,7 +52,9 @@ class InsightFormatter:
 
         # Add range
         if "min" in result and "max" in result:
-            text += f", range=[{result['min']:.{self.precision}f}, {result['max']:.{self.precision}f}]"
+            text += (
+                f", range=[{result['min']:.{self.precision}f}, {result['max']:.{self.precision}f}]"
+            )
 
         # Sample size
         text += f". N={n:,}"
@@ -95,15 +97,8 @@ class InsightFormatter:
 
         # Main description
         if mode is not None:
-            mode_label = (
-                list(freq_dict.keys())[0]
-                if freq_dict
-                else str(mode)
-            )
-            text = (
-                f"**{label}**: most common category is '{mode_label}' "
-                f"({mode_freq:.1f}%)"
-            )
+            mode_label = next(iter(freq_dict.keys())) if freq_dict else str(mode)
+            text = f"**{label}**: most common category is '{mode_label}' ({mode_freq:.1f}%)"
         else:
             text = f"**{label}**: {n_unique} categories"
 
@@ -242,7 +237,7 @@ class InsightFormatter:
     def format_temporal(self, result: dict[str, Any]) -> str:
         """Format temporal analysis result."""
         value_var = result.get("value_variable", "Variable")
-        time_var = result.get("time_variable", "time")
+        result.get("time_variable", "time")
 
         if "mann_kendall" in result:
             mk = result["mann_kendall"]
@@ -289,9 +284,7 @@ class InsightFormatter:
 
             # Careful language for causal claims
             if controls:
-                text = (
-                    f"Controlling for {', '.join(controls)}, **{treatment}** is associated with "
-                )
+                text = f"Controlling for {', '.join(controls)}, **{treatment}** is associated with "
             else:
                 text = f"**{treatment}** is associated with "
 
@@ -310,10 +303,12 @@ class InsightFormatter:
         # Model fit
         if "model_fit" in result:
             r2 = result["model_fit"]["adj_r_squared"]
-            text += f". Model explains {r2*100:.1f}% of variance"
+            text += f". Model explains {r2 * 100:.1f}% of variance"
 
         # Sensitivity
-        if "sensitivity" in result and result["sensitivity"].get("confounding", {}).get("substantial"):
+        if "sensitivity" in result and result["sensitivity"].get("confounding", {}).get(
+            "substantial"
+        ):
             text += ". [Note: Substantial confounding detected]"
 
         text += "."

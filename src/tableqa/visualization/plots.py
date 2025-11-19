@@ -5,7 +5,6 @@ Creates publication-quality plots for insights.
 """
 
 from pathlib import Path
-from typing import Any
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -140,7 +139,9 @@ class PlotFactory:
             cols.append(group_var.name)
 
         subset = data[cols].copy()
-        subset = self._clean_dataframe(subset, [time_var, value_var] + ([group_var] if group_var else []))
+        subset = self._clean_dataframe(
+            subset, [time_var, value_var] + ([group_var] if group_var else [])
+        )
         subset = subset.dropna().sort_values(time_var.name)
 
         if group_var:
@@ -176,22 +177,18 @@ class PlotFactory:
         """Clean missing values from series."""
         clean = data.copy()
         if variable.missing_values:
-            clean = clean.replace({v: np.nan for v in variable.missing_values})
+            clean = clean.replace(dict.fromkeys(variable.missing_values, np.nan))
         return clean.dropna()
 
-    def _clean_dataframe(
-        self, data: pd.DataFrame, variables: list[Variable]
-    ) -> pd.DataFrame:
+    def _clean_dataframe(self, data: pd.DataFrame, variables: list[Variable]) -> pd.DataFrame:
         """Clean missing values from dataframe."""
         clean = data.copy()
         for var in variables:
             if var.missing_values:
-                clean[var.name] = clean[var.name].replace({v: np.nan for v in var.missing_values})
+                clean[var.name] = clean[var.name].replace(dict.fromkeys(var.missing_values, np.nan))
         return clean
 
-    def _plot_numeric_distribution(
-        self, data: pd.Series, variable: Variable, ax: plt.Axes
-    ) -> None:
+    def _plot_numeric_distribution(self, data: pd.Series, variable: Variable, ax: plt.Axes) -> None:
         """Plot histogram/KDE for numeric variable."""
         n_unique = data.nunique()
 
@@ -219,9 +216,7 @@ class PlotFactory:
 
         # Map to labels if available
         if variable.valid_values:
-            counts.index = counts.index.map(
-                lambda x: variable.valid_values.get(x, str(x))
-            )
+            counts.index = counts.index.map(lambda x: variable.valid_values.get(x, str(x)))
 
         sns.barplot(x=counts.index, y=counts.values, ax=ax, palette="viridis")
         ax.set_xlabel(variable.label)
@@ -275,9 +270,7 @@ class PlotFactory:
 
         # Map to labels
         if var1.valid_values:
-            contingency.index = contingency.index.map(
-                lambda x: var1.valid_values.get(x, str(x))
-            )
+            contingency.index = contingency.index.map(lambda x: var1.valid_values.get(x, str(x)))
         if var2.valid_values:
             contingency.columns = contingency.columns.map(
                 lambda x: var2.valid_values.get(x, str(x))

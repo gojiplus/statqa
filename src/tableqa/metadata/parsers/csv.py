@@ -12,6 +12,7 @@ Parses codebooks stored in CSV format with columns like:
 - etc.
 """
 
+import contextlib
 from pathlib import Path
 from typing import Any
 
@@ -107,16 +108,12 @@ class CSVParser(BaseParser):
 
         # Range
         if range_min := self._get_value(row, ["range_min", "min", "minimum"]):
-            try:
+            with contextlib.suppress(ValueError, TypeError):
                 data["range_min"] = float(range_min)
-            except (ValueError, TypeError):
-                pass
 
         if range_max := self._get_value(row, ["range_max", "max", "maximum"]):
-            try:
+            with contextlib.suppress(ValueError, TypeError):
                 data["range_max"] = float(range_max)
-            except (ValueError, TypeError):
-                pass
 
         # DGP
         if dgp := self._get_value(row, ["dgp", "data_generating_process"]):
@@ -138,9 +135,7 @@ class CSVParser(BaseParser):
 
         return Variable(**data)
 
-    def _get_value(
-        self, row: pd.Series, columns: list[str], default: Any = None
-    ) -> str | None:
+    def _get_value(self, row: pd.Series, columns: list[str], default: Any = None) -> str | None:
         """Get value from first available column."""
         for col in columns:
             if col in row.index and not pd.isna(row[col]):

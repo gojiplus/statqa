@@ -31,9 +31,7 @@ class UnivariateAnalyzer:
         self.handle_outliers = handle_outliers
         self.robust = robust
 
-    def analyze(
-        self, data: pd.Series, variable: Variable
-    ) -> dict[str, Any]:
+    def analyze(self, data: pd.Series, variable: Variable) -> dict[str, Any]:
         """
         Analyze a single variable.
 
@@ -50,7 +48,9 @@ class UnivariateAnalyzer:
         result: dict[str, Any] = {
             "variable": variable.name,
             "label": variable.label,
-            "type": variable.var_type.value,
+            "type": variable.var_type
+            if isinstance(variable.var_type, str)
+            else variable.var_type.value,
             "n_total": len(data),
             "n_valid": len(clean_data.dropna()),
             "n_missing": int(clean_data.isna().sum()),
@@ -68,12 +68,10 @@ class UnivariateAnalyzer:
         """Replace missing value codes with NaN."""
         clean = data.copy()
         if variable.missing_values:
-            clean = clean.replace({v: np.nan for v in variable.missing_values})
+            clean = clean.replace(dict.fromkeys(variable.missing_values, np.nan))
         return clean
 
-    def _analyze_numeric(
-        self, data: pd.Series, variable: Variable
-    ) -> dict[str, Any]:
+    def _analyze_numeric(self, data: pd.Series, variable: Variable) -> dict[str, Any]:
         """Analyze numeric variable."""
         valid_data = data.dropna()
 
@@ -137,9 +135,7 @@ class UnivariateAnalyzer:
 
         return result
 
-    def _analyze_categorical(
-        self, data: pd.Series, variable: Variable
-    ) -> dict[str, Any]:
+    def _analyze_categorical(self, data: pd.Series, variable: Variable) -> dict[str, Any]:
         """Analyze categorical variable."""
         valid_data = data.dropna()
 
@@ -155,7 +151,7 @@ class UnivariateAnalyzer:
         mode_freq = frequencies.max()
 
         result: dict[str, Any] = {
-            "n_unique": int(len(counts)),
+            "n_unique": len(counts),
             "mode": mode,
             "mode_frequency": float(mode_freq),
             "frequencies": frequencies.to_dict(),
@@ -164,8 +160,7 @@ class UnivariateAnalyzer:
         # Map codes to labels if available
         if variable.valid_values:
             result["frequency_labels"] = {
-                variable.valid_values.get(k, str(k)): v
-                for k, v in frequencies.items()
+                variable.valid_values.get(k, str(k)): v for k, v in frequencies.items()
             }
 
         # Diversity measures (entropy, Gini-Simpson)
@@ -183,7 +178,7 @@ class UnivariateAnalyzer:
         rare = frequencies[frequencies < 5.0]
         if len(rare) > 0:
             result["rare_categories"] = rare.to_dict()
-            result["n_rare"] = int(len(rare))
+            result["n_rare"] = len(rare)
 
         return result
 

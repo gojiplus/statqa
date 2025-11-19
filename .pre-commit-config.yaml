@@ -1,0 +1,57 @@
+# Pre-commit hooks for tableqa
+# Install: pre-commit install
+# Run manually: pre-commit run --all-files
+
+repos:
+  # Ruff - Fast Python linter
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.5
+    hooks:
+      # Run the linter
+      - id: ruff
+        args: [--fix]
+      # Run the formatter
+      - id: ruff-format
+
+  # Type checking with mypy (non-blocking, same as CI)
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.18.2
+    hooks:
+      - id: mypy
+        args: [--ignore-missing-imports]
+        additional_dependencies:
+          - pydantic>=2.0.0
+          - types-setuptools
+        files: ^src/tableqa/
+        exclude: ^tests/
+        verbose: true
+        # Allow mypy to fail (same as CI configuration)
+        # This prevents blocking commits when mypy has issues
+        # Run `make typecheck` to see full mypy output
+        stages: [manual]
+
+  # Pytest - Run tests before commit
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: python -m pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+        args: [--maxfail=1, -v]
+
+  # Standard pre-commit hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: [--maxkb=1000]
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: debug-statements
+      - id: mixed-line-ending
+        args: [--fix=lf]
