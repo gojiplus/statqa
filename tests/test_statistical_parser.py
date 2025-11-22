@@ -1,6 +1,8 @@
 """Tests for statistical format parser."""
 
+import contextlib
 import tempfile
+import time
 from pathlib import Path
 
 import pandas as pd
@@ -53,18 +55,30 @@ def temp_spss_file(sample_spss_data):
     """Create temporary SPSS file for testing."""
     df, variable_value_labels, column_labels = sample_spss_data
 
+    # Create temp file and close it immediately to avoid Windows file locking issues
     with tempfile.NamedTemporaryFile(suffix=".sav", delete=False) as f:
+        temp_path = Path(f.name)
+
+    try:
+        # Write to the closed temp file
         pyreadstat.write_sav(
             df,
-            f.name,
+            str(temp_path),
             variable_value_labels=variable_value_labels,
             column_labels=column_labels,
             file_label="Test Survey Data",
         )
-        yield Path(f.name)
-
-    # Cleanup
-    Path(f.name).unlink(missing_ok=True)
+        yield temp_path
+    finally:
+        # Cleanup - handle Windows file locking gracefully
+        try:
+            if temp_path.exists():
+                temp_path.unlink()
+        except (OSError, PermissionError):
+            # On Windows, file might still be locked, try again
+            time.sleep(0.1)
+            with contextlib.suppress(OSError, PermissionError):
+                temp_path.unlink(missing_ok=True)
 
 
 @pytest.fixture
@@ -72,18 +86,30 @@ def temp_stata_file(sample_spss_data):
     """Create temporary Stata file for testing."""
     df, variable_value_labels, column_labels = sample_spss_data
 
+    # Create temp file and close it immediately to avoid Windows file locking issues
     with tempfile.NamedTemporaryFile(suffix=".dta", delete=False) as f:
+        temp_path = Path(f.name)
+
+    try:
+        # Write to the closed temp file
         pyreadstat.write_dta(
             df,
-            f.name,
+            str(temp_path),
             variable_value_labels=variable_value_labels,
             column_labels=column_labels,
             file_label="Test Survey Data",
         )
-        yield Path(f.name)
-
-    # Cleanup
-    Path(f.name).unlink(missing_ok=True)
+        yield temp_path
+    finally:
+        # Cleanup - handle Windows file locking gracefully
+        try:
+            if temp_path.exists():
+                temp_path.unlink()
+        except (OSError, PermissionError):
+            # On Windows, file might still be locked, try again
+            time.sleep(0.1)
+            with contextlib.suppress(OSError, PermissionError):
+                temp_path.unlink(missing_ok=True)
 
 
 class TestStatisticalFormatParser:
