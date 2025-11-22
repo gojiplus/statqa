@@ -7,13 +7,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Package Installation
 ```bash
 # Development installation (includes all dev tools)
-pip install -e ".[dev]"
+uv pip install -e ".[dev]"
 
 # With specific optional dependencies
-pip install -e ".[llm]"                # OpenAI/Anthropic LLM support
-pip install -e ".[pdf]"                # PDF parsing with pdfplumber
-pip install -e ".[statistical-formats]" # SPSS/Stata/SAS file support
-pip install -e ".[all]"                # All features
+uv pip install -e ".[llm]"                # OpenAI/Anthropic LLM support
+uv pip install -e ".[pdf]"                # PDF parsing with pdfplumber
+uv pip install -e ".[statistical-formats]" # SPSS/Stata/SAS file support
+uv pip install -e ".[all]"                # All features
+
+# Or use uv sync for development environment
+uv sync --all-extras
 ```
 
 ### Code Quality & Testing

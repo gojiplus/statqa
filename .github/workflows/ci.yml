@@ -17,28 +17,30 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v5
+    - name: Set up uv
+      uses: astral-sh/setup-uv@v3
       with:
-        python-version: ${{ matrix.python-version }}
+        version: "latest"
+
+    - name: Set up Python ${{ matrix.python-version }}
+      run: uv python install ${{ matrix.python-version }}
 
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install -e ".[dev]"
+        uv sync --all-extras
 
     - name: Lint with ruff
       run: |
-        ruff check statqa tests
+        uv run ruff check statqa tests
 
     - name: Type check with mypy
       run: |
-        mypy statqa --ignore-missing-imports
+        uv run mypy statqa --ignore-missing-imports
       continue-on-error: true
 
     - name: Run tests with pytest
       run: |
-        pytest --cov=statqa --cov-report=xml --cov-report=term-missing
+        uv run pytest --cov=statqa --cov-report=xml --cov-report=term-missing
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v4

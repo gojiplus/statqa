@@ -8,7 +8,7 @@ version = "0.2.0"
 description = "Automatically extract structured facts, insights, and Q/A pairs from tabular datasets"
 readme = "README.md"
 requires-python = ">=3.11"
-license = {text = "MIT"}
+license = "MIT"
 authors = [
     {name = "Gaurav Sood"}
 ]
@@ -25,7 +25,6 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.11",
