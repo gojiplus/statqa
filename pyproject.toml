@@ -95,6 +95,12 @@ markers = [
     "integration: marks tests as integration tests",
     "llm: marks tests that require LLM API access",
 ]
+log_level = "INFO"
+xfail_strict = true
+filterwarnings = [
+    "error",
+    "ignore:vert:matplotlib.MatplotlibDeprecationWarning",
+]
 
 # Coverage configuration
 [tool.coverage.run]

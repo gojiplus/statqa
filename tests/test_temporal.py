@@ -134,6 +134,12 @@ class TestChangePoints:
         result = TemporalAnalyzer().detect_change_points(frame, year_var, value_var)
 
         assert result["analysis_type"] == "change_point_detection"
+        assert result["change_point"] == {
+            "time": "2015",
+            "p_value": 0.0,
+            "magnitude": 20.0,
+            "significant": True,
+        }
 
     def test_too_few_points_returns_error(self, year_var, value_var):
         frame = pd.DataFrame({"year": [2000, 2001], "v": [1.0, 2.0]})
