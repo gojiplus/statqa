@@ -200,13 +200,20 @@ class TemporalAnalyzer:
             before = subset[value_var.name].iloc[:i]
             after = subset[value_var.name].iloc[i:]
 
-            # T-test for difference in means
-            p_value = float(stats.ttest_ind(before, after).pvalue)
+            # A variance-based test is undefined when both segments are
+            # constant. Their means settle the comparison exactly and avoid
+            # SciPy's precision-loss warning for the clearest possible shift.
+            if before.nunique() == 1 and after.nunique() == 1:
+                p_value = 0.0 if before.iloc[0] != after.iloc[0] else 1.0
+            else:
+                p_value = float(stats.ttest_ind(before, after).pvalue)
 
             if p_value < best_p:
                 best_p = p_value
                 best_t = subset[time_var.name].iloc[i]
                 best_change = after.mean() - before.mean()
+                if best_p == 0.0:
+                    break
 
         result: dict[str, Any] = {
             "analysis_type": "change_point_detection",
