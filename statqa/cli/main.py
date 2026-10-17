@@ -296,10 +296,10 @@ def _run_temporal(
         df: The dataset.
         codebook: Variable metadata.
         formatter: Formatter for the natural-language insight.
-        max_pairs: Cap on the number of pairs analysed.
+        max_pairs: Cap on the number of pairs analyzed.
 
     Returns:
-        One insight per analysed pair.
+        One insight per analyzed pair.
     """
     console.print("\n[bold]Running temporal analysis...[/bold]")
     from statqa.analysis.temporal import TemporalAnalyzer

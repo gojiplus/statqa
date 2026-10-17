@@ -63,7 +63,7 @@ class TestEffectSize:
 
     @pytest.mark.parametrize("r", [1.0, -1.0, 1.5])
     def test_r_to_d_rejects_perfect_correlation(self, r):
-        # Otherwise the result is inf, which serialises as invalid JSON.
+        # Otherwise the result is inf, which serializes as invalid JSON.
         with pytest.raises(ValueError, match="perfect correlation"):
             calculate_effect_size(r, effect_type="r_to_d")
 
