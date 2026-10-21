@@ -1,5 +1,5 @@
 [build-system]
-requires = ["uv_build>=0.12.5,<0.13"]
+requires = ["uv_build>=0.12.5,<0.14"]
 build-backend = "uv_build"
 
 [project]
@@ -171,6 +171,7 @@ convention = "google"
 "examples/**" = ["T201", "D", "G", "PTH", "ARG", "RET", "ICN", "TC"]
 
 [tool.codespell]
+builtin = "clear,rare,en-GB_to_en-US"
 # Domain vocabulary rather than typos: .sav/.por are SPSS extensions, and
 # `ttest` and `te` (treatment effect) are statistics identifiers.
 ignore-words-list = "sav,ttest,te,womens"

@@ -559,7 +559,7 @@ print(f"Generated {len(all_qa_pairs)} multimodal Q/A pairs with visualizations")
 ### Using the CLI
 
 ```bash
-# Parse, analyse and generate Q/A in one pass
+# Parse, analyze and generate Q/A in one pass
 statqa pipeline data.csv codebook.csv \
     --output-dir output/ \
     --qa \

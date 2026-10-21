@@ -2,7 +2,7 @@
 
 Type, DGP and missing-code spellings are properties of codebooks rather than
 of any one file format, so BaseParser resolves them and each parser inherits
-the same behaviour.
+the same behavior.
 """
 
 import pytest

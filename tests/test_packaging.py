@@ -11,7 +11,7 @@ from pathlib import Path
 
 import pytest
 
-# These assert on repository configuration rather than on installed behaviour.
+# These assert on repository configuration rather than on installed behavior.
 # The wheel smoke test installs only the wheel and pytest, so PyYAML is absent
 # there and the whole module is out of scope; skip rather than fail collection.
 yaml = pytest.importorskip("yaml", reason="PyYAML is in the dev dependency group")

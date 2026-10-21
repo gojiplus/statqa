@@ -113,7 +113,7 @@ class BaseParser(ABC):
             type_str: Type as written in the codebook.
 
         Returns:
-            The matching type, or UNKNOWN if the spelling is not recognised.
+            The matching type, or UNKNOWN if the spelling is not recognized.
         """
         return _TYPE_ALIASES.get(type_str.lower().strip(), VariableType.UNKNOWN)
 
@@ -124,7 +124,7 @@ class BaseParser(ABC):
             dgp_str: Process as written in the codebook.
 
         Returns:
-            The matching process, or UNKNOWN if the spelling is not recognised.
+            The matching process, or UNKNOWN if the spelling is not recognized.
         """
         return _DGP_ALIASES.get(dgp_str.lower().strip(), DataGeneratingProcess.UNKNOWN)
 
