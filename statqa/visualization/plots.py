@@ -454,7 +454,7 @@ class PlotFactory:
         n_categories = len(counts)
 
         if variable.valid_values and mode in variable.valid_values:
-            mode_label = variable.valid_values[mode]
+            mode_label = variable.valid_values[cast("int | str", mode)]
         else:
             mode_label = str(mode)
 
