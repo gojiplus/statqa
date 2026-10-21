@@ -102,6 +102,31 @@ class TestUnivariate:
         assert "age" in meta["caption"].lower()
         assert meta["alt_text"]
 
+    @pytest.mark.parametrize(
+        ("values", "labels", "expected"),
+        [
+            ([1, 1, 2], {1: "First", 2: "Second"}, "First"),
+            ([1.0, 1.0, 2.0], {1: "First", 2: "Second"}, "First"),
+            (["a", "a", "b"], {"a": "Alpha", "b": "Beta"}, "Alpha"),
+            ([3, 3, 2], {1: "First", 2: "Second"}, "3"),
+        ],
+    )
+    def test_categorical_caption_uses_value_labels(
+        self, factory, values, labels, expected
+    ):
+        variable = Variable(
+            name="category",
+            label="Category",
+            var_type=VariableType.CATEGORICAL_NOMINAL,
+            valid_values=labels,
+        )
+
+        _, meta = factory.plot_univariate(
+            pd.Series(values), variable, return_metadata=True
+        )
+
+        assert f"Most common category is '{expected}' (66.7%)" in meta["caption"]
+
 
 class TestBivariate:
     def test_numeric_pair_is_a_scatter(self, factory, frame, continuous):
