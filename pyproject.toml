@@ -218,6 +218,8 @@ dev = [
     "pre-commit>=4",
 ]
 test = [
+    "anthropic>=2.3",
+    "httpx2>=2.14",
     "pytest>=8",
     "pytest-cov>=4.1.0",
     "pytest-mock>=3.12.0",

@@ -1,11 +1,13 @@
 """Tests for LLM-backed metadata enrichment.
 
-The LLM itself is never called: _call_llm is replaced so the tests exercise
-prompt construction, response parsing and how enrichment is applied.
+No remote model is called. Parsing tests replace _call_llm; provider contract
+tests exercise the real SDK with a mocked HTTP transport.
 """
 
 import json
 
+import anthropic
+import httpx2
 import pytest
 
 from statqa.exceptions import LLMConnectionError, LLMResponseError
@@ -178,3 +180,40 @@ class TestProviderValidation:
     def test_unknown_provider_is_rejected(self):
         with pytest.raises(ValueError, match="Unknown provider"):
             MetadataEnricher(provider="mistral")  # type: ignore[arg-type]
+
+
+def test_anthropic_sdk_enriches_variable_without_remote_calls(age):
+    requests = []
+
+    def respond(request):
+        requests.append(json.loads(request.content))
+        assert request.url.path == "/v1/messages"
+        return httpx2.Response(
+            200,
+            json={
+                "id": "msg_test",
+                "type": "message",
+                "role": "assistant",
+                "model": "test-model",
+                "content": [{"type": "text", "text": '{"topic": "demographics"}'}],
+                "stop_reason": "end_turn",
+                "stop_sequence": None,
+                "usage": {"input_tokens": 10, "output_tokens": 5},
+            },
+        )
+
+    instance = MetadataEnricher(
+        provider="anthropic", api_key="test-key", model="test-model"
+    )
+    instance.client.close()
+    with (
+        httpx2.Client(transport=httpx2.MockTransport(respond)) as http,
+        anthropic.Anthropic(api_key="test-key", http_client=http) as client,
+    ):
+        instance.client = client
+        result = instance.enrich_variable(age)
+
+    assert result.enriched_metadata["topic"] == "demographics"
+    assert len(requests) == 1
+    assert requests[0]["model"] == "test-model"
+    assert "age" in requests[0]["messages"][0]["content"]

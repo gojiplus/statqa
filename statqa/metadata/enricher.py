@@ -278,7 +278,6 @@ Return ONLY valid JSON.
                 response = self.client.messages.create(
                     model=self.model,
                     max_tokens=max_tokens,
-                    temperature=0.3,
                     system="You are a statistical data analyst helping to understand and classify dataset variables.",
                     messages=[{"role": "user", "content": prompt}],
                     **self.kwargs,
