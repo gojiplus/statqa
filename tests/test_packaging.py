@@ -70,7 +70,7 @@ class TestPythonVersions:
 #: Documents that tell a reader how to install the package.
 INSTALL_DOCS = [
     "README.md",
-    "CLAUDE.md",
+    "AGENTS.md",
     "docs/_shared/installation.rst",
     "examples/README.md",
 ]
