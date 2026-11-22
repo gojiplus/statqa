@@ -1,7 +1,7 @@
 # Managed by copier — records template version for `copier update`. Do not edit.
 _commit: v1.2.0
 _src_path: gh:gojiplus/py-canon
-author_email: gsood07@gmail.com
+author_email: ''
 author_name: Gaurav Sood
 coverage_floor: 70
 default_branch: main
