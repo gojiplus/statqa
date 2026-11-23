@@ -6,7 +6,7 @@ build-backend = "uv_build"
 name = "statqa"
 description = "Automatically extract structured facts, insights, and Q/A pairs from tabular datasets"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 license = "MIT"
 authors = [
     {name = "Gaurav Sood"}
@@ -26,7 +26,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
     "Topic :: Scientific/Engineering",
@@ -131,7 +130,7 @@ exclude_lines = [
 # Ruff configuration (replaces flake8, isort, etc.)
 [tool.ruff]
 line-length = 88
-target-version = "py312"
+target-version = "py313"
 extend-exclude = ["htmlcov", "data"]
 
 [tool.ruff.lint]
