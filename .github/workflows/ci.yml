@@ -25,4 +25,4 @@ jobs:
       run-preen: true
       # requires-python is >=3.12, and 3.13 is not in the reusable default.
       # Keep this in step with the Programming Language classifiers.
-      python-versions: '["3.12", "3.13", "3.14"]'
+      python-versions: '["3.13", "3.14"]'
