@@ -43,8 +43,8 @@ dependencies = [
     # matplotlib and raises.
     "seaborn>=0.13.0",
     "pydantic>=2.8.0",
-    "typer>=0.9.0",
-    "rich>=13.0.0",
+    "typer>=0.26.0",
+    "rich>=13.8.0",
     "linkify-it-py>=2.0.3",
 ]
 version = "0.3.0"
