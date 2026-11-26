@@ -41,7 +41,7 @@ dependencies = [
     "matplotlib>=3.10.7",
     # 0.13 added `legend` to the categorical plots; on 0.12 it is forwarded to
     # matplotlib and raises.
-    "seaborn>=0.13.0",
+    "seaborn>=0.13.2",
     "pydantic>=2.8.0",
     "typer>=0.26.0",
     "rich>=13.8.0",
