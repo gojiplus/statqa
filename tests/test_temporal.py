@@ -65,6 +65,35 @@ def test_too_few_years_returns_error(year_var, value_var):
     assert "error" in result
 
 
+def test_yoy_blanks_missing_codes():
+    year_var = Variable(
+        name="year",
+        label="Year",
+        var_type=VariableType.NUMERIC_DISCRETE,
+        missing_values={9999},
+    )
+    value_var = Variable(
+        name="v",
+        label="Value",
+        var_type=VariableType.NUMERIC_CONTINUOUS,
+        missing_values={-1, 999},
+    )
+    data = pd.DataFrame(
+        {
+            "year": [2000, 2000, 2001, 2001, 9999],
+            "v": [100.0, 999.0, 120.0, -1.0, 500.0],
+        }
+    )
+
+    result = TemporalAnalyzer().year_over_year_change(data, year_var, value_var)
+
+    assert set(result["years"]) == {"2000", "2001"}
+    assert result["years"]["2000"]["value"] == pytest.approx(100.0)
+    assert result["years"]["2001"]["value"] == pytest.approx(120.0)
+    assert result["years"]["2001"]["yoy_absolute"] == pytest.approx(20.0)
+    assert result["years"]["2001"]["yoy_percent"] == pytest.approx(20.0)
+
+
 @pytest.fixture
 def rising():
     """A clear upward trend with mild noise."""
@@ -124,6 +153,46 @@ class TestGroupedTrend:
         assert isinstance(result, dict)
         assert result["analysis_type"]
 
+    def test_blanks_missing_codes_in_group_and_value(self, year_var):
+        value_var = Variable(
+            name="v",
+            label="Value",
+            var_type=VariableType.NUMERIC_CONTINUOUS,
+            missing_values={999},
+        )
+        group_var = Variable(
+            name="g",
+            label="Group",
+            var_type=VariableType.CATEGORICAL_NOMINAL,
+            missing_values={-1},
+        )
+        frame = pd.DataFrame(
+            {
+                "year": [
+                    2000,
+                    2001,
+                    2002,
+                    2003,
+                    2000,
+                    2001,
+                    2002,
+                    2003,
+                    2000,
+                    2001,
+                    2002,
+                ],
+                "v": [10.0, 20.0, 30.0, 40.0, 50.0, 999.0, 999.0, 999.0, 5.0, 6.0, 7.0],
+                "g": [1, 1, 1, 1, 2, 2, 2, 2, -1, -1, -1],
+            }
+        )
+
+        result = TemporalAnalyzer().analyze_grouped_trend(
+            frame, year_var, value_var, group_var
+        )
+
+        assert set(result["groups"]) == {"1"}
+        assert result["groups"]["1"]["n_periods"] == 4
+
 
 class TestChangePoints:
     def test_finds_a_level_shift(self, year_var, value_var):
@@ -140,6 +209,26 @@ class TestChangePoints:
             "magnitude": 20.0,
             "significant": True,
         }
+
+    def test_blanks_missing_codes_before_segmentation(self, year_var):
+        value_var = Variable(
+            name="v",
+            label="Value",
+            var_type=VariableType.NUMERIC_CONTINUOUS,
+            missing_values={999},
+        )
+        # Constant series with sentinel 999 codes at the end should not register
+        # as a level shift.
+        frame = pd.DataFrame(
+            {
+                "year": range(2000, 2012),
+                "v": [10.0] * 8 + [999.0] * 4,
+            }
+        )
+
+        result = TemporalAnalyzer().detect_change_points(frame, year_var, value_var)
+
+        assert result["change_point"]["significant"] is False
 
     def test_too_few_points_returns_error(self, year_var, value_var):
         frame = pd.DataFrame({"year": [2000, 2001], "v": [1.0, 2.0]})

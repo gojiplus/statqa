@@ -54,9 +54,7 @@ class TemporalAnalyzer:
             Trend analysis results as dictionary
         """
         # Clean and prepare data
-        subset = data[[time_var.name, value_var.name]].copy()
-        subset = self._clean_data(subset, time_var, value_var)
-        subset = subset.dropna()
+        subset = self._prepare_subset(data, time_var, value_var)
 
         if len(subset) < self.min_periods:
             return {"error": "Insufficient time periods"}
@@ -131,8 +129,7 @@ class TemporalAnalyzer:
         Returns:
             Grouped trend analysis results as dictionary
         """
-        subset = data[[time_var.name, value_var.name, group_var.name]].copy()
-        subset = subset.dropna()
+        subset = self._prepare_subset(data, time_var, value_var, group_var)
 
         if len(subset) < self.min_periods:
             return {"error": "Insufficient data"}
@@ -181,8 +178,7 @@ class TemporalAnalyzer:
         Returns:
             Change point detection results as dictionary
         """
-        subset = data[[time_var.name, value_var.name]].copy()
-        subset = subset.dropna()
+        subset = self._prepare_subset(data, time_var, value_var)
 
         # Sort by time
         subset = subset.sort_values(time_var.name)  # type: ignore[call-overload]
@@ -240,6 +236,20 @@ class TemporalAnalyzer:
         """Replace each variable's missing codes with NaN."""
         return blank_missing_codes_frame(data, variables)
 
+    def _prepare_subset(self, data: pd.DataFrame, *variables: Variable) -> pd.DataFrame:
+        """Select columns, replace codebook missing codes with NaN, and drop NAs."""
+        cols = [v.name for v in variables]
+        int_dtypes = {
+            col: data[col].dtype
+            for col in cols
+            if pd.api.types.is_integer_dtype(data[col].dtype)
+        }
+        subset = self._clean_data(data[cols], *variables).dropna()
+        for col, dtype in int_dtypes.items():
+            if not subset.empty:
+                subset[col] = subset[col].astype(dtype)
+        return subset
+
     def _linear_trend(
         self, data: pd.DataFrame, _time_col: str, value_col: str
     ) -> dict[str, Any]:
@@ -280,8 +290,7 @@ class TemporalAnalyzer:
         Returns:
             Year-over-year analysis results as dictionary
         """
-        subset = data[[year_var.name, value_var.name]].copy()
-        subset = subset.dropna()
+        subset = self._prepare_subset(data, year_var, value_var)
 
         # Group by year and calculate mean
         yearly = subset.groupby(year_var.name)[value_var.name].mean().sort_index()
